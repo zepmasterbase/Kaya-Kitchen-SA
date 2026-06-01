@@ -3,297 +3,264 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaya Kitchen | About Us</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>About Kaya Kitchen PRO</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:Arial;
 scroll-behavior:smooth;
 }
 
 body{
-background:#0b0b0b;
-color:#fff;
+background:#f6f6f6;
+padding-bottom:90px;
 }
 
-/* NAV */
-nav{
+/* HEADER */
+header{
+position:fixed;
+top:0;
 width:100%;
-padding:16px 8%;
+background:#fff;
+padding:14px 16px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,0.85);
-backdrop-filter:blur(10px);
-position:fixed;
-top:0;
+border-bottom:1px solid #eee;
 z-index:1000;
-border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
-font-size:20px;
 font-weight:800;
-color:#ff9d00;
+font-size:17px;
 }
 
-.logo span{
-color:#fff;
-}
-
-nav a{
-color:#fff;
+.back{
 text-decoration:none;
-margin-left:18px;
-font-size:14px;
-transition:0.3s;
-}
-
-nav a:hover{
-color:#ff9d00;
-}
-
-.order-btn{
-background:#25D366;
-padding:10px 18px;
-border-radius:30px;
+color:#25D366;
 font-weight:600;
 }
 
 /* HERO */
 .hero{
-margin-top:80px;
-padding:80px 8% 60px;
-text-align:center;
-background:
-linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)),
-url('https://images.unsplash.com/photo-1600891964092-4316c288032e');
+margin-top:60px;
+padding:30px 20px;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d');
 background-size:cover;
 background-position:center;
+color:#fff;
+text-align:center;
 }
 
 .hero h1{
-font-size:44px;
-color:#ff9d00;
+font-size:24px;
+line-height:1.3;
 }
 
 .hero p{
-color:#ddd;
-margin-top:15px;
-max-width:700px;
-margin-left:auto;
-margin-right:auto;
-line-height:1.7;
+margin-top:10px;
+font-size:13px;
+opacity:0.9;
 }
 
 /* SECTIONS */
 .section{
-padding:60px 8%;
+padding:18px;
 }
 
-.section h2{
-color:#ff9d00;
-font-size:30px;
-margin-bottom:15px;
-}
-
-.section p{
-color:#ccc;
-line-height:1.8;
-}
-
-/* INFO BOXES */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
-margin-top:30px;
-}
-
-.box{
-background:#151515;
-padding:25px;
+.card{
+background:#fff;
+padding:16px;
 border-radius:16px;
-border:1px solid rgba(255,255,255,0.05);
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+margin-bottom:14px;
 }
 
-.box h3{
-color:#ff9d00;
-margin-bottom:10px;
+h2{
+font-size:16px;
+margin-bottom:8px;
+}
+
+p{
+font-size:13px;
+color:#555;
+line-height:1.5;
+}
+
+/* BADGES */
+.badges{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:10px;
+}
+
+.badge{
+background:#e9fff2;
+color:#25D366;
+padding:6px 10px;
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+}
+
+/* STEPS */
+.step{
+display:flex;
+gap:10px;
+margin:10px 0;
+align-items:flex-start;
+}
+
+.num{
+width:26px;
+height:26px;
+background:#25D366;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:13px;
+font-weight:bold;
+flex-shrink:0;
 }
 
 /* CTA */
 .cta{
-text-align:center;
-padding:60px 8%;
 background:#111;
-}
-
-.cta h2{
-font-size:32px;
-margin-bottom:10px;
+color:#fff;
+text-align:center;
+padding:18px;
+border-radius:16px;
 }
 
 .cta a{
 display:inline-block;
-margin-top:20px;
+margin-top:10px;
 background:#25D366;
-padding:14px 30px;
-border-radius:40px;
 color:#fff;
-font-weight:700;
+padding:12px 16px;
+border-radius:12px;
 text-decoration:none;
+font-weight:bold;
 }
 
-/* FOOTER */
-footer{
-text-align:center;
-padding:40px 8%;
-background:#090909;
-border-top:1px solid rgba(255,255,255,0.05);
+/* FLOAT BAR */
+.bar{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#fff;
+border-top:1px solid #ddd;
+padding:12px 14px;
 }
 
-footer h3{
-color:#ff9d00;
-margin-bottom:10px;
+.btn{
+background:#25D366;
+color:#fff;
+padding:12px 16px;
+border-radius:12px;
+text-decoration:none;
+font-weight:bold;
 }
 
-footer p{
-color:#aaa;
-font-size:13px;
+.small{
+font-size:12px;
+color:#666;
 }
-
-/* MOBILE */
-@media(max-width:768px){
-.hero h1{
-font-size:30px;
-}
-}
-
 </style>
+
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav>
-
-<div class="logo">Kaya <span>Kitchen</span></div>
-
-<div>
-<a href="index.html">Home</a>
-<a href="menu.html">Menu</a>
-<a href="gallery.html">Gallery</a>
-<a href="about.html">About</a>
-<a href="https://wa.me/27673523983" class="order-btn">Order</a>
-</div>
-
-</nav>
+<header>
+<div class="logo">Kaya Kitchen PRO</div>
+<a class="back" href="index.html">← Back</a>
+</header>
 
 <!-- HERO -->
 <div class="hero">
-
-<h1>About Kaya Kitchen</h1>
-
-<p>
-Kaya Kitchen is a proudly African food brand based in Randfontein,
-bringing bold street flavours, home-style meals, and affordable comfort food
-to the West Rand community.
-</p>
-
+<h1>Fresh Homemade Meals<br>Made for the West Rand 🍲</h1>
+<p>Affordable • Fast • WhatsApp Ordering Only</p>
 </div>
 
-<!-- STORY -->
+<!-- ABOUT -->
 <div class="section">
 
-<h2>Our Story</h2>
-
+<div class="card">
+<h2>Who We Are</h2>
 <p>
-We started Kaya Kitchen with one goal — to serve real African food that tastes like home.
-From pap & stew to jollof and grilled chicken, every meal is prepared fresh daily with love,
-flavour, and passion.
+Kaya Kitchen is a local food brand based in Randfontein, serving fresh, affordable, home-style meals made daily for our community.
+We believe good food should be simple, fast, and accessible.
 </p>
 
+<div class="badges">
+<div class="badge">📍 Randfontein</div>
+<div class="badge">🍲 Fresh Daily</div>
+<div class="badge">🚀 Fast Delivery</div>
+<div class="badge">💬 WhatsApp Orders</div>
+</div>
 </div>
 
-<!-- INFO -->
-<div class="section">
-
-<h2>Why Customers Love Us</h2>
-
-<div class="grid">
-
-<div class="box">
-<h3>🔥 Fresh Daily Meals</h3>
-<p>Cooked every day with quality ingredients and bold African taste.</p>
-</div>
-
-<div class="box">
-<h3>💰 Affordable Pricing</h3>
-<p>We keep our meals budget-friendly without compromising flavour.</p>
-</div>
-
-<div class="box">
-<h3>🍲 Big Portions</h3>
-<p>Our meals are filling, satisfying, and made for real hunger.</p>
-</div>
-
-</div>
-
-</div>
-
-<!-- LOCATION -->
-<div class="section">
-
-<h2>Location</h2>
-
+<div class="card">
+<h2>Why Customers Choose Us</h2>
 <p>
-📍 2 Fifth Street, Randfontein, West Rand, South Africa
+We are not a restaurant — we are a fast, home-style food service built for real people who want real meals without waiting or expensive apps.
 </p>
 
-<p style="margin-top:10px;">
-We proudly serve the entire Randfontein and surrounding West Rand communities with fast, fresh food delivery via WhatsApp.
-</p>
+<div class="badges">
+<div class="badge">💸 Affordable Meals</div>
+<div class="badge">🍛 Big Portions</div>
+<div class="badge">🔥 Fresh Cooking</div>
+<div class="badge">⚡ Quick Service</div>
+</div>
+</div>
+
+<div class="card">
+<h2>How It Works</h2>
+
+<div class="step">
+<div class="num">1</div>
+<p>Choose your meal from our menu</p>
+</div>
+
+<div class="step">
+<div class="num">2</div>
+<p>Tap WhatsApp order button</p>
+</div>
+
+<div class="step">
+<div class="num">3</div>
+<p>We prepare fresh & deliver fast</p>
+</div>
+</div>
+
+<div class="card cta">
+<h2>Ready to Eat? 🍲</h2>
+<p>Tap below and order instantly on WhatsApp</p>
+<a href="menu.html">ORDER NOW</a>
+</div>
 
 </div>
 
-<!-- HOURS -->
-<div class="section">
-
-<h2>Opening Hours</h2>
-
-<p>
-Friday – Sunday: 11:00 AM – 9:00 PM<br>
-Monday – Thursday: Closed / Pre-orders only
-</p>
-
+<!-- FLOAT BAR -->
+<div class="bar">
+<div>
+<div style="font-weight:bold;">Kaya Kitchen</div>
+<div class="small">West Rand Food Delivery</div>
 </div>
 
-<!-- CTA -->
-<div class="cta">
-
-<h2>Hungry Already?</h2>
-
-<p>Order now and enjoy real African flavour delivered fresh.</p>
-
-<a href="https://wa.me/27673523983">Order On WhatsApp</a>
-
+<a class="btn" href="menu.html">View Menu</a>
 </div>
-
-<!-- FOOTER -->
-<footer>
-
-<h3>Kaya Kitchen</h3>
-<p>2 Fifth Street, Randfontein</p>
-<p>Real Food • Real Flavour • Real Africa</p>
-
-</footer>
 
 </body>
 </html>
