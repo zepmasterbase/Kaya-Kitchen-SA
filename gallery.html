@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaya Kitchen PRO MAX Gallery</title>
+<title>Kaya Kitchen Gallery PRO</title>
 
 <style>
 *{
@@ -11,12 +11,11 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial;
-scroll-behavior:smooth;
 }
 
 body{
 background:#f6f6f6;
-padding-bottom:100px;
+padding-bottom:90px;
 }
 
 /* HEADER */
@@ -35,20 +34,20 @@ z-index:1000;
 
 .logo{
 font-weight:800;
-font-size:17px;
+font-size:16px;
 }
 
 .back{
 text-decoration:none;
 color:#25D366;
-font-weight:600;
+font-weight:700;
 }
 
 /* HERO */
 .hero{
 margin-top:60px;
-padding:22px;
-background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+padding:25px;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
 url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d');
 background-size:cover;
 background-position:center;
@@ -60,102 +59,85 @@ text-align:center;
 font-size:22px;
 }
 
-/* 🔥 DEAL OF THE DAY BANNER */
-.dealBanner{
-margin:12px;
-padding:14px;
-border-radius:14px;
-background:linear-gradient(90deg,#ff512f,#dd2476);
-color:#fff;
-text-align:center;
-font-weight:bold;
-box-shadow:0 8px 20px rgba(0,0,0,0.15);
-position:relative;
-overflow:hidden;
-}
-
-.dealTag{
-font-size:12px;
+.hero p{
+font-size:13px;
+margin-top:6px;
 opacity:0.9;
-}
-
-.dealText{
-font-size:15px;
-margin-top:5px;
-}
-
-.flash{
-position:absolute;
-width:100%;
-height:100%;
-top:0;
-left:-100%;
-background:rgba(255,255,255,0.15);
-transform:skewX(-20deg);
-animation:shine 3s infinite;
-}
-
-@keyframes shine{
-0%{left:-120%}
-50%{left:120%}
-100%{left:120%}
 }
 
 /* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:14px;
+gap:12px;
 padding:14px;
 }
 
+/* CARD */
 .card{
 background:#fff;
 border-radius:16px;
 overflow:hidden;
 box-shadow:0 6px 15px rgba(0,0,0,0.08);
+position:relative;
 }
 
-.card:hover{
-transform:scale(1.02);
-transition:0.2s;
-}
-
-.img{
+.card img{
 width:100%;
-height:120px;
+height:140px;
 object-fit:cover;
 }
 
-.card-body{
-padding:12px;
+/* TAGS */
+.tag{
+position:absolute;
+top:10px;
+left:10px;
+background:#25D366;
+color:#fff;
+font-size:11px;
+padding:4px 8px;
+border-radius:20px;
+font-weight:bold;
+}
+
+/* CONTENT */
+.content{
+padding:10px;
+}
+
+h3{
+font-size:14px;
 }
 
 .price{
 color:#25D366;
 font-weight:bold;
+margin-top:4px;
 font-size:13px;
-margin:5px 0;
 }
 
 .desc{
 font-size:12px;
-color:#555;
-margin-bottom:8px;
+color:#666;
+margin-top:4px;
 }
 
-.order{
-width:100%;
-padding:9px;
+/* CTA BUTTON */
+.btn{
+display:block;
+margin-top:8px;
+text-align:center;
 background:#111;
 color:#fff;
-border:none;
+padding:8px;
 border-radius:10px;
-cursor:pointer;
+text-decoration:none;
+font-size:13px;
 }
 
 /* FLOAT BAR */
-.cartBar{
+.bar{
 position:fixed;
 bottom:0;
 width:100%;
@@ -164,198 +146,108 @@ border-top:1px solid #ddd;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:12px 14px;
+padding:12px;
 }
 
-.cartBtn{
+.order{
 background:#25D366;
 color:#fff;
 padding:12px 16px;
 border-radius:12px;
-font-weight:bold;
 text-decoration:none;
-}
-
-/* PANEL */
-.panel{
-position:fixed;
-right:-100%;
-top:0;
-width:320px;
-height:100%;
-background:#fff;
-padding:15px;
-transition:0.3s;
-overflow:auto;
-z-index:2000;
-}
-
-.panel.active{
-right:0;
-}
-
-.total{
 font-weight:bold;
-margin-top:10px;
 }
 
 .small{
 font-size:12px;
 color:#666;
 }
-
-.badge{
-display:inline-block;
-background:#ff3b30;
-color:#fff;
-padding:3px 8px;
-border-radius:8px;
-font-size:11px;
-margin-left:6px;
-}
 </style>
+
 </head>
 
 <body>
 
 <header>
-<div class="logo">Kaya Kitchen PRO MAX</div>
-<a class="back" href="index.html">← Back</a>
+<div class="logo">Kaya Kitchen 🍲</div>
+<a class="back" href="index.html">← Home</a>
 </header>
 
+<!-- HERO -->
 <div class="hero">
-<h1>Order Like Uber Eats 🚀<br>But Faster + Direct</h1>
+<h1>Food That Makes You Hungry Instantly 🔥</h1>
+<p>West Rand Fresh Meals • Tap to Order</p>
 </div>
 
-<!-- 🔥 DEAL OF THE DAY SYSTEM -->
-<div class="dealBanner" id="dealBox">
-<div class="flash"></div>
-<div class="dealTag">🔥 DEAL OF THE DAY</div>
-<div class="dealText" id="dealText">Loading today's special...</div>
-</div>
-
-<!-- MENU GRID -->
+<!-- GALLERY GRID -->
 <div class="grid">
 
 <div class="card">
-<img class="img" src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
-<div class="card-body">
+<span class="tag">Best Seller 🔥</span>
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+<div class="content">
 <h3>Pap + Beef Stew</h3>
-<div class="price">R40</div>
-<div class="desc">Traditional comfort meal</div>
-<button class="order" onclick="order('Pap + Beef Stew',40)">Order Now</button>
+<div class="price">R45</div>
+<div class="desc">Soft pap with rich beef gravy</div>
+<a class="btn" href="https://wa.me/27673523983?text=I%20want%20Pap%20and%20Beef%20Stew">Order Now</a>
 </div>
 </div>
 
 <div class="card">
-<img class="img" src="https://images.unsplash.com/photo-1605475127649-0f1c3f0f0c5a">
-<div class="card-body">
-<h3>Rice + Chicken Stew</h3>
-<div class="price">R40</div>
-<div class="desc">Soft rice with gravy</div>
-<button class="order" onclick="order('Rice + Chicken Stew',40)">Order Now</button>
-</div>
-</div>
-
-<div class="card">
-<img class="img" src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143">
-<div class="card-body">
+<span class="tag">Favourite 🍗</span>
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+<div class="content">
 <h3>Jollof + Chicken</h3>
 <div class="price">R55</div>
-<div class="desc">Spicy African flavour</div>
-<button class="order" onclick="order('Jollof + Chicken',55)">Order Now</button>
+<div class="desc">Spicy rice with juicy chicken</div>
+<a class="btn" href="https://wa.me/27673523983?text=I%20want%20Jollof%20and%20Chicken">Order Now</a>
 </div>
 </div>
 
 <div class="card">
-<img class="img" src="https://images.unsplash.com/photo-1601050690597-df0568f70950">
-<div class="card-body">
-<h3>Friday Fire 🔥</h3>
-<div class="price">R58 <span class="badge">HOT</span></div>
-<div class="desc">Weekend special meal</div>
-<button class="order" onclick="order('Friday Fire Meal',58)">Order Now</button>
+<span class="tag">Spicy 🔥</span>
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+<div class="content">
+<h3>Friday Fire Meal</h3>
+<div class="price">R58</div>
+<div class="desc">Pap/Rice + spicy chicken + sides</div>
+<a class="btn" href="https://wa.me/27673523983?text=I%20want%20Friday%20Fire%20Meal">Order Now</a>
 </div>
 </div>
 
+<div class="card">
+<span class="tag">Deal 💥</span>
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+<div class="content">
+<h3>Special 15 Pieces</h3>
+<div class="price">R55</div>
+<div class="desc">Crispy chicken special deal</div>
+<a class="btn" href="https://wa.me/27673523983?text=I%20want%2015%20pieces%20special">Order Now</a>
+</div>
 </div>
 
-<!-- CART PANEL -->
-<div class="panel" id="panel">
-<h3>Your Order</h3>
-<div id="items"></div>
+<div class="card">
+<span class="tag">Combo 🍽</span>
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+<div class="content">
+<h3>Jollof Combo</h3>
+<div class="price">R68</div>
+<div class="desc">With veggies + optional drink</div>
+<a class="btn" href="https://wa.me/27673523983?text=I%20want%20Jollof%20Combo">Order Now</a>
+</div>
+</div>
 
-<div class="total" id="total">Total: R0</div>
-<div class="small">Delivery: R10 (West Rand)</div>
-
-<a class="cartBtn" id="wa" target="_blank">Send WhatsApp Order</a>
 </div>
 
 <!-- FLOAT BAR -->
-<div class="cartBar">
-<div onclick="togglePanel()">🛒 Cart (<span id="count">0</span>)</div>
-<div class="cartBtn" onclick="togglePanel()">Checkout</div>
+<div class="bar">
+<div>
+<div style="font-weight:bold;">Hungry?</div>
+<div class="small">Order in 10 seconds</div>
 </div>
 
-<script>
-
-let cart=[];
-let total=0;
-
-/* 🔥 DEAL SYSTEM */
-const deals = [
-"Pap + Beef Stew ONLY R35 today 🔥 Limited time!",
-"Buy 2 meals & save R10 💥 Auto discount active",
-"Free extra gravy on all chicken meals today 🍗",
-"Friday Fire Meal + FREE drink upgrade 🔥"
-];
-
-let i=0;
-setInterval(()=>{
-document.getElementById("dealText").innerText = deals[i];
-i = (i+1) % deals.length;
-}, 3500);
-
-/* ORDER SYSTEM */
-function order(name,price){
-
-cart.push({name,price});
-total += price;
-
-document.getElementById("count").innerText = cart.length;
-update();
-togglePanel();
-}
-
-function update(){
-
-let text="";
-cart.forEach(i=>{
-text += `• ${i.name} - R${i.price}<br>`;
-});
-
-let delivery=10;
-let final=total+delivery;
-
-document.getElementById("items").innerHTML=text;
-document.getElementById("total").innerText="Total: R"+final;
-
-let msg="Hello Kaya Kitchen 👋%0A%0AI want to order:%0A";
-
-cart.forEach(i=>{
-msg+=`• ${i.name} = R${i.price}%0A`;
-});
-
-msg+=`%0ADelivery: R10%0ATotal: R${final}`;
-
-document.getElementById("wa").href=
-"https://wa.me/27700000000?text="+msg;
-}
-
-function togglePanel(){
-document.getElementById("panel").classList.toggle("active");
-}
-
-</script>
+<a class="order" href="https://wa.me/27673523983?text=Hi%20I%20want%20to%20order%20food">WhatsApp Order</a>
+</div>
 
 </body>
 </html>
