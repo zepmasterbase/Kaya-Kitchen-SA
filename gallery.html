@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaya Kitchen PRO Gallery</title>
+<title>Kaya Kitchen PRO MAX Gallery</title>
 
 <style>
 *{
@@ -16,7 +16,7 @@ scroll-behavior:smooth;
 
 body{
 background:#f6f6f6;
-padding-bottom:90px;
+padding-bottom:100px;
 }
 
 /* HEADER */
@@ -47,7 +47,7 @@ font-weight:600;
 /* HERO */
 .hero{
 margin-top:60px;
-padding:25px;
+padding:22px;
 background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
 url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d');
 background-size:cover;
@@ -58,16 +58,50 @@ text-align:center;
 
 .hero h1{
 font-size:22px;
-line-height:1.3;
 }
 
-.hero p{
-font-size:13px;
-margin-top:8px;
+/* 🔥 DEAL OF THE DAY BANNER */
+.dealBanner{
+margin:12px;
+padding:14px;
+border-radius:14px;
+background:linear-gradient(90deg,#ff512f,#dd2476);
+color:#fff;
+text-align:center;
+font-weight:bold;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+position:relative;
+overflow:hidden;
+}
+
+.dealTag{
+font-size:12px;
 opacity:0.9;
 }
 
-/* GALLERY GRID */
+.dealText{
+font-size:15px;
+margin-top:5px;
+}
+
+.flash{
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:-100%;
+background:rgba(255,255,255,0.15);
+transform:skewX(-20deg);
+animation:shine 3s infinite;
+}
+
+@keyframes shine{
+0%{left:-120%}
+50%{left:120%}
+100%{left:120%}
+}
+
+/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
@@ -80,11 +114,11 @@ background:#fff;
 border-radius:16px;
 overflow:hidden;
 box-shadow:0 6px 15px rgba(0,0,0,0.08);
-transition:0.2s;
 }
 
 .card:hover{
 transform:scale(1.02);
+transition:0.2s;
 }
 
 .img{
@@ -97,24 +131,19 @@ object-fit:cover;
 padding:12px;
 }
 
-.card h3{
-font-size:15px;
-}
-
 .price{
 color:#25D366;
 font-weight:bold;
-margin:6px 0;
 font-size:13px;
+margin:5px 0;
 }
 
 .desc{
 font-size:12px;
 color:#555;
-margin-bottom:10px;
+margin-bottom:8px;
 }
 
-/* BUTTON */
 .order{
 width:100%;
 padding:9px;
@@ -174,22 +203,38 @@ margin-top:10px;
 font-size:12px;
 color:#666;
 }
+
+.badge{
+display:inline-block;
+background:#ff3b30;
+color:#fff;
+padding:3px 8px;
+border-radius:8px;
+font-size:11px;
+margin-left:6px;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">Kaya Kitchen Gallery</div>
+<div class="logo">Kaya Kitchen PRO MAX</div>
 <a class="back" href="index.html">← Back</a>
 </header>
 
 <div class="hero">
-<h1>Food That Sells Itself 🔥<br>Tap & Order Instantly</h1>
-<p>Fresh meals from Randfontein | West Rand Delivery</p>
+<h1>Order Like Uber Eats 🚀<br>But Faster + Direct</h1>
 </div>
 
-<!-- GALLERY -->
+<!-- 🔥 DEAL OF THE DAY SYSTEM -->
+<div class="dealBanner" id="dealBox">
+<div class="flash"></div>
+<div class="dealTag">🔥 DEAL OF THE DAY</div>
+<div class="dealText" id="dealText">Loading today's special...</div>
+</div>
+
+<!-- MENU GRID -->
 <div class="grid">
 
 <div class="card">
@@ -197,7 +242,7 @@ color:#666;
 <div class="card-body">
 <h3>Pap + Beef Stew</h3>
 <div class="price">R40</div>
-<div class="desc">Traditional South African comfort meal</div>
+<div class="desc">Traditional comfort meal</div>
 <button class="order" onclick="order('Pap + Beef Stew',40)">Order Now</button>
 </div>
 </div>
@@ -207,7 +252,7 @@ color:#666;
 <div class="card-body">
 <h3>Rice + Chicken Stew</h3>
 <div class="price">R40</div>
-<div class="desc">Soft rice with rich chicken gravy</div>
+<div class="desc">Soft rice with gravy</div>
 <button class="order" onclick="order('Rice + Chicken Stew',40)">Order Now</button>
 </div>
 </div>
@@ -217,7 +262,7 @@ color:#666;
 <div class="card-body">
 <h3>Jollof + Chicken</h3>
 <div class="price">R55</div>
-<div class="desc">Spicy African jollof with chicken</div>
+<div class="desc">Spicy African flavour</div>
 <button class="order" onclick="order('Jollof + Chicken',55)">Order Now</button>
 </div>
 </div>
@@ -226,8 +271,8 @@ color:#666;
 <img class="img" src="https://images.unsplash.com/photo-1601050690597-df0568f70950">
 <div class="card-body">
 <h3>Friday Fire 🔥</h3>
-<div class="price">R58</div>
-<div class="desc">Loaded special meal for weekends</div>
+<div class="price">R58 <span class="badge">HOT</span></div>
+<div class="desc">Weekend special meal</div>
 <button class="order" onclick="order('Friday Fire Meal',58)">Order Now</button>
 </div>
 </div>
@@ -236,18 +281,18 @@ color:#666;
 
 <!-- CART PANEL -->
 <div class="panel" id="panel">
-<h3>Your Quick Order</h3>
+<h3>Your Order</h3>
 <div id="items"></div>
 
 <div class="total" id="total">Total: R0</div>
-<div class="small">Delivery: R10 (Randfontein / West Rand)</div>
+<div class="small">Delivery: R10 (West Rand)</div>
 
-<a class="cartBtn" id="wa" target="_blank">Send on WhatsApp</a>
+<a class="cartBtn" id="wa" target="_blank">Send WhatsApp Order</a>
 </div>
 
 <!-- FLOAT BAR -->
 <div class="cartBar">
-<div onclick="togglePanel()">🛒 View Cart (<span id="count">0</span>)</div>
+<div onclick="togglePanel()">🛒 Cart (<span id="count">0</span>)</div>
 <div class="cartBtn" onclick="togglePanel()">Checkout</div>
 </div>
 
@@ -256,12 +301,27 @@ color:#666;
 let cart=[];
 let total=0;
 
+/* 🔥 DEAL SYSTEM */
+const deals = [
+"Pap + Beef Stew ONLY R35 today 🔥 Limited time!",
+"Buy 2 meals & save R10 💥 Auto discount active",
+"Free extra gravy on all chicken meals today 🍗",
+"Friday Fire Meal + FREE drink upgrade 🔥"
+];
+
+let i=0;
+setInterval(()=>{
+document.getElementById("dealText").innerText = deals[i];
+i = (i+1) % deals.length;
+}, 3500);
+
+/* ORDER SYSTEM */
 function order(name,price){
 
 cart.push({name,price});
 total += price;
 
-document.getElementById("count").innerText=cart.length;
+document.getElementById("count").innerText = cart.length;
 update();
 togglePanel();
 }
@@ -270,7 +330,7 @@ function update(){
 
 let text="";
 cart.forEach(i=>{
-text+=`• ${i.name} - R${i.price}<br>`;
+text += `• ${i.name} - R${i.price}<br>`;
 });
 
 let delivery=10;
