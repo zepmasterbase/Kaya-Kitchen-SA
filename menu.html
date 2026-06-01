@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Kaya Kitchen PRO MAX Menu</title>
+<title>Kaya Kitchen | Daily Menu</title>
 
 <style>
 
@@ -17,8 +16,9 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#f5f5f5;
+background:#f6f6f6;
 padding-bottom:120px;
+color:#111;
 }
 
 /* HEADER */
@@ -28,38 +28,40 @@ position:fixed;
 top:0;
 width:100%;
 background:#fff;
-padding:14px 16px;
+padding:14px 18px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+z-index:1000;
 border-bottom:1px solid #eee;
-z-index:999;
 }
 
 .logo{
-font-size:17px;
 font-weight:800;
+font-size:18px;
 }
 
 .back{
 text-decoration:none;
 color:#25D366;
-font-weight:bold;
 font-size:13px;
+font-weight:bold;
 }
 
 /* HERO */
 
 .hero{
-margin-top:60px;
-padding:40px 20px;
+margin-top:65px;
+padding:45px 20px;
+text-align:center;
+color:#fff;
+
 background:
 linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://images.unsplash.com/photo-1547592180-85f173990554');
+url('https://images.unsplash.com/photo-1504674900247-0877df9cc836');
+
 background-size:cover;
 background-position:center;
-color:#fff;
-text-align:center;
 }
 
 .hero h1{
@@ -69,46 +71,77 @@ margin-bottom:10px;
 }
 
 .hero p{
-font-size:13px;
-opacity:0.95;
+font-size:14px;
+opacity:0.9;
 }
 
-/* DEAL */
+/* STATUS */
 
-.deal{
-background:#111;
-color:#fff;
-padding:12px;
-text-align:center;
-font-size:13px;
+.status{
+margin:15px;
+padding:14px;
+border-radius:14px;
+font-size:14px;
 font-weight:bold;
-animation:pulse 2s infinite;
+text-align:center;
 }
 
-@keyframes pulse{
-0%{opacity:1;}
-50%{opacity:0.75;}
-100%{opacity:1;}
-}
-
-/* TRUST */
-
-.trust{
-display:flex;
-overflow:auto;
-gap:10px;
-padding:12px;
-background:#fff;
-}
-
-.trust div{
+.open{
 background:#eafff1;
 color:#25D366;
-padding:8px 12px;
-border-radius:20px;
-font-size:12px;
-white-space:nowrap;
+}
+
+/* TODAY SPECIAL */
+
+.today{
+background:#fff;
+margin:15px;
+padding:18px;
+border-radius:18px;
+box-shadow:0 5px 15px rgba(0,0,0,0.06);
+}
+
+.today h2{
+margin-bottom:10px;
+font-size:20px;
+}
+
+.today-day{
+color:#25D366;
+font-size:13px;
 font-weight:bold;
+margin-bottom:15px;
+}
+
+.today-meal{
+background:#f7f7f7;
+padding:15px;
+border-radius:14px;
+}
+
+/* WEEKLY */
+
+.schedule{
+padding:15px;
+}
+
+.schedule h2{
+margin-bottom:15px;
+}
+
+.day{
+background:#fff;
+padding:14px;
+border-radius:14px;
+margin-bottom:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.day.active{
+border:2px solid #25D366;
 }
 
 /* GRID */
@@ -117,7 +150,7 @@ font-weight:bold;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
 gap:14px;
-padding:14px;
+padding:15px;
 }
 
 /* CARD */
@@ -127,12 +160,12 @@ background:#fff;
 border-radius:18px;
 overflow:hidden;
 box-shadow:0 8px 20px rgba(0,0,0,0.08);
-position:relative;
 transition:0.2s;
+position:relative;
 }
 
 .card:hover{
-transform:translateY(-4px);
+transform:translateY(-3px);
 }
 
 .card img{
@@ -153,78 +186,96 @@ font-size:11px;
 font-weight:bold;
 }
 
+.unavailable{
+opacity:0.45;
+filter:grayscale(100%);
+}
+
 .body{
-padding:12px;
+padding:14px;
 }
 
 .body h3{
-font-size:15px;
-margin-bottom:4px;
+font-size:16px;
+margin-bottom:5px;
 }
 
 .price{
 color:#25D366;
-font-size:15px;
 font-weight:bold;
-margin-bottom:6px;
+margin-bottom:8px;
 }
 
 .desc{
 font-size:12px;
-color:#666;
 line-height:1.5;
+color:#666;
 margin-bottom:12px;
 }
 
 /* QTY */
 
-.controls{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:12px;
-}
-
 .qty{
 display:flex;
 align-items:center;
 gap:8px;
+margin-bottom:12px;
 }
 
 .qty button{
 width:28px;
 height:28px;
 border:none;
+border-radius:8px;
 background:#f0f0f0;
-border-radius:7px;
-font-size:16px;
 cursor:pointer;
+font-size:16px;
 }
 
 /* BUTTONS */
 
 .add{
 width:100%;
-padding:11px;
+padding:12px;
 border:none;
 border-radius:12px;
 background:#111;
 color:#fff;
 font-weight:bold;
 cursor:pointer;
-margin-bottom:8px;
+margin-bottom:10px;
+}
+
+.add:disabled{
+background:#ccc;
+cursor:not-allowed;
 }
 
 .quick{
 display:block;
 text-align:center;
 background:#25D366;
-color:#fff;
-padding:10px;
+padding:11px;
 border-radius:12px;
 text-decoration:none;
+color:#fff;
 font-size:13px;
 font-weight:bold;
+}
+
+/* FAMILY DEAL */
+
+.family{
+background:#111;
+color:#fff;
+margin:15px;
+padding:25px;
+border-radius:18px;
+text-align:center;
+}
+
+.family h2{
+margin-bottom:10px;
 }
 
 /* FLOAT BAR */
@@ -234,30 +285,21 @@ position:fixed;
 bottom:0;
 width:100%;
 background:#fff;
-border-top:1px solid #ddd;
 padding:14px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+border-top:1px solid #ddd;
 z-index:1000;
-}
-
-.bar-left{
-font-size:13px;
-}
-
-.bar-left span{
-font-weight:bold;
 }
 
 .checkout{
 background:#25D366;
 color:#fff;
-padding:12px 18px;
+padding:12px 16px;
 border-radius:12px;
-text-decoration:none;
 font-weight:bold;
-cursor:pointer;
+text-decoration:none;
 }
 
 /* PANEL */
@@ -267,11 +309,10 @@ position:fixed;
 right:-100%;
 top:0;
 width:340px;
-max-width:100%;
 height:100%;
 background:#fff;
 z-index:2000;
-padding:18px;
+padding:20px;
 overflow:auto;
 transition:0.3s;
 box-shadow:-10px 0 20px rgba(0,0,0,0.1);
@@ -281,81 +322,35 @@ box-shadow:-10px 0 20px rgba(0,0,0,0.1);
 right:0;
 }
 
-.close{
-margin-bottom:15px;
-display:inline-block;
-font-size:13px;
-color:#25D366;
-font-weight:bold;
-cursor:pointer;
-}
-
-.panel h2{
-margin-bottom:15px;
-}
-
 .item{
-padding:14px 0;
+padding:12px 0;
 border-bottom:1px solid #eee;
-font-size:13px;
-}
-
-.item .qty{
-display:flex;
-align-items:center;
-gap:8px;
-margin-top:10px;
-}
-
-.item .qty button{
-width:28px;
-height:28px;
-border:none;
-background:#f2f2f2;
-border-radius:7px;
-font-size:15px;
-cursor:pointer;
 }
 
 .total{
-font-size:15px;
+margin-top:15px;
+font-size:18px;
 font-weight:bold;
-margin-top:18px;
-margin-bottom:15px;
-line-height:1.7;
-}
-
-.delivery{
-font-size:12px;
-color:#666;
-margin-bottom:18px;
 }
 
 .checkoutBtn{
 display:block;
-width:100%;
+margin-top:20px;
 background:#25D366;
-color:#fff;
 padding:14px;
-text-align:center;
 border-radius:14px;
-font-weight:bold;
+text-align:center;
 text-decoration:none;
-font-size:15px;
+font-weight:bold;
+color:#fff;
 }
 
-/* RESPONSIVE */
-
-@media(max-width:600px){
-
-.hero h1{
-font-size:23px;
-}
-
-.grid{
-grid-template-columns:1fr;
-}
-
+.close{
+margin-bottom:20px;
+display:inline-block;
+color:#25D366;
+font-weight:bold;
+cursor:pointer;
 }
 
 </style>
@@ -364,42 +359,77 @@ grid-template-columns:1fr;
 <body>
 
 <header>
-<div class="logo">Kaya Kitchen PRO MAX 🍲</div>
-<a class="back" href="index.html">← Home</a>
+<div class="logo">Kaya Kitchen 🍲</div>
+<a href="index.html" class="back">← Home</a>
 </header>
 
 <!-- HERO -->
 
 <div class="hero">
-<h1>Fresh West Rand Meals Delivered Fast 🚀</h1>
-<p>Order instantly on WhatsApp • No App Needed</p>
+<h1>Fresh Daily Meals<br>In Randfontein 🚀</h1>
+<p>Order instantly on WhatsApp • West Rand Delivery</p>
 </div>
 
-<!-- DEAL -->
+<!-- STATUS -->
 
-<div class="deal">
-🔥 DEAL OF THE DAY: Buy 2 Meals & Save R10
+<div class="status open" id="status">
+🟢 Kitchen Open Today
 </div>
 
-<!-- TRUST -->
+<!-- TODAY -->
 
-<div class="trust">
-<div>🍲 Fresh Daily</div>
-<div>🚀 Fast Delivery</div>
-<div>💬 WhatsApp Orders</div>
-<div>🔥 Best Sellers</div>
-<div>📍 Randfontein</div>
+<div class="today">
+
+<h2>🍽 Today’s Special</h2>
+
+<div class="today-day" id="todayDay"></div>
+
+<div class="today-meal" id="todayMeal"></div>
+
 </div>
 
-<!-- MENU -->
+<!-- WEEKLY SCHEDULE -->
+
+<div class="schedule">
+
+<h2>📅 Weekly Kitchen Schedule</h2>
+
+<div class="day" id="monday">
+<span>Monday / Wednesday</span>
+<strong>Pap + Beef Stew</strong>
+</div>
+
+<div class="day" id="tuesday">
+<span>Tuesday / Thursday</span>
+<strong>Rice + Chicken Stew</strong>
+</div>
+
+<div class="day" id="friday">
+<span>Friday Fire 🔥</span>
+<strong>Special Spicy Meals</strong>
+</div>
+
+<div class="day" id="saturday">
+<span>Saturday Launch 🚀</span>
+<strong>Jollof + Chicken</strong>
+</div>
+
+<div class="day" id="sunday">
+<span>Sunday Family Day 👨‍👩‍👧</span>
+<strong>Family Combo Deals</strong>
+</div>
+
+</div>
+
+<!-- MENU GRID -->
 
 <div class="grid">
 
-<!-- ITEM -->
+<!-- PAP -->
 
-<div class="card">
+<div class="card available mondayMeal">
 
-<span class="tag">Best Seller 🔥</span>
+<span class="tag">Best Seller</span>
 
 <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
 
@@ -413,14 +443,10 @@ grid-template-columns:1fr;
 Traditional homemade comfort meal with rich beef gravy.
 </div>
 
-<div class="controls">
-
 <div class="qty">
 <button onclick="changeQty(this,-1)">-</button>
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
-</div>
-
 </div>
 
 <button class="add"
@@ -429,20 +455,57 @@ Add to Cart
 </button>
 
 <a class="quick"
-href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20Pap%20%2B%20Beef%20Stew">
+href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20Pap%20+%20Beef%20Stew">
 Quick WhatsApp Order
 </a>
 
 </div>
 </div>
 
-<!-- ITEM -->
+<!-- RICE -->
 
-<div class="card">
+<div class="card available tuesdayMeal">
 
-<span class="tag">Favourite 🍗</span>
+<span class="tag">Fresh Daily</span>
 
 <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd">
+
+<div class="body">
+
+<h3>Rice + Chicken Stew</h3>
+
+<div class="price">R50</div>
+
+<div class="desc">
+Steamed rice served with rich chicken stew.
+</div>
+
+<div class="qty">
+<button onclick="changeQty(this,-1)">-</button>
+<span>1</span>
+<button onclick="changeQty(this,1)">+</button>
+</div>
+
+<button class="add"
+onclick="addItem(this,'Rice + Chicken Stew',50)">
+Add to Cart
+</button>
+
+<a class="quick"
+href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20Rice%20+%20Chicken%20Stew">
+Quick WhatsApp Order
+</a>
+
+</div>
+</div>
+
+<!-- JOLLOF -->
+
+<div class="card available saturdayMeal">
+
+<span class="tag">Launch Day 🚀</span>
+
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
 
 <div class="body">
 
@@ -451,17 +514,13 @@ Quick WhatsApp Order
 <div class="price">R55</div>
 
 <div class="desc">
-Spicy jollof rice served with juicy grilled chicken.
+Spicy African jollof rice with juicy chicken.
 </div>
-
-<div class="controls">
 
 <div class="qty">
 <button onclick="changeQty(this,-1)">-</button>
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
-</div>
-
 </div>
 
 <button class="add"
@@ -470,94 +529,24 @@ Add to Cart
 </button>
 
 <a class="quick"
-href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20Jollof%20%2B%20Chicken">
+href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20Jollof%20+%20Chicken">
 Quick WhatsApp Order
 </a>
 
 </div>
 </div>
 
-<!-- ITEM -->
-
-<div class="card">
-
-<span class="tag">Spicy 🔥</span>
-
-<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
-
-<div class="body">
-
-<h3>Friday Fire Meal</h3>
-
-<div class="price">R58</div>
-
-<div class="desc">
-Pap or rice with spicy chicken and fresh veggies.
 </div>
 
-<div class="controls">
+<!-- FAMILY -->
 
-<div class="qty">
-<button onclick="changeQty(this,-1)">-</button>
-<span>1</span>
-<button onclick="changeQty(this,1)">+</button>
-</div>
+<div class="family">
 
-</div>
+<h2>👨‍👩‍👧 Sunday Family Deal</h2>
 
-<button class="add"
-onclick="addItem(this,'Friday Fire Meal',58)">
-Add to Cart
-</button>
-
-<a class="quick"
-href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20Friday%20Fire%20Meal">
-Quick WhatsApp Order
-</a>
-
-</div>
-</div>
-
-<!-- ITEM -->
-
-<div class="card">
-
-<span class="tag">Combo 🍽</span>
-
-<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
-
-<div class="body">
-
-<h3>Jollof Combo</h3>
-
-<div class="price">R68</div>
-
-<div class="desc">
-Jollof rice with roasted veggies and drink.
-</div>
-
-<div class="controls">
-
-<div class="qty">
-<button onclick="changeQty(this,-1)">-</button>
-<span>1</span>
-<button onclick="changeQty(this,1)">+</button>
-</div>
-
-</div>
-
-<button class="add"
-onclick="addItem(this,'Jollof Combo',68)">
-Add to Cart
-</button>
-
-<a class="quick"
-href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20Jollof%20Combo">
-Quick WhatsApp Order
-</a>
-
-</div>
-</div>
+<p>
+Bring family & get discount combo deals + free local delivery.
+</p>
 
 </div>
 
@@ -569,7 +558,7 @@ Quick WhatsApp Order
 ← Continue Shopping
 </div>
 
-<h2>Your Order 🛒</h2>
+<h2>Your Cart 🛒</h2>
 
 <div id="items"></div>
 
@@ -577,42 +566,42 @@ Quick WhatsApp Order
 Total: R0
 </div>
 
-<div class="delivery">
-🚚 Uber-style delivery pricing based on distance in West Rand.
-</div>
-
-<a class="checkoutBtn" id="checkout" target="_blank">
+<a class="checkoutBtn"
+id="checkout"
+target="_blank">
 Checkout on WhatsApp
 </a>
 
 </div>
 
-<!-- BAR -->
+<!-- FLOAT BAR -->
 
 <div class="bar">
 
-<div class="bar-left">
-🛒 Cart: <span id="count">0</span> items
+<div>
+🛒 Cart:
+<span id="count">0</span>
+items
 </div>
 
-<div class="checkout" onclick="togglePanel()">
+<a class="checkout"
+onclick="togglePanel()">
 View Order
-</div>
+</a>
 
 </div>
 
 <script>
 
 let cart = [];
-let total = 0;
-
-/* CHANGE QTY */
 
 function changeQty(btn,val){
 
-let span = btn.parentElement.querySelector("span");
+let span =
+btn.parentElement.querySelector("span");
 
-let qty = parseInt(span.innerText);
+let qty =
+parseInt(span.innerText);
 
 qty = Math.max(1, qty + val);
 
@@ -620,16 +609,17 @@ span.innerText = qty;
 
 }
 
-/* ADD ITEM */
+/* ADD TO CART */
 
 function addItem(btn,name,price){
 
 let qty =
 parseInt(
-btn.parentElement.querySelector(".qty span").innerText
+btn.parentElement.querySelector("span").innerText
 );
 
-let existing = cart.find(item => item.name === name);
+let existing =
+cart.find(item => item.name === name);
 
 if(existing){
 
@@ -639,13 +629,11 @@ existing.qty += qty;
 
 cart.push({
 name:name,
-qty:qty,
-price:price
+price:price,
+qty:qty
 });
 
 }
-
-showNotification(name + " added ✅");
 
 updateCart();
 
@@ -657,68 +645,37 @@ togglePanel(true);
 
 function updateCart(){
 
-let itemsHTML = "";
+let html = "";
 
-total = 0;
+let total = 0;
 
 cart.forEach((item,index)=>{
 
-let subtotal = item.price * item.qty;
+let subtotal =
+item.price * item.qty;
 
 total += subtotal;
 
-itemsHTML += `
+html += `
 
 <div class="item">
 
-<div style="
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:8px;
-">
-
-<div>
 <strong>${item.name}</strong><br>
-<span style="font-size:12px;color:#666;">
-R${item.price} each
-</span>
-</div>
 
-<div onclick="removeItem(${index})"
+${item.qty} x R${item.price}
+
+<br><br>
+
+<button onclick="removeItem(${index})"
 style="
+border:none;
 background:#ffeded;
-padding:6px 10px;
-border-radius:8px;
-font-size:12px;
+padding:8px 10px;
+border-radius:10px;
 cursor:pointer;
-font-weight:bold;
-color:#ff3b30;
 ">
 Remove
-</div>
-
-</div>
-
-<div style="
-display:flex;
-justify-content:space-between;
-align-items:center;
-">
-
-<div class="qty">
-
-<button onclick="cartQty(${index},-1)">-</button>
-
-<span>${item.qty}</span>
-
-<button onclick="cartQty(${index},1)">+</button>
-
-</div>
-
-<strong>R${subtotal}</strong>
-
-</div>
+</button>
 
 </div>
 
@@ -726,49 +683,23 @@ align-items:center;
 
 });
 
-/* DELIVERY */
+let delivery =
+cart.length > 0 ? 15 : 0;
 
-let delivery = cart.length > 0 ? 15 : 0;
+let final =
+total + delivery;
 
-/* DISCOUNT */
-
-let discount = cart.length >= 2 ? 10 : 0;
-
-let final = total + delivery - discount;
-
-/* EMPTY */
-
-if(cart.length === 0){
-
-itemsHTML = `
-<div style="
-text-align:center;
-padding:40px 10px;
-color:#777;
-">
-🛒 Your cart is empty
-</div>
-`;
-
-}
-
-/* UPDATE */
-
-document.getElementById("items").innerHTML =
-itemsHTML;
+document.getElementById("items").innerHTML = html;
 
 document.getElementById("count").innerText =
-cart.reduce((sum,item)=>sum + item.qty,0);
+cart.length;
 
 document.getElementById("total").innerHTML =
 `
 Subtotal: R${total}<br>
-Delivery: R${delivery}<br>
-Discount: -R${discount}<br><br>
-<strong>Total: R${final}</strong>
+Delivery: R${delivery}<br><br>
+Total: R${final}
 `;
-
-/* WHATSAPP */
 
 let message =
 "🍲 *Kaya Kitchen Order* %0A%0A";
@@ -776,40 +707,15 @@ let message =
 cart.forEach(item=>{
 
 message +=
-`• ${item.name} x${item.qty} = R${item.price * item.qty}%0A`;
+`• ${item.name} x${item.qty} = R${item.qty * item.price}%0A`;
 
 });
 
 message +=
-`%0A🚚 Delivery: R${delivery}`;
-
-if(discount > 0){
-
-message += `%0A🔥 Discount: -R${discount}`;
-
-}
-
-message +=
-`%0A💵 Total: R${final}`;
+`%0A🚚 Delivery: R${delivery}%0A💵 Total: R${final}`;
 
 document.getElementById("checkout").href =
 "https://wa.me/27673523983?text=" + message;
-
-}
-
-/* CART QTY */
-
-function cartQty(index,val){
-
-cart[index].qty += val;
-
-if(cart[index].qty <= 0){
-
-cart.splice(index,1);
-
-}
-
-updateCart();
 
 }
 
@@ -825,12 +731,12 @@ updateCart();
 
 /* PANEL */
 
-function togglePanel(forceOpen=false){
+function togglePanel(force = false){
 
 const panel =
 document.getElementById("panel");
 
-if(forceOpen){
+if(force){
 
 panel.classList.add("active");
 
@@ -842,46 +748,114 @@ panel.classList.toggle("active");
 
 }
 
-/* POPUP */
+/* DAILY MENU SYSTEM */
 
-function showNotification(text){
+const today =
+new Date().getDay();
 
-const note = document.createElement("div");
+const todayDay =
+document.getElementById("todayDay");
 
-note.innerText = text;
+const todayMeal =
+document.getElementById("todayMeal");
 
-note.style.position = "fixed";
-note.style.top = "85px";
-note.style.left = "50%";
-note.style.transform = "translateX(-50%)";
-note.style.background = "#111";
-note.style.color = "#fff";
-note.style.padding = "12px 18px";
-note.style.borderRadius = "14px";
-note.style.fontSize = "13px";
-note.style.zIndex = "9999";
-note.style.boxShadow = "0 10px 20px rgba(0,0,0,0.2)";
+function disableAll(){
 
-document.body.appendChild(note);
+document.querySelectorAll(".card")
+.forEach(card=>{
 
-setTimeout(()=>{
+card.classList.add("unavailable");
 
-note.style.opacity = "0";
-note.style.transition = "0.4s";
+card.querySelector(".add").disabled = true;
 
-},1400);
-
-setTimeout(()=>{
-
-note.remove();
-
-},1900);
+});
 
 }
 
-/* INIT */
+disableAll();
 
-updateCart();
+if(today === 1 || today === 3){
+
+todayDay.innerText =
+"Monday / Wednesday";
+
+todayMeal.innerHTML =
+"<strong>Pap + Beef Stew — R45</strong>";
+
+document.getElementById("monday")
+.classList.add("active");
+
+document.querySelector(".mondayMeal")
+.classList.remove("unavailable");
+
+document.querySelector(".mondayMeal .add")
+.disabled = false;
+
+}
+
+else if(today === 2 || today === 4){
+
+todayDay.innerText =
+"Tuesday / Thursday";
+
+todayMeal.innerHTML =
+"<strong>Rice + Chicken Stew — R50</strong>";
+
+document.getElementById("tuesday")
+.classList.add("active");
+
+document.querySelector(".tuesdayMeal")
+.classList.remove("unavailable");
+
+document.querySelector(".tuesdayMeal .add")
+.disabled = false;
+
+}
+
+else if(today === 5){
+
+todayDay.innerText =
+"Friday Fire 🔥";
+
+todayMeal.innerHTML =
+"<strong>Spicy Friday Meals Available</strong>";
+
+document.getElementById("friday")
+.classList.add("active");
+
+}
+
+else if(today === 6){
+
+todayDay.innerText =
+"Saturday Launch Day 🚀";
+
+todayMeal.innerHTML =
+"<strong>Jollof + Chicken — R55</strong>";
+
+document.getElementById("saturday")
+.classList.add("active");
+
+document.querySelector(".saturdayMeal")
+.classList.remove("unavailable");
+
+document.querySelector(".saturdayMeal .add")
+.disabled = false;
+
+}
+
+else{
+
+todayDay.innerText =
+"Sunday Family Day 👨‍👩‍👧";
+
+todayMeal.innerHTML =
+"<strong>Family Combo Deals Available</strong>";
+
+document.getElementById("sunday")
+.classList.add("active");
+
+}
 
 </script>
 
