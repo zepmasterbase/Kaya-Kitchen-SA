@@ -21,7 +21,7 @@
 
     body{
       background:#0b0b0b;
-      color:white;
+      color:#fff;
       overflow-x:hidden;
     }
 
@@ -46,6 +46,12 @@
       border-bottom:1px solid rgba(255,255,255,0.05);
     }
 
+    .nav-left{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+
     .logo{
       font-size:32px;
       font-weight:800;
@@ -54,6 +60,23 @@
 
     .logo span{
       color:#fff;
+    }
+
+    .top-about-btn{
+      padding:8px 18px;
+      border:1px solid #ff9d00;
+      border-radius:30px;
+      font-size:14px;
+      font-weight:600;
+      transition:0.3s;
+      background:rgba(255,157,0,0.08);
+      backdrop-filter:blur(8px);
+    }
+
+    .top-about-btn:hover{
+      background:#ff9d00;
+      color:#000;
+      transform:translateY(-2px);
     }
 
     .nav-links{
@@ -71,23 +94,12 @@
       color:#ff9d00;
     }
 
-    .about-btn{
-      border:1px solid #ff9d00;
-      padding:10px 20px;
-      border-radius:40px;
-      font-weight:600;
-    }
-
-    .about-btn:hover{
-      background:#ff9d00;
-      color:#000;
-    }
-
     .order-btn{
       background:#25D366;
       padding:12px 24px;
       border-radius:40px;
       font-weight:600;
+      transition:0.3s;
     }
 
     .order-btn:hover{
@@ -102,8 +114,9 @@
       align-items:center;
       padding:120px 8%;
       background:
-      linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
+      linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.82)),
       url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1400&auto=format&fit=crop');
+
       background-size:cover;
       background-position:center;
     }
@@ -128,6 +141,7 @@
       font-size:18px;
       line-height:1.8;
       margin-bottom:35px;
+      max-width:620px;
     }
 
     .hero-buttons{
@@ -157,7 +171,7 @@
       transform:translateY(-3px);
     }
 
-    /* SPECIALS */
+    /* SECTION */
 
     .section{
       padding:100px 8%;
@@ -177,6 +191,8 @@
     .section-title p{
       color:#bdbdbd;
     }
+
+    /* FOOD GRID */
 
     .food-grid{
       display:grid;
@@ -243,7 +259,7 @@
       border-radius:20px;
     }
 
-    .why-box .icon{
+    .icon{
       font-size:55px;
       margin-bottom:20px;
     }
@@ -266,6 +282,7 @@
       background:
       linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)),
       url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1400&auto=format&fit=crop');
+
       background-size:cover;
       background-position:center;
     }
@@ -318,7 +335,6 @@
 
     .socials a{
       display:inline-block;
-      margin:0 10px;
       color:#ff9d00;
       font-weight:600;
       transition:0.3s;
@@ -353,9 +369,15 @@
         font-size:40px;
       }
 
+      .nav-left{
+        width:100%;
+        justify-content:space-between;
+      }
+
     }
 
   </style>
+
 </head>
 
 <body>
@@ -364,8 +386,16 @@
 
   <nav>
 
-    <div class="logo">
-      Kaya <span>Kitchen</span>
+    <div class="nav-left">
+
+      <div class="logo">
+        Kaya <span>Kitchen</span>
+      </div>
+
+      <a href="about.html" class="top-about-btn">
+        About
+      </a>
+
     </div>
 
     <div class="nav-links">
@@ -375,10 +405,6 @@
       <a href="menu.html">Menu</a>
 
       <a href="gallery.html">Gallery</a>
-
-      <a href="about.html" class="about-btn">
-        About
-      </a>
 
       <a href="https://wa.me/27673523983"
       target="_blank"
@@ -404,8 +430,8 @@
 
       <p>
         Kaya Kitchen serves authentic African comfort food,
-        street-food favourites, and flavour-packed meals made
-        fresh in Randfontein, South Africa.
+        street-food favourites, and flavour-packed meals freshly
+        prepared in Randfontein, South Africa.
       </p>
 
       <div class="hero-buttons">
@@ -433,7 +459,7 @@
 
     <div class="section-title">
       <h2>Weekly Specials</h2>
-      <p>Big flavour. Big portions. Affordable prices.</p>
+      <p>Big flavour. Big portions. Affordable meals.</p>
     </div>
 
     <div class="food-grid">
@@ -447,7 +473,7 @@
           <h3>Pap + Beef Stew</h3>
 
           <p>
-            Rich homemade stew served with warm pap and authentic African flavour.
+            Homemade beef stew served with warm pap and authentic African flavour.
           </p>
 
           <div class="price">R40</div>
@@ -465,7 +491,7 @@
           <h3>Rice + Chicken Stew</h3>
 
           <p>
-            Tender chicken stew with seasoned rice made fresh daily.
+            Tender chicken stew with seasoned rice made fresh every day.
           </p>
 
           <div class="price">R40</div>
@@ -483,7 +509,7 @@
           <h3>Fire Chicken Meal</h3>
 
           <p>
-            Spicy grilled chicken with your choice of pap or rice.
+            Spicy grilled chicken served with pap or rice and rich flavour.
           </p>
 
           <div class="price">R58</div>
@@ -507,27 +533,39 @@
     <div class="why-grid">
 
       <div class="why-box">
+
         <div class="icon">🔥</div>
+
         <h3>Authentic Taste</h3>
+
         <p>
-          Rich African flavours prepared with passion and freshness.
+          Real African flavour made with passion and fresh ingredients.
         </p>
+
       </div>
 
       <div class="why-box">
+
         <div class="icon">🍲</div>
+
         <h3>Big Portions</h3>
+
         <p>
-          Meals that satisfy your cravings without breaking your budget.
+          Meals designed to satisfy every craving and appetite.
         </p>
+
       </div>
 
       <div class="why-box">
+
         <div class="icon">💰</div>
+
         <h3>Affordable Meals</h3>
+
         <p>
-          Delicious comfort food at prices everyone can enjoy.
+          Delicious comfort food at prices everybody can enjoy.
         </p>
+
       </div>
 
     </div>
@@ -541,8 +579,7 @@
     <h2>Hungry Yet?</h2>
 
     <p>
-      Order your favourite Kaya Kitchen meals directly on WhatsApp
-      and enjoy bold African flavour delivered fresh.
+      Message Kaya Kitchen directly on WhatsApp and enjoy bold African flavour.
     </p>
 
     <a href="https://wa.me/27673523983" target="_blank">
