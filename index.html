@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Kaya Kitchen | Real Food. Real Flavour. Real Africa.</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -19,7 +21,7 @@
 
     body{
       background:#0b0b0b;
-      color:#fff;
+      color:white;
       overflow-x:hidden;
     }
 
@@ -51,13 +53,13 @@
     }
 
     .logo span{
-      color:#ffffff;
+      color:#fff;
     }
 
     .nav-links{
       display:flex;
-      gap:25px;
       align-items:center;
+      gap:25px;
     }
 
     .nav-links a{
@@ -74,7 +76,6 @@
       padding:10px 20px;
       border-radius:40px;
       font-weight:600;
-      transition:0.3s;
     }
 
     .about-btn:hover{
@@ -87,7 +88,6 @@
       padding:12px 24px;
       border-radius:40px;
       font-weight:600;
-      transition:0.3s;
     }
 
     .order-btn:hover{
@@ -100,37 +100,34 @@
       min-height:100vh;
       display:flex;
       align-items:center;
-      justify-content:space-between;
       padding:120px 8%;
-      gap:60px;
       background:
       linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
-      url('https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1200&auto=format&fit=crop');
+      url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1400&auto=format&fit=crop');
       background-size:cover;
       background-position:center;
     }
 
-    .hero-text{
-      flex:1;
+    .hero-content{
+      max-width:700px;
     }
 
-    .hero-text h1{
-      font-size:72px;
+    .hero h1{
+      font-size:78px;
       line-height:1;
-      margin-bottom:20px;
+      margin-bottom:25px;
       font-weight:800;
     }
 
-    .hero-text h1 span{
+    .hero h1 span{
       color:#ff9d00;
     }
 
-    .hero-text p{
-      color:#d8d8d8;
-      margin-bottom:35px;
+    .hero p{
+      color:#ddd;
       font-size:18px;
-      max-width:600px;
-      line-height:1.7;
+      line-height:1.8;
+      margin-bottom:35px;
     }
 
     .hero-buttons{
@@ -140,7 +137,7 @@
     }
 
     .hero-buttons a{
-      padding:16px 32px;
+      padding:16px 34px;
       border-radius:50px;
       font-weight:600;
       transition:0.3s;
@@ -163,7 +160,7 @@
     /* SPECIALS */
 
     .section{
-      padding:90px 8%;
+      padding:100px 8%;
     }
 
     .section-title{
@@ -181,13 +178,13 @@
       color:#bdbdbd;
     }
 
-    .special-grid{
+    .food-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
     }
 
-    .card{
+    .food-card{
       background:#151515;
       border-radius:20px;
       overflow:hidden;
@@ -195,36 +192,36 @@
       border:1px solid rgba(255,255,255,0.05);
     }
 
-    .card:hover{
+    .food-card:hover{
       transform:translateY(-8px);
     }
 
-    .card img{
+    .food-card img{
       width:100%;
-      height:240px;
+      height:250px;
       object-fit:cover;
     }
 
-    .card-content{
+    .food-content{
       padding:25px;
     }
 
-    .card-content h3{
+    .food-content h3{
+      color:#ff9d00;
       margin-bottom:12px;
       font-size:24px;
-      color:#ff9d00;
     }
 
-    .card-content p{
+    .food-content p{
       color:#ccc;
+      line-height:1.7;
       margin-bottom:18px;
-      line-height:1.6;
     }
 
     .price{
+      color:#25D366;
       font-size:28px;
       font-weight:700;
-      color:#25D366;
     }
 
     /* WHY US */
@@ -236,19 +233,24 @@
     .why-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px;
+      gap:25px;
       text-align:center;
     }
 
     .why-box{
+      background:#181818;
       padding:35px;
       border-radius:20px;
-      background:#181818;
+    }
+
+    .why-box .icon{
+      font-size:55px;
+      margin-bottom:20px;
     }
 
     .why-box h3{
-      margin:20px 0;
       color:#ff9d00;
+      margin-bottom:15px;
     }
 
     .why-box p{
@@ -256,20 +258,16 @@
       line-height:1.7;
     }
 
-    .icon{
-      font-size:50px;
-    }
-
     /* CTA */
 
     .cta{
+      padding:120px 8%;
       text-align:center;
       background:
       linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)),
-      url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop');
+      url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1400&auto=format&fit=crop');
       background-size:cover;
       background-position:center;
-      padding:120px 8%;
     }
 
     .cta h2{
@@ -298,30 +296,36 @@
 
     footer{
       background:#090909;
-      padding:50px 8%;
+      padding:60px 8%;
       text-align:center;
       border-top:1px solid rgba(255,255,255,0.05);
     }
 
     footer h3{
+      font-size:32px;
       color:#ff9d00;
       margin-bottom:15px;
-      font-size:30px;
     }
 
     footer p{
       color:#aaa;
-      margin:8px 0;
+      margin:10px 0;
     }
 
     .socials{
-      margin-top:20px;
+      margin-top:25px;
     }
 
     .socials a{
+      display:inline-block;
       margin:0 10px;
       color:#ff9d00;
       font-weight:600;
+      transition:0.3s;
+    }
+
+    .socials a:hover{
+      transform:translateY(-2px);
     }
 
     /* MOBILE */
@@ -329,17 +333,20 @@
     @media(max-width:900px){
 
       .hero{
-        flex-direction:column;
         text-align:center;
-        padding-top:160px;
+        justify-content:center;
       }
 
-      .hero-text h1{
+      .hero h1{
         font-size:52px;
       }
 
       .nav-links{
         display:none;
+      }
+
+      .hero-buttons{
+        justify-content:center;
       }
 
       .cta h2{
@@ -356,32 +363,38 @@
   <!-- NAVBAR -->
 
   <nav>
-    <div class="logo">Kaya <span>Kitchen</span></div>
+
+    <div class="logo">
+      Kaya <span>Kitchen</span>
+    </div>
 
     <div class="nav-links">
+
       <a href="index.html">Home</a>
 
-      <!-- MENU NOW LINKS TO menu.html -->
       <a href="menu.html">Menu</a>
 
       <a href="gallery.html">Gallery</a>
 
-      <!-- NEW ABOUT BUTTON -->
-      <a href="about.html" class="about-btn">About</a>
+      <a href="about.html" class="about-btn">
+        About
+      </a>
 
-      <a class="order-btn"
-      href="https://wa.me/27673523983"
-      target="_blank">
+      <a href="https://wa.me/27673523983"
+      target="_blank"
+      class="order-btn">
       Order Now
       </a>
+
     </div>
+
   </nav>
 
   <!-- HERO -->
 
   <section class="hero">
 
-    <div class="hero-text">
+    <div class="hero-content">
 
       <h1>
         REAL FOOD.<br>
@@ -390,10 +403,9 @@
       </h1>
 
       <p>
-        Kaya Kitchen brings authentic African cuisine,
-        street food flavours, and affordable comfort meals
-        to Randfontein. Freshly prepared daily with bold taste
-        and big portions.
+        Kaya Kitchen serves authentic African comfort food,
+        street-food favourites, and flavour-packed meals made
+        fresh in Randfontein, South Africa.
       </p>
 
       <div class="hero-buttons">
@@ -404,8 +416,8 @@
         Order On WhatsApp
         </a>
 
-        <!-- MENU BUTTON ALSO LINKS TO menu.html -->
-        <a href="menu.html" class="btn-secondary">
+        <a href="menu.html"
+        class="btn-secondary">
         View Menu
         </a>
 
@@ -421,36 +433,63 @@
 
     <div class="section-title">
       <h2>Weekly Specials</h2>
-      <p>Affordable meals packed with authentic African flavour.</p>
+      <p>Big flavour. Big portions. Affordable prices.</p>
     </div>
 
-    <div class="special-grid">
+    <div class="food-grid">
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1000&auto=format&fit=crop">
-        <div class="card-content">
+      <div class="food-card">
+
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="food-content">
+
           <h3>Pap + Beef Stew</h3>
-          <p>Monday & Wednesday comfort meal special.</p>
+
+          <p>
+            Rich homemade stew served with warm pap and authentic African flavour.
+          </p>
+
           <div class="price">R40</div>
+
         </div>
+
       </div>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=1000&auto=format&fit=crop">
-        <div class="card-content">
+      <div class="food-card">
+
+        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="food-content">
+
           <h3>Rice + Chicken Stew</h3>
-          <p>Tuesday & Thursday flavour-packed combo.</p>
+
+          <p>
+            Tender chicken stew with seasoned rice made fresh daily.
+          </p>
+
           <div class="price">R40</div>
+
         </div>
+
       </div>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?q=80&w=1000&auto=format&fit=crop">
-        <div class="card-content">
-          <h3>Friday Fire Chicken</h3>
-          <p>Spicy grilled chicken with pap or rice.</p>
+      <div class="food-card">
+
+        <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="food-content">
+
+          <h3>Fire Chicken Meal</h3>
+
+          <p>
+            Spicy grilled chicken with your choice of pap or rice.
+          </p>
+
           <div class="price">R58</div>
+
         </div>
+
       </div>
 
     </div>
@@ -469,25 +508,25 @@
 
       <div class="why-box">
         <div class="icon">🔥</div>
-        <h3>Big Portions</h3>
+        <h3>Authentic Taste</h3>
         <p>
-          Every plate is packed with flavour and satisfying portions.
+          Rich African flavours prepared with passion and freshness.
         </p>
       </div>
 
       <div class="why-box">
         <div class="icon">🍲</div>
-        <h3>Authentic African Taste</h3>
+        <h3>Big Portions</h3>
         <p>
-          Traditional flavours blended with modern street-food energy.
+          Meals that satisfy your cravings without breaking your budget.
         </p>
       </div>
 
       <div class="why-box">
         <div class="icon">💰</div>
-        <h3>Affordable Prices</h3>
+        <h3>Affordable Meals</h3>
         <p>
-          Delicious meals that stay budget-friendly for everyone.
+          Delicious comfort food at prices everyone can enjoy.
         </p>
       </div>
 
@@ -499,11 +538,11 @@
 
   <section class="cta">
 
-    <h2>Ready To Eat?</h2>
+    <h2>Hungry Yet?</h2>
 
     <p>
-      Message Kaya Kitchen on WhatsApp and place your order
-      in minutes. Fast, simple, delicious.
+      Order your favourite Kaya Kitchen meals directly on WhatsApp
+      and enjoy bold African flavour delivered fresh.
     </p>
 
     <a href="https://wa.me/27673523983" target="_blank">
@@ -518,14 +557,19 @@
 
     <h3>Kaya Kitchen</h3>
 
-    <p>2 Fifth Street, Randfontein</p>
-    <p>Open Friday - Sunday | 11AM - 9PM</p>
+    <p>📍 2 Fifth Street, Randfontein, South Africa</p>
+
+    <p>🕒 Friday - Sunday | 11AM - 9PM</p>
+
     <p>Real Food. Real Flavour. Real Africa.</p>
 
     <div class="socials">
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <a href="#">TikTok</a>
+
+      <a href="https://www.instagram.com/kayakitchen_sa?igsh=ZWYxNmd5dHR4Z3A="
+      target="_blank">
+      Instagram
+      </a>
+
     </div>
 
   </footer>
