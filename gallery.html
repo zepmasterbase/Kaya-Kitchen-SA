@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaya Kitchen | Gallery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0b0b0b;
+color:#fff;
+}
+
+/* NAV */
+nav{
+width:100%;
+padding:16px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(10px);
+position:fixed;
+top:0;
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.logo{
+font-size:20px;
+font-weight:800;
+color:#ff9d00;
+}
+
+.logo span{
+color:#fff;
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+margin-left:18px;
+font-size:14px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#ff9d00;
+}
+
+.order-btn{
+background:#25D366;
+padding:10px 18px;
+border-radius:30px;
+font-weight:600;
+}
+
+/* HERO */
+.hero{
+margin-top:80px;
+text-align:center;
+padding:60px 8% 40px;
+}
+
+.hero h1{
+font-size:42px;
+color:#ff9d00;
+}
+
+.hero p{
+color:#bbb;
+margin-top:10px;
+}
+
+/* GALLERY GRID */
+.gallery{
+padding:40px 8% 80px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+}
+
+.item{
+border-radius:18px;
+overflow:hidden;
+position:relative;
+cursor:pointer;
+transition:0.4s;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.item img{
+width:100%;
+height:240px;
+object-fit:cover;
+transition:0.5s;
+}
+
+.item:hover img{
+transform:scale(1.1);
+filter:brightness(0.85);
+}
+
+.caption{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:12px;
+background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
+font-weight:600;
+font-size:14px;
+}
+
+/* SECTION TITLE */
+.section-title{
+text-align:center;
+margin-top:40px;
+}
+
+.section-title h2{
+font-size:32px;
+color:#ff9d00;
+}
+
+.section-title p{
+color:#aaa;
+margin-top:8px;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:40px 8%;
+background:#090909;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+footer h3{
+color:#ff9d00;
+margin-bottom:10px;
+}
+
+footer p{
+color:#aaa;
+font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.hero h1{
+font-size:30px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+
+<div class="logo">Kaya <span>Kitchen</span></div>
+
+<div>
+<a href="index.html">Home</a>
+<a href="menu.html">Menu</a>
+<a href="gallery.html">Gallery</a>
+<a href="about.html">About</a>
+<a href="https://wa.me/27673523983" class="order-btn">Order</a>
+</div>
+
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<h1>Our Food Gallery</h1>
+<p>Real African flavour, fresh from Kaya Kitchen</p>
+</div>
+
+<!-- SECTION -->
+<div class="section-title">
+<h2>Made With Love</h2>
+<p>Every plate tells a story of taste & tradition</p>
+</div>
+
+<!-- GALLERY GRID -->
+<div class="gallery">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+<div class="caption">Pap & Beef Stew</div>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1512058564366-18510be2db19">
+<div class="caption">Rice & Chicken Stew</div>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1601050690597-df0568f70950">
+<div class="caption">Jollof Chicken</div>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba">
+<div class="caption">Grilled Street Chicken</div>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1604908554031-6c1f2a9d1c4b">
+<div class="caption">Friday Fire Special</div>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe">
+<div class="caption">Fresh Chicken Combo</div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+
+<h3>Kaya Kitchen</h3>
+<p>2 Fifth Street, Randfontein</p>
+<p>Real Food • Real Flavour • Real Africa</p>
+
+</footer>
+
+</body>
+</html>
