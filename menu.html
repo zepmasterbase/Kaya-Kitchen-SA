@@ -1,637 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kaya Kitchen | Menu</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaya Kitchen PRO Menu</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+scroll-behavior:smooth;
+}
 
-  <style>
+body{
+background:#f6f6f6;
+padding-bottom:90px;
+}
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-      scroll-behavior:smooth;
-    }
+/* HEADER */
+header{
+position:fixed;
+top:0;
+width:100%;
+background:#fff;
+padding:14px 16px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #eee;
+z-index:1000;
+}
 
-    body{
-      background:#0b0b0b;
-      color:white;
-      overflow-x:hidden;
-    }
+.logo{
+font-weight:800;
+font-size:17px;
+}
 
-    a{
-      text-decoration:none;
-      color:white;
-    }
+.back{
+text-decoration:none;
+color:#25D366;
+font-weight:600;
+}
 
-    /* NAVBAR */
+/* HERO */
+.hero{
+margin-top:60px;
+padding:22px;
+background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d');
+background-size:cover;
+background-position:center;
+color:#fff;
+text-align:center;
+}
 
-    nav{
-      position:fixed;
-      width:100%;
-      top:0;
-      z-index:1000;
-      padding:18px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:rgba(0,0,0,0.9);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,0.05);
-    }
+.hero h1{
+font-size:22px;
+line-height:1.3;
+}
 
-    .logo{
-      font-size:32px;
-      font-weight:800;
-      color:#ff9d00;
-    }
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:14px;
+padding:14px;
+}
 
-    .logo span{
-      color:#fff;
-    }
+.card{
+background:#fff;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+}
 
-    .nav-links{
-      display:flex;
-      gap:25px;
-      align-items:center;
-    }
+.card-body{
+padding:12px;
+}
 
-    .nav-links a{
-      transition:0.3s;
-      font-size:15px;
-    }
+.card h3{
+font-size:15px;
+}
 
-    .nav-links a:hover{
-      color:#ff9d00;
-    }
+.price{
+color:#25D366;
+font-weight:bold;
+margin:6px 0;
+font-size:13px;
+}
 
-    .order-btn{
-      background:#25D366;
-      padding:12px 24px;
-      border-radius:40px;
-      font-weight:600;
-    }
+.desc{
+font-size:12px;
+color:#555;
+margin-bottom:10px;
+}
 
-    /* HERO */
+/* CONTROLS */
+.controls{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:8px;
+}
 
-    .hero{
-      height:50vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      background:
-      linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.85)),
-      url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1400&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-      padding:0 8%;
-    }
+.qty{
+display:flex;
+align-items:center;
+gap:8px;
+}
 
-    .hero-content h1{
-      font-size:72px;
-      color:#ff9d00;
-      margin-bottom:15px;
-    }
+.btn{
+width:28px;
+height:28px;
+border:none;
+border-radius:6px;
+background:#eee;
+font-size:16px;
+}
 
-    .hero-content p{
-      color:#ddd;
-      max-width:700px;
-      line-height:1.8;
-      margin:auto;
-    }
+.add{
+width:100%;
+padding:8px;
+background:#111;
+color:#fff;
+border:none;
+border-radius:10px;
+margin-top:6px;
+cursor:pointer;
+}
 
-    /* MENU SECTION */
+/* FLOAT CART BAR */
+.cartBar{
+position:fixed;
+bottom:0;
+width:100%;
+background:#fff;
+border-top:1px solid #ddd;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 14px;
+}
 
-    .menu-section{
-      padding:100px 8%;
-    }
+.cartBtn{
+background:#25D366;
+color:#fff;
+padding:12px 16px;
+border-radius:12px;
+font-weight:bold;
+text-decoration:none;
+}
 
-    .section-title{
-      text-align:center;
-      margin-bottom:60px;
-    }
+/* PANEL */
+.panel{
+position:fixed;
+right:-100%;
+top:0;
+width:320px;
+height:100%;
+background:#fff;
+padding:15px;
+transition:0.3s;
+overflow:auto;
+z-index:2000;
+}
 
-    .section-title h2{
-      font-size:48px;
-      color:#ff9d00;
-      margin-bottom:10px;
-    }
+.panel.active{
+right:0;
+}
 
-    .section-title p{
-      color:#bdbdbd;
-    }
+.total{
+font-weight:bold;
+margin-top:10px;
+}
 
-    .menu-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:30px;
-    }
-
-    .menu-card{
-      background:#151515;
-      border-radius:24px;
-      overflow:hidden;
-      transition:0.4s;
-      border:1px solid rgba(255,255,255,0.05);
-    }
-
-    .menu-card:hover{
-      transform:translateY(-8px);
-    }
-
-    .menu-card img{
-      width:100%;
-      height:250px;
-      object-fit:cover;
-    }
-
-    .menu-content{
-      padding:25px;
-    }
-
-    .menu-content h3{
-      font-size:28px;
-      margin-bottom:10px;
-      color:#ff9d00;
-    }
-
-    .menu-content p{
-      color:#cfcfcf;
-      line-height:1.7;
-      margin-bottom:20px;
-    }
-
-    .menu-bottom{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:15px;
-    }
-
-    .price{
-      font-size:32px;
-      font-weight:700;
-      color:#25D366;
-    }
-
-    .buy-btn{
-      background:#ff9d00;
-      color:#000;
-      padding:12px 24px;
-      border-radius:40px;
-      font-weight:700;
-      transition:0.3s;
-    }
-
-    .buy-btn:hover{
-      transform:translateY(-2px);
-    }
-
-    /* WEEKLY MENU */
-
-    .weekly{
-      background:#111;
-      padding:100px 8%;
-    }
-
-    .weekly-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:25px;
-    }
-
-    .day-box{
-      background:#181818;
-      border-radius:20px;
-      padding:30px;
-      border-left:5px solid #ff9d00;
-      transition:0.3s;
-    }
-
-    .day-box:hover{
-      transform:translateY(-5px);
-    }
-
-    .day-box h3{
-      color:#ff9d00;
-      margin-bottom:12px;
-      font-size:22px;
-    }
-
-    .day-box p{
-      color:#ddd;
-      line-height:1.7;
-    }
-
-    /* CTA */
-
-    .cta{
-      text-align:center;
-      padding:120px 8%;
-      background:
-      linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)),
-      url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1400&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-    }
-
-    .cta h2{
-      font-size:60px;
-      margin-bottom:20px;
-    }
-
-    .cta p{
-      max-width:700px;
-      margin:auto;
-      color:#ddd;
-      line-height:1.8;
-      margin-bottom:35px;
-    }
-
-    .cta a{
-      background:#25D366;
-      padding:18px 40px;
-      border-radius:50px;
-      font-size:18px;
-      font-weight:700;
-      display:inline-block;
-    }
-
-    /* FOOTER */
-
-    footer{
-      background:#090909;
-      text-align:center;
-      padding:50px 8%;
-      border-top:1px solid rgba(255,255,255,0.05);
-    }
-
-    footer h3{
-      color:#ff9d00;
-      margin-bottom:15px;
-      font-size:30px;
-    }
-
-    footer p{
-      color:#aaa;
-      margin:8px 0;
-    }
-
-    .socials{
-      margin-top:20px;
-    }
-
-    .socials a{
-      margin:0 10px;
-      color:#ff9d00;
-      font-weight:600;
-    }
-
-    /* MOBILE */
-
-    @media(max-width:900px){
-
-      .hero-content h1{
-        font-size:48px;
-      }
-
-      .nav-links{
-        display:none;
-      }
-
-      .cta h2{
-        font-size:40px;
-      }
-
-    }
-
-  </style>
+.small{
+font-size:12px;
+color:#666;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+<header>
+<div class="logo">Kaya Kitchen PRO</div>
+<a class="back" href="index.html">← Back</a>
+</header>
+
+<div class="hero">
+<h1>Fresh West Rand Food<br>Order Like Uber Eats</h1>
+</div>
+
+<div class="grid">
+
+<!-- ITEM TEMPLATE -->
+
+<div class="card">
+<div class="card-body">
+
+<h3>Pap + Beef Stew</h3>
+<div class="price">R40</div>
+<div class="desc">Traditional comfort meal</div>
+
+<div class="controls">
+<div class="qty">
+<button class="btn" onclick="changeQty(this,-1)">-</button>
+<span>1</span>
+<button class="btn" onclick="changeQty(this,1)">+</button>
+</div>
+</div>
+
+<button class="add" onclick="addItem(this,'Pap + Beef Stew',40)">Add to Cart</button>
+</div>
+</div>
+
+<div class="card">
+<div class="card-body">
+<h3>Rice + Chicken Stew</h3>
+<div class="price">R40</div>
+<div class="desc">Soft rice with chicken gravy</div>
+
+<div class="controls">
+<div class="qty">
+<button class="btn" onclick="changeQty(this,-1)">-</button>
+<span>1</span>
+<button class="btn" onclick="changeQty(this,1)">+</button>
+</div>
+</div>
+
+<button class="add" onclick="addItem(this,'Rice + Chicken Stew',40)">Add to Cart</button>
+</div>
+</div>
+
+<div class="card">
+<div class="card-body">
+<h3>Jollof + Chicken</h3>
+<div class="price">R55</div>
+
+<div class="controls">
+<div class="qty">
+<button class="btn" onclick="changeQty(this,-1)">-</button>
+<span>1</span>
+<button class="btn" onclick="changeQty(this,1)">+</button>
+</div>
+</div>
+
+<button class="add" onclick="addItem(this,'Jollof + Chicken',55)">Add to Cart</button>
+</div>
+</div>
+
+<div class="card">
+<div class="card-body">
+<h3>Friday Fire 🔥</h3>
+<div class="price">R58</div>
+
+<div class="controls">
+<div class="qty">
+<button class="btn" onclick="changeQty(this,-1)">-</button>
+<span>1</span>
+<button class="btn" onclick="changeQty(this,1)">+</button>
+</div>
+</div>
+
+<button class="add" onclick="addItem(this,'Friday Fire Meal',58)">Add to Cart</button>
+</div>
+</div>
+
+</div>
+
+<!-- CART PANEL -->
+<div class="panel" id="panel">
+<h3>Your Order</h3>
+<div id="items"></div>
+
+<div class="total" id="total">Total: R0</div>
+<div class="small">Delivery: R10 (Randfontein / West Rand)</div>
+
+<a class="cartBtn" id="wa" target="_blank">Checkout WhatsApp</a>
+</div>
+
+<!-- FLOAT BAR -->
+<div class="cartBar">
+<div onclick="togglePanel()">🛒 Cart (<span id="count">0</span>)</div>
+<div class="cartBtn" onclick="togglePanel()">View Order</div>
+</div>
 
-  <nav>
+<script>
 
-    <div class="logo">
-      Kaya <span>Kitchen</span>
-    </div>
+let cart=[];
+let total=0;
 
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="about.html">About</a>
+function changeQty(btn,val){
+let span=btn.parentElement.querySelector("span");
+let qty=parseInt(span.innerText);
+qty=Math.max(1,qty+val);
+span.innerText=qty;
+}
 
-      <a href="https://wa.me/27673523983"
-      target="_blank"
-      class="order-btn">
-      Order Now
-      </a>
-    </div>
+function addItem(btn,name,price){
+let qty=parseInt(btn.parentElement.querySelector(".qty span").innerText);
 
-  </nav>
+cart.push({name,qty,price});
 
-  <!-- HERO -->
+total += price * qty;
 
-  <section class="hero">
+document.getElementById("count").innerText=cart.length;
+update();
+}
 
-    <div class="hero-content">
-      <h1>Our Menu</h1>
+function update(){
 
-      <p>
-        Fresh African cuisine made daily with bold flavour,
-        big portions, and affordable prices.
-      </p>
-    </div>
+let text="";
+cart.forEach(i=>{
+text+=`• ${i.name} x${i.qty} - R${i.price*i.qty}<br>`;
+});
 
-  </section>
+let delivery=10;
+let final=total+delivery;
 
-  <!-- MAIN MENU -->
+document.getElementById("items").innerHTML=text;
+document.getElementById("total").innerText="Total: R"+final;
 
-  <section class="menu-section">
+let msg="Hello Kaya Kitchen 👋%0AOrder:%0A";
 
-    <div class="section-title">
-      <h2>Popular Meals</h2>
-      <p>Hot meals. Real flavour. Kaya style.</p>
-    </div>
+cart.forEach(i=>{
+msg+=`${i.name} x${i.qty} = R${i.price*i.qty}%0A`;
+});
 
-    <div class="menu-grid">
+msg+=`%0ADelivery: R10%0ATotal: R${final}`;
 
-      <!-- ITEM 1 -->
+document.getElementById("wa").href=
+"https://wa.me/27700000000?text="+msg;
+}
 
-      <div class="menu-card">
+function togglePanel(){
+document.getElementById("panel").classList.toggle("active");
+}
 
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="menu-content">
-
-          <h3>Pap + Beef Stew</h3>
-
-          <p>
-            Rich homemade beef stew served with soft pap.
-            Comfort food packed with authentic flavour.
-          </p>
-
-          <div class="menu-bottom">
-
-            <div class="price">R40</div>
-
-            <a href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%2C%20I%20want%20to%20order%20Pap%20%2B%20Beef%20Stew"
-            target="_blank"
-            class="buy-btn">
-            Order
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- ITEM 2 -->
-
-      <div class="menu-card">
-
-        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="menu-content">
-
-          <h3>Rice + Chicken Stew</h3>
-
-          <p>
-            Tender chicken stew served with fluffy rice
-            and rich African spices.
-          </p>
-
-          <div class="menu-bottom">
-
-            <div class="price">R40</div>
-
-            <a href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%2C%20I%20want%20to%20order%20Rice%20%2B%20Chicken%20Stew"
-            target="_blank"
-            class="buy-btn">
-            Order
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- ITEM 3 -->
-
-      <div class="menu-card">
-
-        <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="menu-content">
-
-          <h3>Jollof + Chicken</h3>
-
-          <p>
-            Smoky jollof rice paired with juicy grilled
-            chicken for the perfect weekend meal.
-          </p>
-
-          <div class="menu-bottom">
-
-            <div class="price">R55</div>
-
-            <a href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%2C%20I%20want%20to%20order%20Jollof%20%2B%20Chicken"
-            target="_blank"
-            class="buy-btn">
-            Order
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- ITEM 4 -->
-
-      <div class="menu-card">
-
-        <img src="https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="menu-content">
-
-          <h3>Friday Fire 🔥</h3>
-
-          <p>
-            Spicy grilled chicken with pap or rice,
-            coleslaw or veggies.
-          </p>
-
-          <div class="menu-bottom">
-
-            <div class="price">R58</div>
-
-            <a href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%2C%20I%20want%20to%20order%20Friday%20Fire"
-            target="_blank"
-            class="buy-btn">
-            Order
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- ITEM 5 -->
-
-      <div class="menu-card">
-
-        <img src="https://images.unsplash.com/photo-1608039755401-742074f0548d?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="menu-content">
-
-          <h3>Street Chicken 🍗</h3>
-
-          <p>
-            Crispy and juicy street-style chicken pieces
-            made fresh daily.
-          </p>
-
-          <div class="menu-bottom">
-
-            <div class="price">
-              R20 - R50
-            </div>
-
-            <a href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%2C%20I%20want%20to%20order%20Street%20Chicken"
-            target="_blank"
-            class="buy-btn">
-            Order
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- ITEM 6 -->
-
-      <div class="menu-card">
-
-        <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="menu-content">
-
-          <h3>Sunday Jollof Combo ⭐</h3>
-
-          <p>
-            Premium Sunday special with roasted veggies
-            and optional drink bundle.
-          </p>
-
-          <div class="menu-bottom">
-
-            <div class="price">R68</div>
-
-            <a href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%2C%20I%20want%20to%20order%20Sunday%20Jollof%20Combo"
-            target="_blank"
-            class="buy-btn">
-            Order
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- WEEKLY MENU -->
-
-  <section class="weekly">
-
-    <div class="section-title">
-      <h2>Weekly Specials</h2>
-      <p>Your favourite meals every week.</p>
-    </div>
-
-    <div class="weekly-grid">
-
-      <div class="day-box">
-        <h3>Monday / Wednesday</h3>
-        <p>Pap + Beef Stew</p>
-      </div>
-
-      <div class="day-box">
-        <h3>Tuesday / Thursday</h3>
-        <p>Rice + Chicken Stew</p>
-      </div>
-
-      <div class="day-box">
-        <h3>Friday Street 🔥</h3>
-        <p>Street Chicken Specials</p>
-      </div>
-
-      <div class="day-box">
-        <h3>Saturday</h3>
-        <p>Jollof + Chicken</p>
-      </div>
-
-      <div class="day-box">
-        <h3>Sunday Special ⭐</h3>
-        <p>Jollof Combo + Veggies</p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- CTA -->
-
-  <section class="cta">
-
-    <h2>Hungry Yet?</h2>
-
-    <p>
-      Place your order directly on WhatsApp
-      and enjoy authentic African flavour today.
-    </p>
-
-    <a href="https://wa.me/27673523983"
-    target="_blank">
-    Order On WhatsApp
-    </a>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <h3>Kaya Kitchen</h3>
-
-    <p>2 Fifth Street, Randfontein</p>
-    <p>Fresh Food. Big Portions. Affordable Prices.</p>
-
-    <div class="socials">
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <a href="#">TikTok</a>
-    </div>
-
-  </footer>
+</script>
 
 </body>
 </html>
