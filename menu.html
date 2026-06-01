@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaya Kitchen PRO Menu</title>
+<title>Kaya Kitchen PRO MAX Menu</title>
 
 <style>
 *{
@@ -16,7 +16,7 @@ scroll-behavior:smooth;
 
 body{
 background:#f6f6f6;
-padding-bottom:90px;
+padding-bottom:100px;
 }
 
 /* HEADER */
@@ -58,7 +58,31 @@ text-align:center;
 
 .hero h1{
 font-size:22px;
-line-height:1.3;
+}
+
+.hero p{
+font-size:13px;
+margin-top:6px;
+opacity:0.9;
+}
+
+/* DEAL BAR */
+.deal{
+margin:12px;
+padding:14px;
+border-radius:14px;
+background:linear-gradient(90deg,#ff512f,#dd2476);
+color:#fff;
+text-align:center;
+font-weight:bold;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.02);}
+100%{transform:scale(1);}
 }
 
 /* GRID */
@@ -69,26 +93,39 @@ gap:14px;
 padding:14px;
 }
 
+/* CARD */
 .card{
 background:#fff;
 border-radius:16px;
 overflow:hidden;
 box-shadow:0 6px 15px rgba(0,0,0,0.08);
+transition:0.2s;
+position:relative;
+}
+
+.card:hover{
+transform:scale(1.02);
+}
+
+.img{
+width:100%;
+height:120px;
+object-fit:cover;
 }
 
 .card-body{
 padding:12px;
 }
 
-.card h3{
+h3{
 font-size:15px;
 }
 
 .price{
 color:#25D366;
 font-weight:bold;
-margin:6px 0;
 font-size:13px;
+margin:6px 0;
 }
 
 .desc{
@@ -97,41 +134,31 @@ color:#555;
 margin-bottom:10px;
 }
 
-/* CONTROLS */
-.controls{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:8px;
+/* BADGE */
+.badge{
+position:absolute;
+top:10px;
+left:10px;
+background:#ff3b30;
+color:#fff;
+font-size:11px;
+padding:4px 8px;
+border-radius:8px;
 }
 
-.qty{
-display:flex;
-align-items:center;
-gap:8px;
-}
-
-.btn{
-width:28px;
-height:28px;
-border:none;
-border-radius:6px;
-background:#eee;
-font-size:16px;
-}
-
-.add{
+/* BUTTON */
+.order{
 width:100%;
-padding:8px;
+padding:10px;
 background:#111;
 color:#fff;
 border:none;
 border-radius:10px;
-margin-top:6px;
+font-weight:bold;
 cursor:pointer;
 }
 
-/* FLOAT CART BAR */
+/* FLOAT BAR */
 .cartBar{
 position:fixed;
 bottom:0;
@@ -186,86 +213,64 @@ color:#666;
 <body>
 
 <header>
-<div class="logo">Kaya Kitchen PRO</div>
-<a class="back" href="index.html">← Back</a>
+<div class="logo">Kaya Kitchen PRO MAX</div>
+<a class="back" href="index.html">← Home</a>
 </header>
 
 <div class="hero">
-<h1>Fresh West Rand Food<br>Order Like Uber Eats</h1>
+<h1>Order Fresh Meals in Seconds 🚀</h1>
+<p>West Rand Delivery • No App Needed • WhatsApp Orders</p>
 </div>
 
+<!-- 🔥 DEAL ENGINE -->
+<div class="deal" id="dealBox">
+🔥 TODAY ONLY: Buy 2 meals & save R10 💥 Limited Time Offer
+</div>
+
+<!-- MENU GRID (BEST SELLERS FIRST) -->
 <div class="grid">
 
-<!-- ITEM TEMPLATE -->
-
 <div class="card">
+<div class="badge">BEST SELLER</div>
+<img class="img" src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
 <div class="card-body">
-
 <h3>Pap + Beef Stew</h3>
 <div class="price">R40</div>
-<div class="desc">Traditional comfort meal</div>
-
-<div class="controls">
-<div class="qty">
-<button class="btn" onclick="changeQty(this,-1)">-</button>
-<span>1</span>
-<button class="btn" onclick="changeQty(this,1)">+</button>
-</div>
-</div>
-
-<button class="add" onclick="addItem(this,'Pap + Beef Stew',40)">Add to Cart</button>
+<div class="desc">Classic comfort meal</div>
+<button class="order" onclick="order('Pap + Beef Stew',40)">ORDER NOW</button>
 </div>
 </div>
 
 <div class="card">
+<div class="badge">HOT</div>
+<img class="img" src="https://images.unsplash.com/photo-1605475127649-0f1c3f0f0c5a">
 <div class="card-body">
 <h3>Rice + Chicken Stew</h3>
 <div class="price">R40</div>
-<div class="desc">Soft rice with chicken gravy</div>
-
-<div class="controls">
-<div class="qty">
-<button class="btn" onclick="changeQty(this,-1)">-</button>
-<span>1</span>
-<button class="btn" onclick="changeQty(this,1)">+</button>
-</div>
-</div>
-
-<button class="add" onclick="addItem(this,'Rice + Chicken Stew',40)">Add to Cart</button>
+<div class="desc">Soft rice with rich gravy</div>
+<button class="order" onclick="order('Rice + Chicken Stew',40)">ORDER NOW</button>
 </div>
 </div>
 
 <div class="card">
+<div class="badge">TRENDING</div>
+<img class="img" src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143">
 <div class="card-body">
 <h3>Jollof + Chicken</h3>
 <div class="price">R55</div>
-
-<div class="controls">
-<div class="qty">
-<button class="btn" onclick="changeQty(this,-1)">-</button>
-<span>1</span>
-<button class="btn" onclick="changeQty(this,1)">+</button>
-</div>
-</div>
-
-<button class="add" onclick="addItem(this,'Jollof + Chicken',55)">Add to Cart</button>
+<div class="desc">Spicy African flavor hit</div>
+<button class="order" onclick="order('Jollof + Chicken',55)">ORDER NOW</button>
 </div>
 </div>
 
 <div class="card">
+<div class="badge">LIMITED</div>
+<img class="img" src="https://images.unsplash.com/photo-1601050690597-df0568f70950">
 <div class="card-body">
 <h3>Friday Fire 🔥</h3>
 <div class="price">R58</div>
-
-<div class="controls">
-<div class="qty">
-<button class="btn" onclick="changeQty(this,-1)">-</button>
-<span>1</span>
-<button class="btn" onclick="changeQty(this,1)">+</button>
-</div>
-</div>
-
-<button class="add" onclick="addItem(this,'Friday Fire Meal',58)">Add to Cart</button>
+<div class="desc">Weekend special loaded meal</div>
+<button class="order" onclick="order('Friday Fire Meal',58)">ORDER NOW</button>
 </div>
 </div>
 
@@ -279,13 +284,13 @@ color:#666;
 <div class="total" id="total">Total: R0</div>
 <div class="small">Delivery: R10 (Randfontein / West Rand)</div>
 
-<a class="cartBtn" id="wa" target="_blank">Checkout WhatsApp</a>
+<a class="cartBtn" id="wa" target="_blank">Send WhatsApp Order</a>
 </div>
 
 <!-- FLOAT BAR -->
 <div class="cartBar">
 <div onclick="togglePanel()">🛒 Cart (<span id="count">0</span>)</div>
-<div class="cartBtn" onclick="togglePanel()">View Order</div>
+<div class="cartBtn" onclick="togglePanel()">Checkout</div>
 </div>
 
 <script>
@@ -293,29 +298,23 @@ color:#666;
 let cart=[];
 let total=0;
 
-function changeQty(btn,val){
-let span=btn.parentElement.querySelector("span");
-let qty=parseInt(span.innerText);
-qty=Math.max(1,qty+val);
-span.innerText=qty;
-}
+/* ORDER FUNCTION */
+function order(name,price){
 
-function addItem(btn,name,price){
-let qty=parseInt(btn.parentElement.querySelector(".qty span").innerText);
-
-cart.push({name,qty,price});
-
-total += price * qty;
+cart.push({name,price});
+total += price;
 
 document.getElementById("count").innerText=cart.length;
 update();
+togglePanel();
 }
 
+/* UPDATE CART */
 function update(){
 
 let text="";
 cart.forEach(i=>{
-text+=`• ${i.name} x${i.qty} - R${i.price*i.qty}<br>`;
+text+=`• ${i.name} - R${i.price}<br>`;
 });
 
 let delivery=10;
@@ -324,10 +323,10 @@ let final=total+delivery;
 document.getElementById("items").innerHTML=text;
 document.getElementById("total").innerText="Total: R"+final;
 
-let msg="Hello Kaya Kitchen 👋%0AOrder:%0A";
+let msg="Hello Kaya Kitchen 👋%0A%0AI want to order:%0A";
 
 cart.forEach(i=>{
-msg+=`${i.name} x${i.qty} = R${i.price*i.qty}%0A`;
+msg+=`• ${i.name} = R${i.price}%0A`;
 });
 
 msg+=`%0ADelivery: R10%0ATotal: R${final}`;
@@ -336,6 +335,7 @@ document.getElementById("wa").href=
 "https://wa.me/27700000000?text="+msg;
 }
 
+/* PANEL */
 function togglePanel(){
 document.getElementById("panel").classList.toggle("active");
 }
