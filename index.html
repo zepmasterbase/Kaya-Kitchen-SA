@@ -3,257 +3,346 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaya Kitchen | Real South African Food</title>
+<title>Kaya Kitchen | Order Food Instantly</title>
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
-    body {
-        background: #ffffff;
-        color: #222;
-        line-height: 1.6;
-    }
+body{
+    background:#f7f7f7;
+    overflow-x:hidden;
+}
 
-    /* HEADER */
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 30px;
-        border-bottom: 1px solid #eee;
-        position: sticky;
-        top: 0;
-        background: #fff;
-        z-index: 1000;
-    }
+/* ================= HEADER ================= */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 20px;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+    border-bottom:1px solid #eee;
+}
 
-    .logo {
-        font-size: 18px;
-        font-weight: bold;
-        letter-spacing: 1px;
-    }
+.logo{
+    font-weight:800;
+    font-size:18px;
+}
 
-    nav {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
+nav a{
+    margin-left:10px;
+    text-decoration:none;
+    color:#222;
+    font-size:14px;
+}
 
-    nav a {
-        text-decoration: none;
-        color: #222;
-        font-size: 14px;
-        padding: 6px 12px;
-        border-radius: 20px;
-        transition: 0.3s ease;
-    }
+.about-btn{
+    border:1px solid #222;
+    padding:6px 12px;
+    border-radius:20px;
+}
 
-    nav a:hover {
-        background: #f3f3f3;
-    }
+/* ================= HERO (PARALLAX VIDEO) ================= */
+.hero{
+    height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    overflow:hidden;
+}
 
-    .about-btn {
-        border: 1px solid #222;
-    }
+.hero video{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
 
-    /* HERO */
-    .hero {
-        text-align: center;
-        padding: 90px 20px 40px;
-        animation: fadeUp 1s ease;
-    }
+.overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.55);
+    z-index:-1;
+}
 
-    .hero h1 {
-        font-size: 42px;
-        margin-bottom: 15px;
-    }
+.hero h1{
+    font-size:48px;
+    margin-bottom:10px;
+}
 
-    .hero p {
-        max-width: 650px;
-        margin: 0 auto 25px;
-        color: #555;
-        font-size: 17px;
-    }
+.hero p{
+    color:#ddd;
+}
 
-    .cta {
-        display: inline-block;
-        background: #25D366;
-        color: #fff;
-        padding: 12px 26px;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: 0.3s ease;
-    }
+.hero-btn{
+    margin-top:20px;
+    padding:12px 25px;
+    background:#25D366;
+    color:#fff;
+    border-radius:30px;
+    display:inline-block;
+    text-decoration:none;
+}
 
-    .cta:hover {
-        transform: scale(1.05);
-        background: #1ebe5d;
-    }
+/* ================= CATEGORIES (HORIZONTAL SWIPE) ================= */
+.categories{
+    display:flex;
+    overflow-x:auto;
+    gap:10px;
+    padding:20px;
+    background:#fff;
+    scroll-snap-type:x mandatory;
+}
 
-    /* SECTION TITLE */
-    .section-title {
-        text-align: center;
-        font-size: 28px;
-        margin: 40px 0 20px;
-    }
+.cat{
+    flex:0 0 auto;
+    padding:10px 18px;
+    background:#f1f1f1;
+    border-radius:20px;
+    font-size:14px;
+    white-space:nowrap;
+    scroll-snap-align:start;
+    cursor:pointer;
+    transition:0.3s;
+}
 
-    /* MENU GRID */
-    .menu {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-        padding: 20px 40px 60px;
-        max-width: 1100px;
-        margin: auto;
-    }
+.cat:hover{
+    background:#222;
+    color:#fff;
+}
 
-    .card {
-        background: #fff;
-        border-radius: 16px;
-        padding: 20px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        transition: 0.3s ease;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeUp 0.8s ease forwards;
-    }
+/* ================= FOOD CARDS ================= */
+.section-title{
+    padding:20px;
+    font-size:22px;
+    font-weight:700;
+}
 
-    .card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-    }
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:15px;
+    padding:10px 20px 80px;
+}
 
-    .card h3 {
-        margin-bottom: 10px;
-        font-size: 18px;
-    }
+.card{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
 
-    .card p {
-        font-size: 14px;
-        color: #555;
-        margin-bottom: 10px;
-    }
+.card:hover{
+    transform:translateY(-5px);
+}
 
-    .price {
-        font-weight: bold;
-        color: #111;
-    }
+.card img{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+}
 
-    .order {
-        margin-top: 12px;
-        display: inline-block;
-        font-size: 13px;
-        padding: 8px 14px;
-        background: #111;
-        color: #fff;
-        border-radius: 20px;
-        text-decoration: none;
-        transition: 0.3s;
-    }
+.card-body{
+    padding:10px;
+}
 
-    .order:hover {
-        background: #25D366;
-    }
+.card h3{
+    font-size:14px;
+}
 
-    /* FOOTER */
-    footer {
-        text-align: center;
-        padding: 30px;
-        border-top: 1px solid #eee;
-        font-size: 13px;
-        color: #777;
-    }
+.price{
+    color:#25D366;
+    font-weight:bold;
+    margin:5px 0;
+}
 
-    /* ANIMATION */
-    @keyframes fadeUp {
-        from {
-            opacity: 0;
-            transform: translateY(25px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
+.add-btn{
+    width:100%;
+    padding:8px;
+    border:none;
+    background:#111;
+    color:#fff;
+    border-radius:10px;
+    cursor:pointer;
+}
 
-    /* DELAY CARDS */
-    .card:nth-child(1) { animation-delay: 0.1s; }
-    .card:nth-child(2) { animation-delay: 0.2s; }
-    .card:nth-child(3) { animation-delay: 0.3s; }
-    .card:nth-child(4) { animation-delay: 0.4s; }
-    .card:nth-child(5) { animation-delay: 0.5s; }
-    .card:nth-child(6) { animation-delay: 0.6s; }
+/* ================= FLOATING CART ================= */
+.cart{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:#fff;
+    padding:15px 18px;
+    border-radius:50px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
 
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-        .hero h1 { font-size: 30px; }
-        header { padding: 15px; }
-    }
+/* CART PANEL */
+.cart-panel{
+    position:fixed;
+    right:-100%;
+    top:0;
+    width:300px;
+    height:100%;
+    background:#fff;
+    box-shadow:-5px 0 20px rgba(0,0,0,0.2);
+    padding:20px;
+    transition:0.4s;
+    z-index:2000;
+}
 
+.cart-panel.active{
+    right:0;
+}
+
+.cart-panel h2{
+    margin-bottom:10px;
+}
+
+#items{
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.whatsapp-btn{
+    display:block;
+    text-align:center;
+    padding:12px;
+    background:#25D366;
+    color:#fff;
+    border-radius:10px;
+    text-decoration:none;
+}
 </style>
 </head>
 
 <body>
 
+<!-- HERO VIDEO -->
+<section class="hero">
+    <video autoplay muted loop>
+        <source src="https://cdn.coverr.co/videos/coverr-food-preparation-5823/1080p.mp4">
+    </video>
+    <div class="overlay"></div>
+
+    <div>
+        <h1>Order Real Food Instantly</h1>
+        <p>Kaya Kitchen • Randfontein</p>
+        <a class="hero-btn" href="#menu">View Menu</a>
+    </div>
+</section>
+
+<!-- HEADER -->
 <header>
     <div class="logo">Kaya Kitchen</div>
-
     <nav>
         <a href="menu.html">Menu</a>
         <a href="gallery.html">Gallery</a>
-        <a href="about.html" class="about-btn">About</a>
+        <a class="about-btn" href="about.html">About</a>
     </nav>
 </header>
 
-<section class="hero">
-    <h1>Real South African Food</h1>
-    <p>Fresh, local and cooked with love in Randfontein. Taste the tradition in every bite.</p>
-    <a class="cta" href="https://wa.me/27700000000" target="_blank">Order on WhatsApp</a>
-</section>
+<!-- CATEGORIES -->
+<div class="categories">
+    <div class="cat">All</div>
+    <div class="cat">Chicken</div>
+    <div class="cat">Pap Meals</div>
+    <div class="cat">Burgers</div>
+    <div class="cat">Street Food</div>
+    <div class="cat">Specials</div>
+</div>
 
-<h2 class="section-title">Popular Menu</h2>
+<!-- MENU -->
+<div class="section-title">Popular Meals</div>
 
-<section class="menu">
+<div class="grid" id="menu">
 
     <div class="card">
-        <h3>Pap & Beef Stew</h3>
-        <p>Traditional soft pap served with rich beef stew.</p>
-        <div class="price">R45</div>
-        <a class="order" href="https://wa.me/27700000000">Order</a>
+        <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+        <div class="card-body">
+            <h3>Grilled Chicken</h3>
+            <div class="price">R60</div>
+            <button class="add-btn" onclick="addItem('Grilled Chicken')">Add</button>
+        </div>
     </div>
 
     <div class="card">
-        <h3>Grilled Chicken</h3>
-        <p>Juicy flame-grilled chicken with spices.</p>
-        <div class="price">R60</div>
-        <a class="order" href="https://wa.me/27700000000">Order</a>
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947">
+        <div class="card-body">
+            <h3>Pap & Beef Stew</h3>
+            <div class="price">R45</div>
+            <button class="add-btn" onclick="addItem('Pap & Beef Stew')">Add</button>
+        </div>
     </div>
 
     <div class="card">
-        <h3>Shawarma Wrap</h3>
-        <p>Street-style chicken shawarma with sauce.</p>
-        <div class="price">R50</div>
-        <a class="order" href="https://wa.me/27700000000">Order</a>
+        <img src="https://images.unsplash.com/photo-1606756790138-261d2b21cd75">
+        <div class="card-body">
+            <h3>Street Burger</h3>
+            <div class="price">R40</div>
+            <button class="add-btn" onclick="addItem('Street Burger')">Add</button>
+        </div>
     </div>
 
-    <div class="card">
-        <h3>Boerewors Roll</h3>
-        <p>Grilled boerewors in fresh bread roll.</p>
-        <div class="price">R35</div>
-        <a class="order" href="https://wa.me/27700000000">Order</a>
-    </div>
+</div>
 
-</section>
+<!-- FLOATING CART -->
+<div class="cart" onclick="toggleCart()">
+🛒 <span id="count">0</span>
+</div>
 
-<footer>
-    © 2026 Kaya Kitchen | Randfontein, South Africa
-</footer>
+<!-- CART PANEL -->
+<div class="cart-panel" id="cartPanel">
+    <h2>Your Order</h2>
+    <div id="items"></div>
+
+    <a class="whatsapp-btn" id="whatsappLink" href="#" target="_blank">
+        Order via WhatsApp
+    </a>
+</div>
+
+<script>
+let cart = [];
+
+function addItem(item){
+    cart.push(item);
+    document.getElementById("count").innerText = cart.length;
+    updateCart();
+}
+
+function updateCart(){
+    document.getElementById("items").innerHTML =
+        cart.map(i => "• " + i).join("<br>");
+
+    let message = "Hello Kaya Kitchen, I want to order:%0A" + cart.join("%0A");
+    document.getElementById("whatsappLink").href =
+        "https://wa.me/27700000000?text=" + message;
+}
+
+function toggleCart(){
+    document.getElementById("cartPanel").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
