@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us | Kaya Kitchen</title>
+<title>Kaya Kitchen | About Us</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -14,370 +14,284 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#0f0f0f;
-color:white;
-line-height:1.6;
+background:#0b0b0b;
+color:#fff;
 }
 
-/* NAVBAR */
-
-.navbar{
+/* NAV */
+nav{
+width:100%;
+padding:16px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 8%;
-background:#111;
-position:sticky;
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(10px);
+position:fixed;
 top:0;
 z-index:1000;
-border-bottom:1px solid rgba(255,255,255,0.08);
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
-font-size:2rem;
-font-weight:700;
-color:#ff9800;
+font-size:20px;
+font-weight:800;
+color:#ff9d00;
 }
 
 .logo span{
 color:#fff;
 }
 
-.nav-links{
-display:flex;
-gap:25px;
-}
-
-.nav-links a{
+nav a{
+color:#fff;
 text-decoration:none;
-color:white;
-font-weight:500;
+margin-left:18px;
+font-size:14px;
 transition:0.3s;
 }
 
-.nav-links a:hover{
-color:#ff9800;
+nav a:hover{
+color:#ff9d00;
+}
+
+.order-btn{
+background:#25D366;
+padding:10px 18px;
+border-radius:30px;
+font-weight:600;
 }
 
 /* HERO */
-
 .hero{
-height:60vh;
+margin-top:80px;
+padding:80px 8% 60px;
+text-align:center;
 background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80');
+linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)),
+url('https://images.unsplash.com/photo-1600891964092-4316c288032e');
 background-size:cover;
 background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
 }
 
-.hero-content h1{
-font-size:4rem;
-margin-bottom:15px;
-color:#ff9800;
+.hero h1{
+font-size:44px;
+color:#ff9d00;
 }
 
-.hero-content p{
-max-width:700px;
-font-size:1.1rem;
+.hero p{
 color:#ddd;
+margin-top:15px;
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
+line-height:1.7;
 }
 
-/* ABOUT SECTION */
-
-.about-section{
-padding:80px 8%;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:50px;
-align-items:center;
+/* SECTIONS */
+.section{
+padding:60px 8%;
 }
 
-.about-image img{
-width:100%;
-border-radius:20px;
-box-shadow:0 10px 40px rgba(0,0,0,0.5);
+.section h2{
+color:#ff9d00;
+font-size:30px;
+margin-bottom:15px;
 }
 
-.about-text h2{
-font-size:2.5rem;
-margin-bottom:20px;
-color:#ff9800;
-}
-
-.about-text p{
-margin-bottom:18px;
+.section p{
 color:#ccc;
-font-size:1rem;
+line-height:1.8;
 }
 
-/* HIGHLIGHTS */
-
-.highlights{
-padding:70px 8%;
-background:#151515;
-}
-
-.highlights h2{
-text-align:center;
-font-size:2.5rem;
-margin-bottom:50px;
-color:#ff9800;
-}
-
-.highlight-grid{
+/* INFO BOXES */
+.grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
+margin-top:30px;
 }
 
-.card{
-background:#1d1d1d;
-padding:30px;
-border-radius:18px;
-transition:0.3s;
+.box{
+background:#151515;
+padding:25px;
+border-radius:16px;
 border:1px solid rgba(255,255,255,0.05);
 }
 
-.card:hover{
-transform:translateY(-10px);
-border-color:#ff9800;
+.box h3{
+color:#ff9d00;
+margin-bottom:10px;
 }
 
-.card h3{
-margin-bottom:15px;
-color:#ff9800;
-font-size:1.3rem;
-}
-
-.card p{
-color:#bbb;
-}
-
-/* LOCATION */
-
-.location{
-padding:80px 8%;
+/* CTA */
+.cta{
 text-align:center;
+padding:60px 8%;
+background:#111;
 }
 
-.location h2{
-font-size:2.5rem;
-margin-bottom:20px;
-color:#ff9800;
+.cta h2{
+font-size:32px;
+margin-bottom:10px;
 }
 
-.location p{
-color:#ccc;
-margin-bottom:30px;
-font-size:1.1rem;
-}
-
-.whatsapp-btn{
+.cta a{
 display:inline-block;
-padding:15px 35px;
+margin-top:20px;
 background:#25D366;
-color:white;
+padding:14px 30px;
+border-radius:40px;
+color:#fff;
+font-weight:700;
 text-decoration:none;
-border-radius:50px;
-font-weight:600;
-transition:0.3s;
-}
-
-.whatsapp-btn:hover{
-transform:scale(1.05);
 }
 
 /* FOOTER */
-
 footer{
-padding:30px 8%;
-background:#111;
 text-align:center;
-color:#888;
-margin-top:50px;
-border-top:1px solid rgba(255,255,255,0.08);
+padding:40px 8%;
+background:#090909;
+border-top:1px solid rgba(255,255,255,0.05);
 }
 
-.socials{
-margin-top:10px;
+footer h3{
+color:#ff9d00;
+margin-bottom:10px;
 }
 
-.socials a{
-color:#ff9800;
-text-decoration:none;
-font-weight:600;
+footer p{
+color:#aaa;
+font-size:13px;
 }
 
-/* RESPONSIVE */
-
+/* MOBILE */
 @media(max-width:768px){
-
-.hero-content h1{
-font-size:2.8rem;
+.hero h1{
+font-size:30px;
 }
-
-.navbar{
-flex-direction:column;
-gap:15px;
-}
-
-.nav-links{
-flex-wrap:wrap;
-justify-content:center;
-}
-
 }
 
 </style>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
+<nav>
 
-<nav class="navbar">
+<div class="logo">Kaya <span>Kitchen</span></div>
 
-<div class="logo">
-Kaya <span>Kitchen</span>
-</div>
-
-<div class="nav-links">
+<div>
 <a href="index.html">Home</a>
 <a href="menu.html">Menu</a>
 <a href="gallery.html">Gallery</a>
 <a href="about.html">About</a>
+<a href="https://wa.me/27673523983" class="order-btn">Order</a>
 </div>
 
 </nav>
 
 <!-- HERO -->
+<div class="hero">
 
-<section class="hero">
-
-<div class="hero-content">
 <h1>About Kaya Kitchen</h1>
 
 <p>
-Authentic South African flavour served fresh in the heart of Randfontein.
-From hearty local meals to street-style favourites, Kaya Kitchen brings people together through food.
+Kaya Kitchen is a proudly African food brand based in Randfontein,
+bringing bold street flavours, home-style meals, and affordable comfort food
+to the West Rand community.
 </p>
 
 </div>
 
-</section>
-
-<!-- ABOUT -->
-
-<section class="about-section">
-
-<div class="about-image">
-<img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80">
-</div>
-
-<div class="about-text">
+<!-- STORY -->
+<div class="section">
 
 <h2>Our Story</h2>
 
 <p>
-Kaya Kitchen was built with one mission — to serve delicious, affordable, and authentic meals that feel like home.
-</p>
-
-<p>
-Located in Randfontein and proudly serving the West Rand region of South Africa, we specialize in flavour-packed African meals made with passion and consistency.
-</p>
-
-<p>
-Whether you're craving pap & stew, spicy street chicken, or rich jollof rice, every plate is prepared with bold local flavour and quality ingredients.
-</p>
-
-<p>
-We believe food should be affordable, satisfying, and unforgettable.
+We started Kaya Kitchen with one goal — to serve real African food that tastes like home.
+From pap & stew to jollof and grilled chicken, every meal is prepared fresh daily with love,
+flavour, and passion.
 </p>
 
 </div>
 
-</section>
+<!-- INFO -->
+<div class="section">
 
-<!-- HIGHLIGHTS -->
+<h2>Why Customers Love Us</h2>
 
-<section class="highlights">
+<div class="grid">
 
-<h2>Why Customers Love Kaya Kitchen</h2>
-
-<div class="highlight-grid">
-
-<div class="card">
+<div class="box">
 <h3>🔥 Fresh Daily Meals</h3>
-<p>
-Our meals are prepared fresh every day with authentic home-style recipes.
-</p>
+<p>Cooked every day with quality ingredients and bold African taste.</p>
 </div>
 
-<div class="card">
-<h3>🍗 Street Food Energy</h3>
-<p>
-From spicy chicken to loaded combos, we bring township street flavour to every order.
-</p>
-</div>
-
-<div class="card">
+<div class="box">
 <h3>💰 Affordable Pricing</h3>
-<p>
-Quality meals at prices designed for workers, students, and families.
-</p>
+<p>We keep our meals budget-friendly without compromising flavour.</p>
 </div>
 
-<div class="card">
-<h3>🚀 Quick WhatsApp Orders</h3>
-<p>
-Simple ordering directly through WhatsApp for fast and easy service.
-</p>
+<div class="box">
+<h3>🍲 Big Portions</h3>
+<p>Our meals are filling, satisfying, and made for real hunger.</p>
 </div>
 
 </div>
 
-</section>
+</div>
 
 <!-- LOCATION -->
+<div class="section">
 
-<section class="location">
-
-<h2>Visit Kaya Kitchen</h2>
-
-<p>
-📍 2 Fifth Street, Randfontein, South Africa
-</p>
+<h2>Location</h2>
 
 <p>
-Serving the entire West Rand community with authentic flavour and fast service.
+📍 2 Fifth Street, Randfontein, West Rand, South Africa
 </p>
 
-<a href="https://wa.me/27673523983" class="whatsapp-btn">
-Order on WhatsApp
-</a>
+<p style="margin-top:10px;">
+We proudly serve the entire Randfontein and surrounding West Rand communities with fast, fresh food delivery via WhatsApp.
+</p>
 
-</section>
+</div>
+
+<!-- HOURS -->
+<div class="section">
+
+<h2>Opening Hours</h2>
+
+<p>
+Friday – Sunday: 11:00 AM – 9:00 PM<br>
+Monday – Thursday: Closed / Pre-orders only
+</p>
+
+</div>
+
+<!-- CTA -->
+<div class="cta">
+
+<h2>Hungry Already?</h2>
+
+<p>Order now and enjoy real African flavour delivered fresh.</p>
+
+<a href="https://wa.me/27673523983">Order On WhatsApp</a>
+
+</div>
 
 <!-- FOOTER -->
-
 <footer>
 
-<p>
-© 2026 Kaya Kitchen — All Rights Reserved
-</p>
-
-<div class="socials">
-<a href="#">
-@kayakitchensa
-</a>
-</div>
+<h3>Kaya Kitchen</h3>
+<p>2 Fifth Street, Randfontein</p>
+<p>Real Food • Real Flavour • Real Africa</p>
 
 </footer>
 
