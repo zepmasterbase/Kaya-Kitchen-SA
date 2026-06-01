@@ -52,12 +52,12 @@ font-weight:bold;
 
 .hero{
 margin-top:65px;
-padding:45px 20px;
+padding:50px 20px;
 text-align:center;
 color:#fff;
 
 background:
-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
 url('https://images.unsplash.com/photo-1504674900247-0877df9cc836');
 
 background-size:cover;
@@ -65,14 +65,14 @@ background-position:center;
 }
 
 .hero h1{
-font-size:28px;
+font-size:30px;
 line-height:1.3;
 margin-bottom:10px;
 }
 
 .hero p{
 font-size:14px;
-opacity:0.9;
+opacity:0.95;
 }
 
 /* STATUS */
@@ -84,14 +84,11 @@ border-radius:14px;
 font-size:14px;
 font-weight:bold;
 text-align:center;
-}
-
-.open{
 background:#eafff1;
 color:#25D366;
 }
 
-/* TODAY SPECIAL */
+/* TODAY */
 
 .today{
 background:#fff;
@@ -103,23 +100,23 @@ box-shadow:0 5px 15px rgba(0,0,0,0.06);
 
 .today h2{
 margin-bottom:10px;
-font-size:20px;
 }
 
 .today-day{
 color:#25D366;
 font-size:13px;
 font-weight:bold;
-margin-bottom:15px;
+margin-bottom:14px;
 }
 
 .today-meal{
 background:#f7f7f7;
 padding:15px;
 border-radius:14px;
+font-size:14px;
 }
 
-/* WEEKLY */
+/* SCHEDULE */
 
 .schedule{
 padding:15px;
@@ -138,6 +135,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 box-shadow:0 5px 15px rgba(0,0,0,0.05);
+font-size:13px;
 }
 
 .day.active{
@@ -165,12 +163,12 @@ position:relative;
 }
 
 .card:hover{
-transform:translateY(-3px);
+transform:translateY(-4px);
 }
 
 .card img{
 width:100%;
-height:150px;
+height:160px;
 object-fit:cover;
 }
 
@@ -187,7 +185,7 @@ font-weight:bold;
 }
 
 .unavailable{
-opacity:0.45;
+opacity:0.4;
 filter:grayscale(100%);
 }
 
@@ -197,19 +195,20 @@ padding:14px;
 
 .body h3{
 font-size:16px;
-margin-bottom:5px;
+margin-bottom:6px;
 }
 
 .price{
 color:#25D366;
+font-size:17px;
 font-weight:bold;
 margin-bottom:8px;
 }
 
 .desc{
 font-size:12px;
-line-height:1.5;
 color:#666;
+line-height:1.5;
 margin-bottom:12px;
 }
 
@@ -223,13 +222,13 @@ margin-bottom:12px;
 }
 
 .qty button{
-width:28px;
-height:28px;
+width:30px;
+height:30px;
 border:none;
 border-radius:8px;
 background:#f0f0f0;
-cursor:pointer;
 font-size:16px;
+cursor:pointer;
 }
 
 /* BUTTONS */
@@ -263,19 +262,43 @@ font-size:13px;
 font-weight:bold;
 }
 
-/* FAMILY DEAL */
+/* SUNDAY DEAL */
 
 .family{
 background:#111;
 color:#fff;
 margin:15px;
-padding:25px;
-border-radius:18px;
+padding:30px 22px;
+border-radius:20px;
 text-align:center;
 }
 
 .family h2{
-margin-bottom:10px;
+font-size:24px;
+margin-bottom:15px;
+}
+
+.family p{
+line-height:1.9;
+font-size:15px;
+}
+
+.family-price{
+font-size:35px;
+font-weight:800;
+color:#25D366;
+margin-top:18px;
+}
+
+.family-btn{
+display:inline-block;
+margin-top:18px;
+background:#25D366;
+color:#fff;
+padding:14px 24px;
+border-radius:14px;
+text-decoration:none;
+font-weight:bold;
 }
 
 /* FLOAT BAR */
@@ -300,6 +323,7 @@ padding:12px 16px;
 border-radius:12px;
 font-weight:bold;
 text-decoration:none;
+cursor:pointer;
 }
 
 /* PANEL */
@@ -322,13 +346,22 @@ box-shadow:-10px 0 20px rgba(0,0,0,0.1);
 right:0;
 }
 
+.close{
+margin-bottom:18px;
+display:inline-block;
+color:#25D366;
+font-weight:bold;
+cursor:pointer;
+}
+
 .item{
 padding:12px 0;
 border-bottom:1px solid #eee;
+font-size:13px;
 }
 
 .total{
-margin-top:15px;
+margin-top:20px;
 font-size:18px;
 font-weight:bold;
 }
@@ -345,14 +378,6 @@ font-weight:bold;
 color:#fff;
 }
 
-.close{
-margin-bottom:20px;
-display:inline-block;
-color:#25D366;
-font-weight:bold;
-cursor:pointer;
-}
-
 </style>
 </head>
 
@@ -366,13 +391,13 @@ cursor:pointer;
 <!-- HERO -->
 
 <div class="hero">
-<h1>Fresh Daily Meals<br>In Randfontein 🚀</h1>
-<p>Order instantly on WhatsApp • West Rand Delivery</p>
+<h1>Fresh African Meals<br>Delivered Fast 🚀</h1>
+<p>Order instantly on WhatsApp • Randfontein & West Rand</p>
 </div>
 
 <!-- STATUS -->
 
-<div class="status open" id="status">
+<div class="status">
 🟢 Kitchen Open Today
 </div>
 
@@ -388,7 +413,7 @@ cursor:pointer;
 
 </div>
 
-<!-- WEEKLY SCHEDULE -->
+<!-- WEEKLY -->
 
 <div class="schedule">
 
@@ -406,7 +431,7 @@ cursor:pointer;
 
 <div class="day" id="friday">
 <span>Friday Fire 🔥</span>
-<strong>Special Spicy Meals</strong>
+<strong>Spicy Meals</strong>
 </div>
 
 <div class="day" id="saturday">
@@ -416,7 +441,7 @@ cursor:pointer;
 
 <div class="day" id="sunday">
 <span>Sunday Family Day 👨‍👩‍👧</span>
-<strong>Family Combo Deals</strong>
+<strong>Shisanyama Combo</strong>
 </div>
 
 </div>
@@ -427,7 +452,7 @@ cursor:pointer;
 
 <!-- PAP -->
 
-<div class="card available mondayMeal">
+<div class="card mondayMeal">
 
 <span class="tag">Best Seller</span>
 
@@ -464,7 +489,7 @@ Quick WhatsApp Order
 
 <!-- RICE -->
 
-<div class="card available tuesdayMeal">
+<div class="card tuesdayMeal">
 
 <span class="tag">Fresh Daily</span>
 
@@ -501,7 +526,7 @@ Quick WhatsApp Order
 
 <!-- JOLLOF -->
 
-<div class="card available saturdayMeal">
+<div class="card saturdayMeal">
 
 <span class="tag">Launch Day 🚀</span>
 
@@ -538,23 +563,42 @@ Quick WhatsApp Order
 
 </div>
 
-<!-- FAMILY -->
+<!-- SUNDAY DEAL -->
 
 <div class="family">
 
-<h2>👨‍👩‍👧 Sunday Family Deal</h2>
+<h2>🔥 Sunday Shisanyama Combo</h2>
 
 <p>
-Bring family & get discount combo deals + free local delivery.
+
+🍗 Grilled Chicken<br>
+🌭 Boerewors<br>
+🍲 Pap<br>
+🌶 Chakalaka
+
 </p>
+
+<div class="family-price">
+R199
+</div>
+
+<p style="margin-top:10px;font-size:13px;">
+Perfect for family lunch Sundays in Randfontein 🍽
+</p>
+
+<a class="family-btn"
+href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20the%20Sunday%20Shisanyama%20Combo%20(R199)">
+Order Sunday Combo
+</a>
 
 </div>
 
-<!-- PANEL -->
+<!-- CART PANEL -->
 
 <div class="panel" id="panel">
 
-<div class="close" onclick="togglePanel()">
+<div class="close"
+onclick="togglePanel()">
 ← Continue Shopping
 </div>
 
@@ -584,16 +628,18 @@ Checkout on WhatsApp
 items
 </div>
 
-<a class="checkout"
+<div class="checkout"
 onclick="togglePanel()">
 View Order
-</a>
+</div>
 
 </div>
 
 <script>
 
 let cart = [];
+
+/* QTY */
 
 function changeQty(btn,val){
 
@@ -609,7 +655,7 @@ span.innerText = qty;
 
 }
 
-/* ADD TO CART */
+/* ADD */
 
 function addItem(btn,name,price){
 
@@ -641,7 +687,7 @@ togglePanel(true);
 
 }
 
-/* UPDATE CART */
+/* UPDATE */
 
 function updateCart(){
 
@@ -689,7 +735,8 @@ cart.length > 0 ? 15 : 0;
 let final =
 total + delivery;
 
-document.getElementById("items").innerHTML = html;
+document.getElementById("items").innerHTML =
+html;
 
 document.getElementById("count").innerText =
 cart.length;
@@ -731,7 +778,7 @@ updateCart();
 
 /* PANEL */
 
-function togglePanel(force = false){
+function togglePanel(force=false){
 
 const panel =
 document.getElementById("panel");
@@ -748,7 +795,7 @@ panel.classList.toggle("active");
 
 }
 
-/* DAILY MENU SYSTEM */
+/* DAILY MENU */
 
 const today =
 new Date().getDay();
@@ -818,7 +865,7 @@ todayDay.innerText =
 "Friday Fire 🔥";
 
 todayMeal.innerHTML =
-"<strong>Spicy Friday Meals Available</strong>";
+"<strong>Special spicy meals available today</strong>";
 
 document.getElementById("friday")
 .classList.add("active");
@@ -828,7 +875,7 @@ document.getElementById("friday")
 else if(today === 6){
 
 todayDay.innerText =
-"Saturday Launch Day 🚀";
+"Saturday Launch 🚀";
 
 todayMeal.innerHTML =
 "<strong>Jollof + Chicken — R55</strong>";
@@ -850,7 +897,7 @@ todayDay.innerText =
 "Sunday Family Day 👨‍👩‍👧";
 
 todayMeal.innerHTML =
-"<strong>Family Combo Deals Available</strong>";
+"<strong>🔥 Shisanyama Combo — R199</strong>";
 
 document.getElementById("sunday")
 .classList.add("active");
