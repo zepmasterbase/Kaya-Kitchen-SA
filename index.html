@@ -1,215 +1,733 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaya Kitchen PRO</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Kaya Kitchen | Startup Food Delivery</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-background:#f6f6f6;
-padding-bottom:90px;
+    background:#f7f7f5;
+    color:#111;
+    overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#111;
+    border-radius:20px;
 }
 
 /* HEADER */
+
 header{
-position:fixed;
-top:0;
-width:100%;
-background:#fff;
-padding:14px 16px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid #eee;
-z-index:1000;
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    backdrop-filter:blur(16px);
+    background:rgba(255,255,255,0.82);
+    border-bottom:1px solid rgba(0,0,0,0.06);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 6%;
 }
 
 .logo{
-font-weight:800;
-font-size:16px;
+    font-size:1.3rem;
+    font-weight:800;
+    letter-spacing:-1px;
 }
 
-.call{
-text-decoration:none;
-color:#25D366;
-font-weight:700;
-font-size:13px;
+.logo span{
+    color:#ff7a00;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#111;
+    font-size:0.92rem;
+    font-weight:500;
+    transition:0.3s ease;
+}
+
+nav a:hover{
+    color:#ff7a00;
+}
+
+.about-btn{
+    background:#111;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:30px;
 }
 
 /* HERO */
+
 .hero{
-margin-top:60px;
-padding:25px 18px;
-background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
-url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d');
-background-size:cover;
-background-position:center;
-color:#fff;
-text-align:center;
+    height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1974&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+    transform:scale(1.08);
+}
+
+.hero-content{
+    position:relative;
+    z-index:10;
+    text-align:center;
+    color:#fff;
+    width:90%;
+    max-width:850px;
+    animation:fadeUp 1s ease;
+}
+
+.hero-tag{
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.18);
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:50px;
+    margin-bottom:24px;
+    backdrop-filter:blur(12px);
+    font-size:0.92rem;
 }
 
 .hero h1{
-font-size:22px;
-line-height:1.3;
+    font-size:4.2rem;
+    line-height:1.05;
+    margin-bottom:22px;
+    font-weight:800;
 }
 
 .hero p{
-margin-top:8px;
-font-size:13px;
-opacity:0.9;
+    font-size:1.1rem;
+    line-height:1.8;
+    color:#ececec;
+    margin-bottom:38px;
 }
 
-/* CTA BUTTON */
-.cta{
-margin-top:12px;
-display:inline-block;
-background:#25D366;
-color:#fff;
-padding:12px 16px;
-border-radius:12px;
-text-decoration:none;
-font-weight:bold;
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.primary-btn{
+    background:#25D366;
+    color:#fff;
+    text-decoration:none;
+    padding:16px 32px;
+    border-radius:60px;
+    font-weight:700;
+    transition:0.3s ease;
+}
+
+.primary-btn:hover{
+    transform:translateY(-3px);
+}
+
+.secondary-btn{
+    background:#fff;
+    color:#111;
+    text-decoration:none;
+    padding:16px 32px;
+    border-radius:60px;
+    font-weight:700;
+}
+
+/* FLOATING ORDER BUTTON */
+
+.floating-order{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    z-index:999;
+}
+
+.floating-order a{
+    background:#25D366;
+    color:#fff;
+    text-decoration:none;
+    width:72px;
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    font-size:1.7rem;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
 }
 
 /* SECTION */
+
 .section{
-padding:15px;
+    padding:110px 6%;
 }
 
-/* CARD */
-.card{
-background:#fff;
-padding:14px;
-border-radius:14px;
-margin-bottom:12px;
-box-shadow:0 6px 15px rgba(0,0,0,0.08);
+.section-title{
+    margin-bottom:45px;
 }
 
-.card h3{
-font-size:15px;
+.section-title h2{
+    font-size:2.4rem;
+    margin-bottom:12px;
+}
+
+.section-title p{
+    color:#666;
+    max-width:700px;
+    line-height:1.7;
+}
+
+/* CATEGORIES */
+
+.categories{
+    display:flex;
+    gap:14px;
+    overflow-x:auto;
+    padding-bottom:10px;
+    scroll-snap-type:x mandatory;
+}
+
+.categories::-webkit-scrollbar{
+    display:none;
+}
+
+.category{
+    min-width:170px;
+    background:#fff;
+    border-radius:24px;
+    padding:20px;
+    scroll-snap-align:start;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    transition:0.35s ease;
+}
+
+.category:hover{
+    transform:translateY(-5px);
+}
+
+.category img{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+    border-radius:18px;
+    margin-bottom:14px;
+}
+
+.category h3{
+    font-size:1rem;
+    margin-bottom:6px;
+}
+
+.category p{
+    color:#666;
+    font-size:0.9rem;
+}
+
+/* FOOD GRID */
+
+.food-grid{
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.food-card{
+    background:#fff;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.06);
+    transition:0.35s ease;
+}
+
+.food-card:hover{
+    transform:translateY(-8px);
+}
+
+.food-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.food-content{
+    padding:24px;
+}
+
+.food-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:14px;
+}
+
+.food-content h3{
+    font-size:1.15rem;
 }
 
 .price{
-color:#25D366;
-font-weight:bold;
-margin-top:4px;
+    font-weight:700;
+    color:#ff7a00;
 }
 
-/* BADGE */
-.badge{
-display:inline-block;
-background:#e9fff2;
-color:#25D366;
-padding:5px 10px;
-border-radius:20px;
-font-size:12px;
-margin-top:6px;
+.food-content p{
+    color:#666;
+    line-height:1.7;
+    margin-bottom:22px;
 }
 
-/* FLOAT BAR */
-.bar{
-position:fixed;
-bottom:0;
-width:100%;
-background:#fff;
-border-top:1px solid #ddd;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px;
+.food-actions{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.orderBtn{
-background:#25D366;
-color:#fff;
-padding:12px 16px;
-border-radius:12px;
-text-decoration:none;
-font-weight:bold;
+.rating{
+    color:#ff9800;
+    font-size:0.95rem;
 }
 
-.small{
-font-size:12px;
-color:#666;
+.order-btn{
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:40px;
+    font-size:0.92rem;
 }
+
+/* APP SECTION */
+
+.app-section{
+    background:#111;
+    color:#fff;
+    border-radius:40px;
+    padding:70px 8%;
+    margin:0 6% 120px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:50px;
+}
+
+.app-section img{
+    width:100%;
+    border-radius:30px;
+    object-fit:cover;
+}
+
+.app-content h2{
+    font-size:3rem;
+    line-height:1.1;
+    margin-bottom:24px;
+}
+
+.app-content p{
+    color:#ddd;
+    line-height:1.9;
+    margin-bottom:30px;
+}
+
+/* FOOTER */
+
+footer{
+    padding:60px 6%;
+    border-top:1px solid rgba(0,0,0,0.08);
+    background:#fff;
+}
+
+.footer-top{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:30px;
+}
+
+.footer-logo{
+    font-size:1.5rem;
+    font-weight:800;
+}
+
+.footer-logo span{
+    color:#ff7a00;
+}
+
+.footer-links{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.footer-links a{
+    text-decoration:none;
+    color:#555;
+}
+
+.footer-bottom{
+    margin-top:35px;
+    color:#888;
+    font-size:0.92rem;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .app-section{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    header{
+        padding:16px 5%;
+    }
+
+    .hero h1{
+        font-size:2.3rem;
+    }
+
+    .hero p{
+        font-size:0.98rem;
+    }
+
+    .section{
+        padding:90px 5%;
+    }
+
+    .section-title h2{
+        font-size:2rem;
+    }
+
+    .app-content h2{
+        font-size:2.2rem;
+    }
+
+}
+
 </style>
-
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
-<div class="logo">Kaya Kitchen PRO 🍲</div>
-<a class="call" href="tel:+27673523983">Call</a>
+
+<div class="logo">
+Kaya<span>Kitchen</span>
+</div>
+
+<nav>
+<a href="gallery.html">Gallery</a>
+<a href="menu.html">Menu</a>
+<a href="about.html" class="about-btn">About</a>
+</nav>
+
 </header>
 
 <!-- HERO -->
-<div class="hero">
-<h1>Hot Homemade Meals<br>Delivered in West Rand 🚀</h1>
-<p>Order instantly on WhatsApp — No App Needed</p>
 
-<a class="cta" href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%2C%20I%20want%20to%20order">ORDER NOW</a>
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-tag">
+🚀 Randfontein Startup Food Delivery
 </div>
 
-<!-- MENU -->
-<div class="section">
+<h1>
+African Comfort Food Delivered Fast
+</h1>
 
-<div class="card">
-<h3>Pap + Beef Stew</h3>
-<div class="price">R45</div>
-<div class="badge">Best Seller 🔥</div>
+<p>
+Fresh local meals for Randfontein and the entire West Rand.
+Built for busy people who want real flavour, fast delivery and smooth WhatsApp ordering.
+</p>
+
+<div class="hero-buttons">
+
+<a href="https://wa.me/27673523983" class="primary-btn">
+Order on WhatsApp
+</a>
+
+<a href="#meals" class="secondary-btn">
+Explore Meals
+</a>
+
 </div>
 
-<div class="card">
-<h3>Jollof + Chicken</h3>
-<div class="price">R55</div>
-<div class="badge">Customer Favourite 🍗</div>
 </div>
 
-<div class="card">
-<h3>Friday Fire 🔥</h3>
-<div class="price">R58</div>
-<div class="badge">Spicy Combo Meal 🌶</div>
-</div>
+</section>
 
-<div class="card">
-<h3>Special 15 Pieces</h3>
-<div class="price">R55</div>
-<div class="badge">Limited Deal 💥</div>
-</div>
+<!-- CATEGORIES -->
 
-<div class="card">
-<h3>Jollof Combo + Veggies + Drink</h3>
-<div class="price">R68</div>
-<div class="badge">Full Meal Combo 🍽</div>
-</div>
+<section class="section">
 
-<div class="card">
-<h3>Delivery Fee</h3>
-<div class="price">Uber Eats Style Pricing 🚚</div>
-<p style="font-size:12px;color:#666;margin-top:5px;">
-Delivery fee depends on distance in West Rand (fast courier style service)
+<div class="section-title">
+<h2>Popular Categories</h2>
+<p>
+Swipe through our most loved African meals and local favourites.
 </p>
 </div>
 
+<div class="categories">
+
+<div class="category">
+<img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?q=80&w=1200&auto=format&fit=crop">
+<h3>Jollof Specials</h3>
+<p>Smoky rich African flavour.</p>
 </div>
 
-<!-- FLOAT BAR -->
-<div class="bar">
+<div class="category">
+<img src="https://images.unsplash.com/photo-1604908554027-3d52bdb4a1fc?q=80&w=1200&auto=format&fit=crop">
+<h3>Pap & Beef</h3>
+<p>Classic township comfort food.</p>
+</div>
+
+<div class="category">
+<img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1200&auto=format&fit=crop">
+<h3>Chicken Meals</h3>
+<p>Flame grilled and juicy.</p>
+</div>
+
+<div class="category">
+<img src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=1200&auto=format&fit=crop">
+<h3>Street Plates</h3>
+<p>Real kasi-style street food.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- MEALS -->
+
+<section class="section" id="meals">
+
+<div class="section-title">
+<h2>Trending Meals</h2>
+<p>
+Beautiful African meals prepared fresh daily and delivered around Randfontein & West Rand.
+</p>
+</div>
+
+<div class="food-grid">
+
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1604908176997-4317dacb4f17?q=80&w=1200&auto=format&fit=crop">
+
+<div class="food-content">
+
+<div class="food-top">
+<h3>Jollof & Chicken</h3>
+<div class="price">R55</div>
+</div>
+
+<p>
+Smoky Nigerian-style jollof rice served with juicy grilled chicken.
+</p>
+
+<div class="food-actions">
+<div class="rating">⭐ 4.9</div>
+
+<a href="https://wa.me/27673523983" class="order-btn">
+Order
+</a>
+</div>
+
+</div>
+</div>
+
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop">
+
+<div class="food-content">
+
+<div class="food-top">
+<h3>Pap & Beef Stew</h3>
+<div class="price">R45</div>
+</div>
+
+<p>
+Slow-cooked beef stew with soft pap and rich homemade gravy.
+</p>
+
+<div class="food-actions">
+<div class="rating">⭐ 4.8</div>
+
+<a href="https://wa.me/27673523983" class="order-btn">
+Order
+</a>
+</div>
+
+</div>
+</div>
+
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop">
+
+<div class="food-content">
+
+<div class="food-top">
+<h3>Friday Fire 🔥</h3>
+<div class="price">R65</div>
+</div>
+
+<p>
+Spicy pap or rice combo loaded with bold African flavour.
+</p>
+
+<div class="food-actions">
+<div class="rating">⭐ 5.0</div>
+
+<a href="https://wa.me/27673523983" class="order-btn">
+Order
+</a>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- APP SECTION -->
+
+<section class="app-section">
+
+<div class="app-content">
+
+<h2>
+The Future of Local Food Delivery
+</h2>
+
+<p>
+Kaya Kitchen combines African flavour with startup-level delivery experience.
+Fast WhatsApp ordering, smooth browsing, premium presentation and authentic meals made for the streets of Randfontein.
+</p>
+
+<a href="https://wa.me/27673523983" class="primary-btn">
+Start Ordering
+</a>
+
+</div>
+
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop">
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-top">
+
 <div>
-<div style="font-weight:bold;">Order Now</div>
-<div class="small">Fast WhatsApp Delivery</div>
+<div class="footer-logo">
+Kaya<span>Kitchen</span>
+</div>
 </div>
 
-<a class="orderBtn" href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%2C%20I%20want%20to%20order%20food">WhatsApp</a>
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="gallery.html">Gallery</a>
+<a href="menu.html">Menu</a>
+<a href="about.html">About</a>
+<a href="https://www.instagram.com/kayakitchen_sa?igsh=ZWYxNmd5dHR4Z3A=" target="_blank">
+Instagram
+</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Kaya Kitchen • Randfontein • West Rand • South Africa
+</div>
+
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+
+<div class="floating-order">
+
+<a href="https://wa.me/27673523983">
+💬
+</a>
+
 </div>
 
 </body>
