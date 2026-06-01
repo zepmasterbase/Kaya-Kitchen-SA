@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Kaya Kitchen</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#0f0f0f;
+color:white;
+line-height:1.6;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:#111;
+position:sticky;
+top:0;
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+font-size:2rem;
+font-weight:700;
+color:#ff9800;
+}
+
+.logo span{
+color:#fff;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#ff9800;
+}
+
+/* HERO */
+
+.hero{
+height:60vh;
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content h1{
+font-size:4rem;
+margin-bottom:15px;
+color:#ff9800;
+}
+
+.hero-content p{
+max-width:700px;
+font-size:1.1rem;
+color:#ddd;
+}
+
+/* ABOUT SECTION */
+
+.about-section{
+padding:80px 8%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:50px;
+align-items:center;
+}
+
+.about-image img{
+width:100%;
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.5);
+}
+
+.about-text h2{
+font-size:2.5rem;
+margin-bottom:20px;
+color:#ff9800;
+}
+
+.about-text p{
+margin-bottom:18px;
+color:#ccc;
+font-size:1rem;
+}
+
+/* HIGHLIGHTS */
+
+.highlights{
+padding:70px 8%;
+background:#151515;
+}
+
+.highlights h2{
+text-align:center;
+font-size:2.5rem;
+margin-bottom:50px;
+color:#ff9800;
+}
+
+.highlight-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:#1d1d1d;
+padding:30px;
+border-radius:18px;
+transition:0.3s;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#ff9800;
+}
+
+.card h3{
+margin-bottom:15px;
+color:#ff9800;
+font-size:1.3rem;
+}
+
+.card p{
+color:#bbb;
+}
+
+/* LOCATION */
+
+.location{
+padding:80px 8%;
+text-align:center;
+}
+
+.location h2{
+font-size:2.5rem;
+margin-bottom:20px;
+color:#ff9800;
+}
+
+.location p{
+color:#ccc;
+margin-bottom:30px;
+font-size:1.1rem;
+}
+
+.whatsapp-btn{
+display:inline-block;
+padding:15px 35px;
+background:#25D366;
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-weight:600;
+transition:0.3s;
+}
+
+.whatsapp-btn:hover{
+transform:scale(1.05);
+}
+
+/* FOOTER */
+
+footer{
+padding:30px 8%;
+background:#111;
+text-align:center;
+color:#888;
+margin-top:50px;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.socials{
+margin-top:10px;
+}
+
+.socials a{
+color:#ff9800;
+text-decoration:none;
+font-weight:600;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:2.8rem;
+}
+
+.navbar{
+flex-direction:column;
+gap:15px;
+}
+
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="logo">
+Kaya <span>Kitchen</span>
+</div>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="menu.html">Menu</a>
+<a href="gallery.html">Gallery</a>
+<a href="about.html">About</a>
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+<h1>About Kaya Kitchen</h1>
+
+<p>
+Authentic South African flavour served fresh in the heart of Randfontein.
+From hearty local meals to street-style favourites, Kaya Kitchen brings people together through food.
+</p>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about-section">
+
+<div class="about-image">
+<img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80">
+</div>
+
+<div class="about-text">
+
+<h2>Our Story</h2>
+
+<p>
+Kaya Kitchen was built with one mission — to serve delicious, affordable, and authentic meals that feel like home.
+</p>
+
+<p>
+Located in Randfontein and proudly serving the West Rand region of South Africa, we specialize in flavour-packed African meals made with passion and consistency.
+</p>
+
+<p>
+Whether you're craving pap & stew, spicy street chicken, or rich jollof rice, every plate is prepared with bold local flavour and quality ingredients.
+</p>
+
+<p>
+We believe food should be affordable, satisfying, and unforgettable.
+</p>
+
+</div>
+
+</section>
+
+<!-- HIGHLIGHTS -->
+
+<section class="highlights">
+
+<h2>Why Customers Love Kaya Kitchen</h2>
+
+<div class="highlight-grid">
+
+<div class="card">
+<h3>🔥 Fresh Daily Meals</h3>
+<p>
+Our meals are prepared fresh every day with authentic home-style recipes.
+</p>
+</div>
+
+<div class="card">
+<h3>🍗 Street Food Energy</h3>
+<p>
+From spicy chicken to loaded combos, we bring township street flavour to every order.
+</p>
+</div>
+
+<div class="card">
+<h3>💰 Affordable Pricing</h3>
+<p>
+Quality meals at prices designed for workers, students, and families.
+</p>
+</div>
+
+<div class="card">
+<h3>🚀 Quick WhatsApp Orders</h3>
+<p>
+Simple ordering directly through WhatsApp for fast and easy service.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- LOCATION -->
+
+<section class="location">
+
+<h2>Visit Kaya Kitchen</h2>
+
+<p>
+📍 2 Fifth Street, Randfontein, South Africa
+</p>
+
+<p>
+Serving the entire West Rand community with authentic flavour and fast service.
+</p>
+
+<a href="https://wa.me/27673523983" class="whatsapp-btn">
+Order on WhatsApp
+</a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+© 2026 Kaya Kitchen — All Rights Reserved
+</p>
+
+<div class="socials">
+<a href="#">
+@kayakitchensa
+</a>
+</div>
+
+</footer>
+
+</body>
+</html>
