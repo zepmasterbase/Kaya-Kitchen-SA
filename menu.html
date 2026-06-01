@@ -84,7 +84,7 @@ font-weight:bold;
 font-size:15px;
 }
 
-/* WEEKLY */
+/* SCHEDULE */
 
 .schedule{
 padding:18px;
@@ -176,6 +176,25 @@ line-height:1.5;
 margin-bottom:12px;
 }
 
+/* AVAILABLE */
+
+.available{
+border:2px solid #25D366;
+}
+
+/* LOCKED */
+
+.locked{
+opacity:0.45;
+filter:grayscale(100%);
+}
+
+.locked button,
+.locked a{
+pointer-events:none;
+background:#999 !important;
+}
+
 /* BUTTONS */
 
 .add{
@@ -200,6 +219,17 @@ border-radius:12px;
 text-decoration:none;
 font-size:13px;
 font-weight:bold;
+}
+
+/* FAMILY */
+
+.family{
+margin:14px;
+padding:24px;
+border-radius:22px;
+background:#111;
+color:#fff;
+text-align:center;
 }
 
 /* CART */
@@ -282,21 +312,6 @@ text-decoration:none;
 font-size:15px;
 }
 
-/* FAMILY */
-
-.family{
-margin:14px;
-padding:24px;
-border-radius:22px;
-background:#111;
-color:#fff;
-text-align:center;
-}
-
-.family h2{
-font-size:24px;
-}
-
 </style>
 </head>
 
@@ -319,11 +334,11 @@ Daily homemade meals delivered around Randfontein & West Rand.
 
 <!-- TODAY -->
 
-<div class="today">
-🔥 Today’s Kitchen Special Available Now
+<div class="today" id="todayText">
+🔥 Today's Meals Available
 </div>
 
-<!-- WEEKLY -->
+<!-- SCHEDULE -->
 
 <div class="schedule">
 
@@ -340,8 +355,8 @@ Daily homemade meals delivered around Randfontein & West Rand.
 </div>
 
 <div class="day">
-<span>Friday Fire 🔥</span>
-<strong>Spicy Meals</strong>
+<span>Friday</span>
+<strong>Friday Fire 🔥</strong>
 </div>
 
 <div class="day">
@@ -362,9 +377,9 @@ Daily homemade meals delivered around Randfontein & West Rand.
 
 <!-- PAP -->
 
-<div class="card">
+<div class="card meal mon wed" id="papCard">
 
-<span class="tag">Available Mon/Wed</span>
+<span class="tag">Mon / Wed</span>
 
 <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
 
@@ -393,9 +408,9 @@ Quick WhatsApp Order
 
 <!-- RICE -->
 
-<div class="card">
+<div class="card meal tue thu" id="riceCard">
 
-<span class="tag">Available Tue/Thu</span>
+<span class="tag">Tue / Thu</span>
 
 <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd">
 
@@ -424,9 +439,9 @@ Quick WhatsApp Order
 
 <!-- FRIDAY -->
 
-<div class="card">
+<div class="card meal fri" id="fridayCard">
 
-<span class="tag">Friday Fire 🔥</span>
+<span class="tag">Friday Only 🔥</span>
 
 <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
 
@@ -455,7 +470,7 @@ Quick WhatsApp Order
 
 <!-- JOLLOF -->
 
-<div class="card">
+<div class="card meal sat" id="jollofCard">
 
 <span class="tag">Saturday Special</span>
 
@@ -484,9 +499,9 @@ Quick WhatsApp Order
 </div>
 </div>
 
-<!-- FLAME CHICKEN -->
+<!-- FLAME -->
 
-<div class="card">
+<div class="card available">
 
 <span class="tag">🔥 Daily Favorite</span>
 
@@ -496,7 +511,7 @@ Quick WhatsApp Order
 
 <h3>Kaya Flame Chicken 🔥</h3>
 
-<div class="price">From R25</div>
+<div class="price">Daily Available</div>
 
 <div class="desc">
 Flame-grilled crispy chicken sold daily as a side or quick bite.
@@ -522,9 +537,9 @@ onclick="addItem('15 Pieces Flame Chicken',50)">
 
 </div>
 
-<!-- FAMILY -->
+<!-- SUNDAY -->
 
-<div class="family">
+<div class="family meal sun" id="familyCard">
 
 <h2>🔥 Sunday Shisanyama Combo</h2>
 
@@ -551,16 +566,8 @@ R199
 </div>
 
 <a href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20the%20Sunday%20Shisanyama%20Combo%20(R199)"
-style="
-display:inline-block;
-margin-top:20px;
-background:#25D366;
-padding:14px 24px;
-border-radius:14px;
-color:#fff;
-text-decoration:none;
-font-weight:bold;
-">
+class="quick"
+style="margin-top:20px;">
 Order Sunday Combo
 </a>
 
@@ -674,6 +681,86 @@ function togglePanel(){
 
 document.getElementById("panel")
 .classList.toggle("active");
+
+}
+
+/* DAILY MENU LOGIC */
+
+const today = new Date().getDay();
+
+/*
+0 = Sunday
+1 = Monday
+2 = Tuesday
+3 = Wednesday
+4 = Thursday
+5 = Friday
+6 = Saturday
+*/
+
+const meals = document.querySelectorAll(".meal");
+
+meals.forEach(meal=>{
+meal.classList.add("locked");
+});
+
+function unlock(selector){
+
+document.querySelector(selector)
+.classList.remove("locked");
+
+document.querySelector(selector)
+.classList.add("available");
+
+}
+
+if(today === 1 || today === 3){
+
+unlock("#papCard");
+
+document.getElementById("todayText")
+.innerHTML =
+"🍲 Today's Special: Pap + Beef Stew";
+
+}
+
+if(today === 2 || today === 4){
+
+unlock("#riceCard");
+
+document.getElementById("todayText")
+.innerHTML =
+"🍗 Today's Special: Rice + Chicken Stew";
+
+}
+
+if(today === 5){
+
+unlock("#fridayCard");
+
+document.getElementById("todayText")
+.innerHTML =
+"🔥 Friday Fire Meals Available";
+
+}
+
+if(today === 6){
+
+unlock("#jollofCard");
+
+document.getElementById("todayText")
+.innerHTML =
+"🍛 Saturday Jollof Special Available";
+
+}
+
+if(today === 0){
+
+unlock("#familyCard");
+
+document.getElementById("todayText")
+.innerHTML =
+"🔥 Sunday Shisanyama Combo Available";
 
 }
 
