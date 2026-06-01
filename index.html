@@ -1,222 +1,336 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kaya Kitchen | Order Fresh Food in Randfontein</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-    }body{
-  background:#0f0f0f;
-  color:#fff;
-  overflow-x:hidden;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaya Kitchen PRO | West Rand Food Delivery</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+scroll-behavior:smooth;
 }
 
+body{
+background:#f6f6f6;
+transition:0.3s;
+}
+
+/* HEADER */
 header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 50px;
-  position:fixed;
-  width:100%;
-  top:0;
-  background:rgba(0,0,0,0.7);
-  backdrop-filter:blur(10px);
-  z-index:1000;
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 18px;
+background:rgba(255,255,255,0.88);
+backdrop-filter:blur(10px);
+z-index:1000;
+border-bottom:1px solid #eee;
 }
 
 .logo{
-  font-size:22px;
-  font-weight:700;
-  color:#ffcc00;
+font-weight:800;
+font-size:18px;
 }
 
 nav a{
-  margin:0 15px;
-  text-decoration:none;
-  color:#fff;
-  font-weight:500;
-  transition:0.3s;
+margin-left:10px;
+text-decoration:none;
+color:#222;
+font-size:14px;
 }
 
-nav a:hover{
-  color:#ffcc00;
+.about-btn{
+border:1px solid #222;
+padding:6px 12px;
+border-radius:20px;
 }
 
-.btn{
-  background:#ffcc00;
-  color:#000;
-  padding:10px 18px;
-  border-radius:25px;
-  font-weight:600;
-  text-decoration:none;
-  transition:0.3s;
-}
-
-.btn:hover{
-  background:#ffaa00;
-  transform:scale(1.05);
-}
-
+/* HERO */
 .hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1600&q=80');
-  background-size:cover;
-  background-position:center;
-  padding:20px;
+height:70vh;
+background:
+linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding:20px;
+}
+
+.hero-content{
+max-width:600px;
 }
 
 .hero h1{
-  font-size:50px;
-  margin-bottom:15px;
-  color:#ffcc00;
+font-size:36px;
+line-height:1.3;
 }
 
 .hero p{
-  font-size:18px;
-  margin-bottom:25px;
-  color:#ddd;
+margin-top:10px;
+color:#ddd;
+font-size:14px;
 }
 
-.hero-buttons a{
-  margin:10px;
-  display:inline-block;
+.hero-btn{
+margin-top:18px;
+display:inline-block;
+padding:12px 24px;
+background:#25D366;
+border-radius:30px;
+color:#fff;
+text-decoration:none;
+font-weight:bold;
 }
 
-section{
-  padding:80px 50px;
+/* CATEGORIES */
+.cat-scroll{
+display:flex;
+overflow-x:auto;
+gap:10px;
+padding:14px;
+background:#fff;
+scroll-behavior:smooth;
 }
 
+.cat{
+padding:9px 16px;
+background:#f1f1f1;
+border-radius:20px;
+white-space:nowrap;
+font-size:13px;
+transition:0.3s;
+}
+
+.cat:hover{
+background:#222;
+color:#fff;
+}
+
+/* MENU GRID */
 .section-title{
-  font-size:30px;
-  margin-bottom:30px;
-  color:#ffcc00;
-  text-align:center;
+padding:18px;
+font-size:20px;
+font-weight:700;
 }
 
-.menu-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:14px;
+padding:10px 14px 90px;
 }
 
 .card{
-  background:#1a1a1a;
-  padding:20px;
-  border-radius:15px;
-  transition:0.3s;
+background:#fff;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-5px);
-  background:#222;
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:120px;
+object-fit:cover;
+}
+
+.card-body{
+padding:10px;
 }
 
 .card h3{
-  color:#ffcc00;
-  margin-bottom:10px;
+font-size:14px;
+margin-bottom:4px;
 }
 
-.card p{
-  font-size:14px;
-  color:#ccc;
+.price{
+color:#25D366;
+font-weight:bold;
+margin-bottom:6px;
 }
 
-.card a{
-  display:inline-block;
-  margin-top:10px;
-  padding:8px 15px;
-  background:#ffcc00;
-  color:#000;
-  border-radius:20px;
-  text-decoration:none;
-  font-size:13px;
+.add-btn{
+width:100%;
+padding:8px;
+border:none;
+background:#111;
+color:#fff;
+border-radius:10px;
+cursor:pointer;
 }
 
-footer{
-  text-align:center;
-  padding:30px;
-  background:#000;
-  color:#777;
+/* CART */
+.cart-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:14px;
+border-radius:50px;
+color:#fff;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
 
-@media(max-width:768px){
-  header{
-    padding:15px 20px;
-  }
-
-  .hero h1{
-    font-size:32px;
-  }
+/* PANEL */
+.panel{
+position:fixed;
+right:-100%;
+top:0;
+width:320px;
+height:100%;
+background:#fff;
+padding:15px;
+transition:0.4s;
+z-index:2000;
+overflow:auto;
 }
 
-  </style>
+.panel.active{
+right:0;
+}
+
+.checkout{
+background:#25D366;
+color:#fff;
+padding:12px;
+border-radius:10px;
+text-align:center;
+margin-top:10px;
+display:block;
+text-decoration:none;
+}
+</style>
 </head>
-<body>  <header>
-    <div class="logo">Kaya Kitchen</div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#menu">Menu</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a class="btn" href="https://wa.me/27600000000" target="_blank">Order Now</a>
-  </header>  <section class="hero" id="home">
-    <div>
-      <h1>Fresh Street Food Delivered Fast</h1>
-      <p>Randfontein’s premium home of African & street cuisine. Order directly on WhatsApp.</p>
-      <div class="hero-buttons">
-        <a class="btn" href="https://wa.me/27600000000">Order on WhatsApp</a>
-        <a class="btn" href="#menu">View Menu</a>
-      </div>
-    </div>
-  </section>  <section id="menu">
-    <h2 class="section-title">Our Menu</h2>
-    <div class="menu-grid"><div class="card">
-    <h3>Boerewors Roll</h3>
-    <p>Juicy grilled boerewors served in fresh bread with sauce.</p>
-    <a href="https://wa.me/27600000000?text=I%20want%20Boerewors%20Roll">Order</a>
-  </div>
 
-  <div class="card">
-    <h3>Pap & Stew</h3>
-    <p>Traditional South African comfort food cooked fresh daily.</p>
-    <a href="https://wa.me/27600000000?text=I%20want%20Pap%20and%20Stew">Order</a>
-  </div>
+<body>
 
-  <div class="card">
-    <h3>Grilled Chicken</h3>
-    <p>Spiced flame-grilled chicken served with chips or pap.</p>
-    <a href="https://wa.me/27600000000?text=I%20want%20Grilled%20Chicken">Order</a>
-  </div>
+<!-- HEADER -->
+<header>
+<div class="logo">Kaya Kitchen</div>
+<nav>
+<a href="menu.html">Menu</a>
+<a href="gallery.html">Gallery</a>
+<a class="about-btn" href="about.html">About</a>
+</nav>
+</header>
 
-  <div class="card">
-    <h3>Shawarma Wrap</h3>
-    <p>Street-style shawarma loaded with sauce and veggies.</p>
-    <a href="https://wa.me/27600000000?text=I%20want%20Shawarma">Order</a>
-  </div>
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+
+<h1>Fresh West Rand Flavours<br>Delivered in Minutes</h1>
+
+<p>
+Randfontein • West Rand • Kaya Kitchen brings real African comfort food straight to your doorstep.
+</p>
+
+<a class="hero-btn" href="#menu">Order Now</a>
+
+</div>
+</section>
+
+<!-- CATEGORIES -->
+<div class="cat-scroll">
+<div class="cat">All</div>
+<div class="cat">Chicken</div>
+<div class="cat">Pap Meals</div>
+<div class="cat">Jollof Meals</div>
+<div class="cat">Street Food</div>
+<div class="cat">Specials</div>
+</div>
+
+<!-- MENU -->
+<div class="section-title">Popular Meals</div>
+
+<div class="grid" id="menu">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+<div class="card-body">
+<h3>Grilled Chicken</h3>
+<div class="price">R60</div>
+<button class="add-btn" onclick="addItem('Grilled Chicken')">Add</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1544025162-d76694265947">
+<div class="card-body">
+<h3>Pap & Beef Stew</h3>
+<div class="price">R45</div>
+<button class="add-btn" onclick="addItem('Pap & Beef Stew')">Add</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1601050690597-df0568f70950">
+<div class="card-body">
+<h3>Jollof Rice Meal</h3>
+<div class="price">R55</div>
+<button class="add-btn" onclick="addItem('Jollof Rice Meal')">Add</button>
+</div>
+</div>
 
 </div>
 
-  </section>  <section id="about">
-    <h2 class="section-title">About Us</h2>
-    <p style="max-width:800px;margin:auto;text-align:center;color:#ccc;line-height:1.6;">
-      Kaya Kitchen is based in Randfontein, West Rand, South Africa (2 Fifth Street). We specialize in bold, fresh, and affordable street food made with love. Our mission is simple — serve fast, serve fresh, and bring flavour to your doorstep through WhatsApp ordering.
-    </p>
-  </section>  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <p style="text-align:center;color:#ccc;">
-      WhatsApp Orders Only: <a style="color:#ffcc00;" href="https://wa.me/27600000000">Click to Chat</a>
-    </p>
-  </section>  <footer>
-    <p>© 2026 Kaya Kitchen. All Rights Reserved.</p>
-  </footer></body>
+<!-- CART -->
+<div class="cart-btn" onclick="toggleCart()">
+🛒 <span id="count">0</span>
+</div>
+
+<!-- PANEL -->
+<div class="panel" id="panel">
+<h3>Your Order</h3>
+<div id="items"></div>
+
+<a class="checkout" id="wa" target="_blank">
+Checkout via WhatsApp
+</a>
+</div>
+
+<script>
+
+let cart=[];
+
+function addItem(item){
+cart.push(item);
+document.getElementById("count").innerText=cart.length;
+update();
+}
+
+function update(){
+document.getElementById("items").innerHTML=
+cart.map(i=>"• "+i).join("<br>");
+
+let msg="Hello Kaya Kitchen, I want:%0A"+cart.join("%0A");
+
+document.getElementById("wa").href=
+"https://wa.me/27700000000?text="+msg;
+}
+
+function toggleCart(){
+document.getElementById("panel").classList.toggle("active");
+}
+
+</script>
+
+</body>
 </html>
