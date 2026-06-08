@@ -2,103 +2,526 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kaya Kitchen Premium</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
-body{background:#0b0b0b;color:#fff}
-header{position:fixed;top:0;width:100%;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;background:rgba(8,8,8,.85);backdrop-filter:blur(16px);z-index:999}
-.logo{font-size:1.7rem;font-weight:800}.logo span{color:#ff9d00}
-nav{display:flex;gap:18px;flex-wrap:wrap}
-nav a{text-decoration:none;color:#fff;font-weight:600}
-.cta-nav{background:#25D366;padding:10px 18px;border-radius:999px}
-.hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1974&auto=format&fit=crop') center/cover;display:flex;align-items:center;padding:120px 5%}
-.hero h1{font-size:clamp(3rem,8vw,6rem);line-height:.95}
-.orange{color:#ff9d00}
-.hero p{max-width:700px;margin-top:20px;color:#ddd;line-height:1.8}
-.btns{display:flex;gap:15px;flex-wrap:wrap;margin-top:30px}
-.btn{padding:16px 28px;border-radius:999px;text-decoration:none;font-weight:700}
-.primary{background:#25D366;color:#fff}
-.secondary{background:#fff;color:#111}
-.section{padding:90px 5%}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:24px;border-radius:28px;backdrop-filter:blur(10px)}
-.price{font-size:2rem;color:#ff9d00;font-weight:800}
-.feature{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.feature div{background:#151515;padding:22px;border-radius:22px}
-.banner{background:linear-gradient(135deg,#ff9d00,#ff5a00);padding:40px;border-radius:30px}
-.sticky{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#25D366;color:#fff;padding:16px 28px;border-radius:999px;text-decoration:none;font-weight:800;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-footer{text-align:center;padding:50px;border-top:1px solid rgba(255,255,255,.08)}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#0b0b0b;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:16px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(10,10,10,.92);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,.08);
+z-index:1000;
+}
+
+.order-btn{
+background:#25D366;
+color:#fff;
+text-decoration:none;
+padding:14px 26px;
+border-radius:999px;
+font-weight:700;
+box-shadow:0 10px 30px rgba(37,211,102,.25);
+transition:.3s;
+}
+
+.order-btn:hover{
+transform:translateY(-2px);
+}
+
+.logo{
+font-size:1.8rem;
+font-weight:800;
+letter-spacing:-1px;
+}
+
+.logo span{
+color:#ff9d00;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+padding:120px 5% 80px;
+gap:60px;
+}
+
+.hero-content p.topline{
+color:#ff9d00;
+font-weight:700;
+margin-bottom:15px;
+}
+
+.hero-content h1{
+font-size:clamp(3rem,7vw,6rem);
+line-height:.95;
+margin-bottom:25px;
+}
+
+.orange{
+color:#ff9d00;
+}
+
+.hero-content p.desc{
+font-size:1.05rem;
+line-height:1.9;
+color:#d4d4d4;
+max-width:600px;
+}
+
+.btns{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-top:35px;
+}
+
+.btn{
+padding:16px 28px;
+border-radius:999px;
+text-decoration:none;
+font-weight:700;
+transition:.3s;
+}
+
+.primary{
+background:#25D366;
+color:#fff;
+}
+
+.secondary{
+background:#fff;
+color:#111;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.hero-food{
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+.hero-food img{
+width:100%;
+max-width:600px;
+border-radius:40px;
+object-fit:cover;
+box-shadow:0 30px 80px rgba(0,0,0,.55);
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-15px);
+}
+}
+
+/* TRUST BAR */
+
+.trust-bar{
+padding:30px 5%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+border-top:1px solid rgba(255,255,255,.06);
+border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.trust-item{
+text-align:center;
+font-weight:600;
+color:#ddd;
+}
+
+/* SECTION */
+
+.section{
+padding:90px 5%;
+}
+
+.section-title{
+font-size:clamp(2rem,4vw,3rem);
+margin-bottom:35px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+padding:28px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:rgba(255,157,0,.4);
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.price{
+font-size:2rem;
+font-weight:800;
+color:#ff9d00;
+margin-bottom:10px;
+}
+
+/* HOW IT WORKS */
+
+.steps{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.step{
+background:#151515;
+padding:30px;
+border-radius:24px;
+}
+
+.step h3{
+margin-bottom:10px;
+}
+
+/* CTA */
+
+.banner{
+background:linear-gradient(135deg,#ff9d00,#ff5a00);
+padding:50px;
+border-radius:32px;
+}
+
+.banner h2{
+font-size:2rem;
+margin-bottom:12px;
+}
+
+/* FEATURES */
+
+.feature{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.feature div{
+background:#151515;
+padding:24px;
+border-radius:22px;
+font-weight:600;
+}
+
+/* FOOTER */
+
+footer{
+padding:50px 5%;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.08);
+color:#aaa;
+}
+
+/* STICKY CTA */
+
+.sticky{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:#25D366;
+color:#fff;
+text-decoration:none;
+padding:16px 30px;
+border-radius:999px;
+font-weight:800;
+box-shadow:0 15px 40px rgba(0,0,0,.4);
+z-index:999;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+padding-top:120px;
+}
+
+.hero-food{
+order:-1;
+}
+
+.hero-content p.desc{
+margin:auto;
+}
+
+.btns{
+justify-content:center;
+}
+
+.logo{
+font-size:1.5rem;
+}
+
+.hero-food img{
+max-width:450px;
+}
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="logo">Kaya<span>Kitchen</span></div>
-<nav>
-<a href="index.html">Home</a>
-<a href="menu.html">Menu</a>
-<a href="gallery.html">Gallery</a>
-<a href="kayaburn.html">Kaya Burn ❤️‍🔥</a>
-<a href="about.html">About</a>
-<a class="cta-nav" href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20would%20like%20to%20order">Order Now</a>
-</nav>
+
+<a class="order-btn" href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20would%20like%20to%20order">
+🔥 Order Now
+</a>
+
+<div class="logo">
+Kaya<span>Kitchen</span>
+</div>
+
 </header>
 
 <section class="hero">
-<div>
-<p style="color:#ff9d00;font-weight:700">🚚 Delivery From R15 • Randfontein & Surrounding Areas</p>
-<h1>REAL FOOD.<br>REAL FLAVOUR.<br><span class="orange">REAL AFRICA.</span></h1>
-<p>Uber Eats style simplicity. Mr D speed. Kaya Kitchen soul. Fresh African meals delivered fast through WhatsApp.</p>
+
+<div class="hero-content">
+
+<p class="topline">
+🚚 Delivery From R15 • Randfontein & Surrounding Areas
+</p>
+
+<h1>
+REAL FOOD.<br>
+REAL FLAVOUR.<br>
+<span class="orange">DELIVERED FAST.</span>
+</h1>
+
+<p class="desc">
+Fresh African meals made daily and delivered straight to your door. Uber Eats simplicity, Kaya Kitchen flavour, WhatsApp convenience.
+</p>
+
 <div class="btns">
-<a class="btn primary" href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20would%20like%20to%20order">Order on WhatsApp</a>
-<a class="btn secondary" href="menu.html">Browse Menu</a>
+
+<a class="btn primary" href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20would%20like%20to%20order">
+Order Now
+</a>
+
+<a class="btn secondary" href="menu.html">
+Browse Menu
+</a>
+
 </div>
+
 </div>
+
+<div class="hero-food">
+
+<img
+src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1974&auto=format&fit=crop"
+alt="Kaya Kitchen Food">
+
+</div>
+
+</section>
+
+<section class="trust-bar">
+
+<div class="trust-item">
+⭐ 4.9 Customer Rating
+</div>
+
+<div class="trust-item">
+🚚 Fast Local Delivery
+</div>
+
+<div class="trust-item">
+🔥 Fresh Daily Meals
+</div>
+
+<div class="trust-item">
+💬 WhatsApp Ordering
+</div>
+
 </section>
 
 <section class="section">
-<h2 style="font-size:2.5rem;margin-bottom:30px">🔥 Most Ordered Today</h2>
+
+<h2 class="section-title">
+🔥 Most Ordered Today
+</h2>
+
 <div class="cards">
-<div class="card"><h3>Pap & Beef Stew</h3><div class="price">R65</div><p>Customer favourite.</p></div>
-<div class="card"><h3>Friday Fire</h3><div class="price">R65</div><p>Signature Kaya special.</p></div>
-<div class="card"><h3>Jollof Rice</h3><div class="price">R65</div><p>Authentic African flavour.</p></div>
-<div class="card"><h3>Kaya Wings</h3><div class="price">R25+</div><p>Perfect add-on.</p></div>
+
+<div class="card">
+<h3>Pap & Beef Stew</h3>
+<div class="price">R65</div>
+<p>Slow cooked beef stew with traditional pap.</p>
 </div>
+
+<div class="card">
+<h3>Friday Fire</h3>
+<div class="price">R65</div>
+<p>The signature Kaya Kitchen favourite.</p>
+</div>
+
+<div class="card">
+<h3>Jollof Rice</h3>
+<div class="price">R65</div>
+<p>Authentic African flavour packed with taste.</p>
+</div>
+
+<div class="card">
+<h3>Kaya Wings</h3>
+<div class="price">R25+</div>
+<p>Perfect side order with every meal.</p>
+</div>
+
+</div>
+
 </section>
 
 <section class="section">
+
 <div class="banner">
-<h2>⚡ Order in Under 60 Seconds</h2>
-<p>Select your meal → WhatsApp us → We cook fresh → We deliver.</p>
+
+<h2>
+⚡ Order In Under 60 Seconds
+</h2>
+
+<p>
+Choose your meal → WhatsApp us → We cook fresh → We deliver.
+</p>
+
 </div>
+
 </section>
 
 <section class="section">
-<h2 style="margin-bottom:25px">Why Customers Choose Kaya</h2>
+
+<h2 class="section-title">
+How It Works
+</h2>
+
+<div class="steps">
+
+<div class="step">
+<h3>1. Choose</h3>
+<p>Browse our menu and pick your favourites.</p>
+</div>
+
+<div class="step">
+<h3>2. Order</h3>
+<p>Send your order directly on WhatsApp.</p>
+</div>
+
+<div class="step">
+<h3>3. Enjoy</h3>
+<p>Freshly prepared and delivered to your door.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+Why Customers Choose Kaya
+</h2>
+
 <div class="feature">
+
 <div>⭐ Freshly Cooked Daily</div>
+
 <div>🚚 Fast Local Delivery</div>
+
 <div>🔥 Authentic African Cuisine</div>
-<div>💬 WhatsApp Ordering</div>
+
+<div>💬 Easy WhatsApp Ordering</div>
+
 </div>
+
 </section>
 
 <section class="section">
+
 <div class="banner">
-<h2>❤️‍🔥 Kaya Burn</h2>
-<p>Free home workouts. No gym. No equipment. Build a healthier lifestyle with Kaya.</p>
+
+<h2>
+❤️‍🔥 Kaya Burn
+</h2>
+
+<p>
+Free home workouts. No gym. No equipment. Build a healthier lifestyle with Kaya.
+</p>
+
 <br>
-<a class="btn secondary" href="kayaburn.html">Start Kaya Burn</a>
+
+<a class="btn secondary" href="kayaburn.html">
+Start Kaya Burn
+</a>
+
 </div>
+
 </section>
 
 <footer>
 © 2026 Kaya Kitchen • Randfontein • South Africa
 </footer>
 
-<a class="sticky" href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20would%20like%20to%20order">🔥 Order Now</a>
+<a class="sticky" href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20would%20like%20to%20order">
+🔥 Order Now
+</a>
 
 </body>
 </html>
