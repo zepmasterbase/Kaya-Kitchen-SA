@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaya Burn 🔥</title>
+<meta name="description" content="Join Kaya Burn 🔥 - Africa's 20-minute Sunday morning no-equipment fitness movement. Build discipline, health, and consistency.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#070707;color:#fff;overflow-x:hidden}
+
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:40px 20px;
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
+url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+position:relative;
+}
+
+.hero h1{font-size:4rem;font-weight:800}
+.hero h1 span{color:#ff6a00}
+.hero p{margin-top:15px;font-size:1.2rem;opacity:.9;max-width:700px}
+
+.cta{
+margin-top:30px;
+display:inline-block;
+padding:16px 35px;
+background:#25D366;
+color:#fff;
+border-radius:50px;
+font-weight:700;
+text-decoration:none;
+transition:.3s;
+}
+.cta:hover{transform:scale(1.05)}
+
+.badges{margin-top:25px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.badge{background:rgba(255,255,255,.08);padding:8px 15px;border-radius:20px;font-size:.85rem}
+
+/* SECTIONS */
+.section{padding:80px 20px;max-width:1100px;margin:auto}
+.title{text-align:center;font-size:2.5rem;margin-bottom:40px;font-weight:800}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+
+.card{
+background:rgba(255,255,255,.05);
+padding:25px;
+border-radius:15px;
+border:1px solid rgba(255,255,255,.08);
+transition:.3s;
+}
+.card:hover{transform:translateY(-5px)}
+.card h3{color:#ff6a00;margin-bottom:10px}
+
+/* COUNTDOWN */
+.countdown{
+text-align:center;
+font-size:1.5rem;
+margin-top:20px;
+color:#ff6a00;
+font-weight:700;
+}
+
+/* FLOAT BUTTON */
+.float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:#fff;
+padding:15px 18px;
+border-radius:50px;
+font-weight:700;
+text-decoration:none;
+box-shadow:0 10px 25px rgba(0,0,0,.3)
+}
+
+footer{
+text-align:center;
+padding:40px 20px;
+opacity:.7;
+font-size:.9rem;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<div>
+<h1>Kaya Burn <span>🔥</span></h1>
+<p>20 Minutes. No Equipment. No Excuses.  
+Join Africa’s Sunday morning fitness movement and build discipline that changes your life.</p>
+
+<a class="cta" href="https://chat.whatsapp.com/Gy1UsfaSOiP0Wgo3xQI8JK?mlu=3&s=sh&p=a">Join WhatsApp Community</a>
+
+<div class="badges">
+<div class="badge">Sunday 6:30 AM</div>
+<div class="badge">No Equipment</div>
+<div class="badge">Beginner Friendly</div>
+<div class="badge">20 Minutes</div>
+</div>
+
+<div class="countdown" id="countdown">Next session loading...</div>
+</div>
+</section>
+
+<section class="section">
+<h2 class="title">Why Join Kaya Burn</h2>
+<div class="grid">
+<div class="card"><h3>🔥 No Equipment</h3><p>Train anywhere using only your body.</p></div>
+<div class="card"><h3>💪 Beginner Friendly</h3><p>Designed for all fitness levels.</p></div>
+<div class="card"><h3>⚡ 20 Minutes</h3><p>Short but powerful weekly sessions.</p></div>
+<div class="card"><h3>🌍 Community</h3><p>Stay accountable with others.</p></div>
+<div class="card"><h3>❤️ Health</h3><p>Improve energy and wellbeing.</p></div>
+<div class="card"><h3>🏆 Discipline</h3><p>Build consistency every week.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2 class="title">The Challenge</h2>
+<div class="card" style="text-align:center">
+<h3>The 30-Day Kaya Burn Challenge 🔥</h3>
+<p>Show up every Sunday for 30 days and transform your discipline, health, and mindset.</p>
+</div>
+</section>
+
+<footer>
+Kaya Burn 🔥 — Built by Kaya Kitchen Africa  
+Fuel Your Body. Move Your Body.
+</footer>
+
+<a class="float" href="https://chat.whatsapp.com/Gy1UsfaSOiP0Wgo3xQI8JK?mlu=3&s=sh&p=a">WhatsApp</a>
+
+<script>
+function updateCountdown(){
+const now=new Date();
+const next=new Date();
+next.setDate(now.getDate() + ((7-now.getDay())%7));
+next.setHours(6,30,0,0);
+const diff=next-now;
+const days=Math.floor(diff/(1000*60*60*24));
+const hours=Math.floor(diff/(1000*60*60)%24);
+const mins=Math.floor(diff/(1000*60)%60);
+document.getElementById("countdown").innerText=
+`Next Kaya Burn: ${days}d ${hours}h ${mins}m`;
+}
+setInterval(updateCountdown,1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
