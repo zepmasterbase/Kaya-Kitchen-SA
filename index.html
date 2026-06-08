@@ -1,75 +1,105 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Kaya Kitchen 2.0</title>
+<title>Kaya Kitchen Premium</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
-body{background:#f7f7f5;color:#111}
-header{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);display:flex;justify-content:space-between;align-items:center;padding:16px 5%;border-bottom:1px solid #eee;z-index:100}
-.logo{font-weight:800;font-size:1.4rem}.logo span{color:#ff7a00}
-nav{display:flex;gap:12px;flex-wrap:wrap}
-nav a{text-decoration:none;color:#111}
-.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1974&auto=format&fit=crop') center/cover;color:#fff}
-.hero h1{font-size:clamp(2.5rem,6vw,5rem);margin-bottom:15px}
-.hero p{max-width:700px;margin:auto;line-height:1.8}
-.btns{margin-top:25px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn{padding:14px 24px;border-radius:40px;text-decoration:none;font-weight:700}
+body{background:#0b0b0b;color:#fff}
+header{position:fixed;top:0;width:100%;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;background:rgba(8,8,8,.85);backdrop-filter:blur(16px);z-index:999}
+.logo{font-size:1.7rem;font-weight:800}.logo span{color:#ff9d00}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{text-decoration:none;color:#fff;font-weight:600}
+.cta-nav{background:#25D366;padding:10px 18px;border-radius:999px}
+.hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1974&auto=format&fit=crop') center/cover;display:flex;align-items:center;padding:120px 5%}
+.hero h1{font-size:clamp(3rem,8vw,6rem);line-height:.95}
+.orange{color:#ff9d00}
+.hero p{max-width:700px;margin-top:20px;color:#ddd;line-height:1.8}
+.btns{display:flex;gap:15px;flex-wrap:wrap;margin-top:30px}
+.btn{padding:16px 28px;border-radius:999px;text-decoration:none;font-weight:700}
 .primary{background:#25D366;color:#fff}
 .secondary{background:#fff;color:#111}
-.section{padding:80px 5%}
+.section{padding:90px 5%}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-.card{background:#fff;border-radius:24px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
-.card h3{margin-bottom:10px}
-.kayaburn{background:linear-gradient(135deg,#ff4d4d,#ff7a00);color:#fff}
-footer{padding:40px 5%;text-align:center;border-top:1px solid #eee}
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:24px;border-radius:28px;backdrop-filter:blur(10px)}
+.price{font-size:2rem;color:#ff9d00;font-weight:800}
+.feature{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.feature div{background:#151515;padding:22px;border-radius:22px}
+.banner{background:linear-gradient(135deg,#ff9d00,#ff5a00);padding:40px;border-radius:30px}
+.sticky{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#25D366;color:#fff;padding:16px 28px;border-radius:999px;text-decoration:none;font-weight:800;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+footer{text-align:center;padding:50px;border-top:1px solid rgba(255,255,255,.08)}
 </style>
 </head>
 <body>
+
 <header>
 <div class="logo">Kaya<span>Kitchen</span></div>
 <nav>
-<a href="gallery.html">Gallery</a>
+<a href="index.html">Home</a>
 <a href="menu.html">Menu</a>
+<a href="gallery.html">Gallery</a>
 <a href="kayaburn.html">Kaya Burn ❤️‍🔥</a>
 <a href="about.html">About</a>
+<a class="cta-nav" href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20would%20like%20to%20order">Order Now</a>
 </nav>
 </header>
 
 <section class="hero">
 <div>
-<h1>African Comfort Food, Reimagined</h1>
-<p>Fast WhatsApp ordering, premium UX, local flavour, and a healthier lifestyle ecosystem for the Kaya community.</p>
+<p style="color:#ff9d00;font-weight:700">🚚 Delivery From R15 • Randfontein & Surrounding Areas</p>
+<h1>REAL FOOD.<br>REAL FLAVOUR.<br><span class="orange">REAL AFRICA.</span></h1>
+<p>Uber Eats style simplicity. Mr D speed. Kaya Kitchen soul. Fresh African meals delivered fast through WhatsApp.</p>
 <div class="btns">
-<a class="btn primary" href="https://wa.me/27673523983">Order Now</a>
-<a class="btn secondary" href="kayaburn.html">Explore Kaya Burn ❤️‍🔥</a>
+<a class="btn primary" href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20would%20like%20to%20order">Order on WhatsApp</a>
+<a class="btn secondary" href="menu.html">Browse Menu</a>
 </div>
 </div>
 </section>
 
 <section class="section">
-<h2 style="margin-bottom:20px">Kaya Ecosystem</h2>
+<h2 style="font-size:2.5rem;margin-bottom:30px">🔥 Most Ordered Today</h2>
 <div class="cards">
-<div class="card">
-<h3>🍛 Kaya Kitchen</h3>
-<p>Fresh African meals delivered across Randfontein and the West Rand.</p>
+<div class="card"><h3>Pap & Beef Stew</h3><div class="price">R65</div><p>Customer favourite.</p></div>
+<div class="card"><h3>Friday Fire</h3><div class="price">R65</div><p>Signature Kaya special.</p></div>
+<div class="card"><h3>Jollof Rice</h3><div class="price">R65</div><p>Authentic African flavour.</p></div>
+<div class="card"><h3>Kaya Wings</h3><div class="price">R25+</div><p>Perfect add-on.</p></div>
 </div>
-<div class="card kayaburn">
-<h3>❤️‍🔥 Kaya Burn</h3>
-<p>Free no-equipment workout channel. Daily bodyweight routines, fat-loss challenges, and wellness content.</p>
-<p style="margin-top:12px"><a href="kayaburn.html" style="color:white;font-weight:700">Open Kaya Burn →</a></p>
+</section>
+
+<section class="section">
+<div class="banner">
+<h2>⚡ Order in Under 60 Seconds</h2>
+<p>Select your meal → WhatsApp us → We cook fresh → We deliver.</p>
 </div>
-<div class="card">
-<h3>🚀 Fast Ordering</h3>
-<p>WhatsApp-first ordering experience designed for speed and simplicity.</p>
+</section>
+
+<section class="section">
+<h2 style="margin-bottom:25px">Why Customers Choose Kaya</h2>
+<div class="feature">
+<div>⭐ Freshly Cooked Daily</div>
+<div>🚚 Fast Local Delivery</div>
+<div>🔥 Authentic African Cuisine</div>
+<div>💬 WhatsApp Ordering</div>
 </div>
+</section>
+
+<section class="section">
+<div class="banner">
+<h2>❤️‍🔥 Kaya Burn</h2>
+<p>Free home workouts. No gym. No equipment. Build a healthier lifestyle with Kaya.</p>
+<br>
+<a class="btn secondary" href="kayaburn.html">Start Kaya Burn</a>
 </div>
 </section>
 
 <footer>
 © 2026 Kaya Kitchen • Randfontein • South Africa
 </footer>
+
+<a class="sticky" href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20would%20like%20to%20order">🔥 Order Now</a>
+
 </body>
 </html>
