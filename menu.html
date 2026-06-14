@@ -2,769 +2,172 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Kaya Kitchen Menu</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Kaya Kitchen V8 Premium</title>
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
-scroll-behavior:smooth;
-}
-
-body{
-background:#f5f5f5;
-padding-bottom:120px;
-}
-
-/* HEADER */
-
-header{
-position:fixed;
-top:0;
-width:100%;
-background:#fff;
-padding:14px 16px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid #eee;
-z-index:999;
-}
-
-.logo{
-font-size:17px;
-font-weight:800;
-}
-
-.back{
-text-decoration:none;
-color:#25D366;
-font-weight:bold;
-font-size:13px;
-}
-
-/* HERO */
-
-.hero{
-margin-top:60px;
-padding:34px 20px;
-background:
-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr3b62je1b3qg431fvo16b21fae15.png');
-background-size:cover;
-background-position:center;
-color:#fff;
-text-align:center;
-}
-
-.hero h1{
-font-size:28px;
-line-height:1.3;
-}
-
-.hero p{
-margin-top:12px;
-font-size:14px;
-opacity:0.95;
-}
-
-/* TODAY */
-
-.today{
-background:#25D366;
-color:#fff;
-padding:16px;
-text-align:center;
-font-weight:bold;
-font-size:15px;
-}
-
-/* SCHEDULE */
-
-.schedule{
-padding:18px;
-background:#fff;
-margin:14px;
-border-radius:18px;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
-
-.schedule h2{
-margin-bottom:15px;
-font-size:18px;
-}
-
-.day{
-display:flex;
-justify-content:space-between;
-padding:12px 0;
-border-bottom:1px solid #eee;
-font-size:14px;
-}
-
-.day:last-child{
-border:none;
-}
-
-/* GRID */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-gap:14px;
-padding:14px;
-}
-
-/* CARD */
-
-.card{
-background:#fff;
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-position:relative;
-transition:0.2s;
-}
-
-.card:hover{
-transform:translateY(-3px);
-}
-
-.card img{
-width:100%;
-height:150px;
-object-fit:cover;
-}
-
-.tag{
-position:absolute;
-top:10px;
-left:10px;
-background:#25D366;
-color:#fff;
-padding:5px 10px;
-border-radius:20px;
-font-size:11px;
-font-weight:bold;
-}
-
-.body{
-padding:12px;
-}
-
-.body h3{
-font-size:16px;
-margin-bottom:6px;
-}
-
-.price{
-color:#25D366;
-font-size:15px;
-font-weight:bold;
-margin-bottom:8px;
-}
-
-.desc{
-font-size:12px;
-color:#666;
-line-height:1.5;
-margin-bottom:12px;
-}
-
-/* AVAILABLE */
-
-.available{
-border:2px solid #25D366;
-}
-
-/* LOCKED */
-
-.locked{
-opacity:0.45;
-filter:grayscale(100%);
-}
-
-.locked button,
-.locked a{
-pointer-events:none;
-background:#999 !important;
-}
-
-/* BUTTONS */
-
-.add{
-width:100%;
-padding:12px;
-border:none;
-border-radius:12px;
-background:#111;
-color:#fff;
-font-weight:bold;
-cursor:pointer;
-margin-bottom:8px;
-}
-
-.quick{
-display:block;
-text-align:center;
-background:#25D366;
-color:#fff;
-padding:11px;
-border-radius:12px;
-text-decoration:none;
-font-size:13px;
-font-weight:bold;
-}
-
-/* FAMILY */
-
-.family{
-margin:14px;
-padding:24px;
-border-radius:22px;
-background:#111;
-color:#fff;
-text-align:center;
-}
-
-/* CART */
-
-.bar{
-position:fixed;
-bottom:0;
-width:100%;
-background:#fff;
-border-top:1px solid #ddd;
-padding:12px 14px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:1000;
-}
-
-.checkout{
-background:#25D366;
-color:#fff;
-padding:12px 16px;
-border-radius:12px;
-text-decoration:none;
-font-weight:bold;
-cursor:pointer;
-}
-
-/* PANEL */
-
-.panel{
-position:fixed;
-right:-100%;
-top:0;
-width:340px;
-height:100%;
-background:#fff;
-z-index:2000;
-padding:18px;
-overflow:auto;
-transition:0.3s;
-box-shadow:-10px 0 20px rgba(0,0,0,0.1);
-}
-
-.panel.active{
-right:0;
-}
-
-.close{
-margin-bottom:15px;
-display:inline-block;
-font-size:13px;
-color:#25D366;
-font-weight:bold;
-cursor:pointer;
-}
-
-.item{
-padding:10px 0;
-border-bottom:1px solid #eee;
-font-size:13px;
-}
-
-.total{
-font-size:18px;
-font-weight:bold;
-margin-top:15px;
-margin-bottom:15px;
-}
-
-.checkoutBtn{
-display:block;
-width:100%;
-background:#25D366;
-color:#fff;
-padding:14px;
-text-align:center;
-border-radius:14px;
-font-weight:bold;
-text-decoration:none;
-font-size:15px;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0b0b0b;color:#fff;padding-bottom:100px}
+header{position:fixed;top:0;width:100%;z-index:1000;background:rgba(15,15,15,.85);backdrop-filter:blur(12px);padding:14px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #222}
+.logo{font-weight:800}
+.cartbadge{background:#25D366;color:#fff;padding:6px 12px;border-radius:20px}
+.hero{margin-top:60px;padding:90px 20px;text-align:center;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.7)),url('https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr3b62je1b3qg431fvo16b21fae15.png') center/cover}
+.hero h1{font-size:34px}
+.hero p{margin-top:10px;color:#ddd}
+.cta{display:inline-block;margin-top:15px;background:#25D366;color:#fff;text-decoration:none;padding:14px 20px;border-radius:14px;font-weight:bold}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:16px}
+.stats div,.card,.schedule,.feature{background:#151515;border:1px solid #242424;border-radius:22px}
+.stats div{padding:14px;text-align:center}
+.today{margin:0 16px 16px;background:#25D366;padding:14px;border-radius:18px;text-align:center;font-weight:bold}
+.schedule{margin:16px;padding:18px}
+.schedule h2{margin-bottom:12px}
+.day{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #2b2b2b}
+.day:last-child{border:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;padding:16px}
+.card{overflow:hidden}
+.card img{width:100%;height:220px;object-fit:cover}
+.tag{position:absolute;background:#FFD700;color:#000;padding:6px 10px;border-radius:20px;font-size:12px;font-weight:bold;margin:10px}
+.body{padding:16px}
+.price{color:#25D366;font-weight:800;margin:8px 0}
+.desc{color:#bbb;font-size:13px;line-height:1.5;margin-bottom:12px}
+.add,.quick,.checkoutBtn{display:block;width:100%;border:none;text-decoration:none;text-align:center;padding:12px;border-radius:12px;font-weight:bold;cursor:pointer}
+.add{background:#25D366;color:#fff;margin-bottom:8px}
+.quick{background:#222;color:#fff}
+.locked{opacity:.4;filter:grayscale(100%)}
+.locked button,.locked a{pointer-events:none}
+.feature{margin:16px;overflow:hidden}
+.feature img{width:100%;height:320px;object-fit:cover}
+.featureContent{padding:20px;text-align:center}
+.bar{position:fixed;bottom:0;width:100%;background:#111;border-top:1px solid #333;padding:14px;display:flex;justify-content:space-between;align-items:center}
+.checkout{background:#25D366;padding:12px 18px;border-radius:12px;cursor:pointer}
+.panel{position:fixed;right:-100%;top:0;width:340px;height:100%;background:#111;padding:20px;overflow:auto;transition:.3s;z-index:2000}
+.panel.active{right:0}
+.item{padding:10px 0;border-bottom:1px solid #222}
+.total{margin:15px 0;font-size:20px;font-weight:bold}
+.whatsappFloat{position:fixed;right:18px;bottom:85px;background:#25D366;color:#fff;text-decoration:none;padding:16px;border-radius:50%}
 </style>
 </head>
-
 <body>
 
 <header>
-<div class="logo">Kaya Kitchen PRO MAX 🍲</div>
-<a class="back" href="index.html">← Home</a>
+<div class="logo">Kaya Kitchen™</div>
+<div class="cartbadge">🛒 <span id="count">0</span></div>
 </header>
 
-<!-- HERO -->
-
 <div class="hero">
-<h1>Fresh West Rand Meals<br>Delivered Fast 🚀</h1>
-
-<p>
-Daily homemade meals delivered around Randfontein & West Rand.
-</p>
+<h1>West Rand's Favourite Homemade Meals</h1>
+<p>Fresh daily meals delivered fast.</p>
+<a href="#menu" class="cta">Order Now</a>
 </div>
 
-<!-- TODAY -->
-
-<div class="today" id="todayText">
-🔥 Today's Meals Available
+<div class="stats">
+<div>🚚 Delivery R15</div>
+<div>⏱ 35-45 mins</div>
+<div>📍 West Rand</div>
+<div>💬 WhatsApp Orders</div>
 </div>
 
-<!-- SCHEDULE -->
+<div class="today" id="todayText">🔥 Today's Meals Available</div>
 
 <div class="schedule">
-
-<h2>📅 Weekly Kitchen Schedule</h2>
-
-<div class="day">
-<span>Monday / Wednesday</span>
-<strong>Pap + Beef Stew</strong>
+<h2>📅 Weekly Schedule</h2>
+<div class="day"><span>Mon / Wed</span><strong>Pap + Beef Stew</strong></div>
+<div class="day"><span>Tue / Thu</span><strong>Rice + Chicken Stew</strong></div>
+<div class="day"><span>Friday</span><strong>Friday Fire</strong></div>
+<div class="day"><span>Saturday</span><strong>Jollof + Chicken</strong></div>
+<div class="day"><span>Sunday</span><strong>Shisanyama Combo</strong></div>
 </div>
 
-<div class="day">
-<span>Tuesday / Thursday</span>
-<strong>Rice + Chicken Stew</strong>
-</div>
-
-<div class="day">
-<span>Friday</span>
-<strong>Friday Fire 🔥</strong>
-</div>
-
-<div class="day">
-<span>Saturday</span>
-<strong>Jollof + Chicken</strong>
-</div>
-
-<div class="day">
-<span>Sunday</span>
-<strong>Shisanyama Combo</strong>
-</div>
-
-</div>
-
-<!-- GRID -->
-
-<div class="grid">
-
-<!-- PAP -->
+<div class="grid" id="menu">
 
 <div class="card meal mon wed" id="papCard">
-
-<span class="tag">Mon / Wed</span>
-
 <img src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38frsoi60re110i8qk73tj15.png">
-
 <div class="body">
-
-<h3>Pap + Beef Stew</h3>
-
-<div class="price">R65</div>
-
-<div class="desc">
-Traditional homemade comfort meal with rich beef gravy.
-</div>
-
-<button class="add"
-onclick="addItem('Pap + Beef Stew',65)">
-Add to Cart
-</button>
-
-<a class="quick"
-href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20Pap%20%2B%20Beef%20Stew%20(R45)">
-Quick WhatsApp Order
-</a>
-
-</div>
-</div>
-
-<!-- RICE -->
+<h3>Pap + Beef Stew</h3><div class="price">R65</div>
+<div class="desc">Traditional homemade comfort meal.</div>
+<button class="add" onclick="addItem('Pap + Beef Stew',65)">Add To Cart</button>
+<a class="quick" href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20Pap%20%2B%20Beef%20Stew">WhatsApp Order</a>
+</div></div>
 
 <div class="card meal tue thu" id="riceCard">
-
-<span class="tag">Tue / Thu</span>
-
 <img src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38gdqh1emh1ojflclc6dirl1b.png">
-
 <div class="body">
-
-<h3>Rice + Chicken Stew</h3>
-
-<div class="price">R65</div>
-
-<div class="desc">
-Tender chicken stew served with fluffy rice.
-</div>
-
-<button class="add"
-onclick="addItem('Rice + Chicken Stew',65)">
-Add to Cart
-</button>
-
-<a class="quick"
-href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20Rice%20%2B%20Chicken%20Stew%20(R50)">
-Quick WhatsApp Order
-</a>
-
-</div>
-</div>
-
-<!-- FRIDAY -->
+<h3>Rice + Chicken Stew</h3><div class="price">R65</div>
+<div class="desc">Tender chicken stew served with fluffy rice.</div>
+<button class="add" onclick="addItem('Rice + Chicken Stew',65)">Add To Cart</button>
+<a class="quick" href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20Rice%20%2B%20Chicken%20Stew">WhatsApp Order</a>
+</div></div>
 
 <div class="card meal fri" id="fridayCard">
-
-<span class="tag">Friday Only 🔥</span>
-
 <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
-
 <div class="body">
-
-<h3>Friday Fire Meal</h3>
-
-<div class="price">R60</div>
-
-<div class="desc">
-Pap or rice with spicy chicken and chakalaka.
-</div>
-
-<button class="add"
-onclick="addItem('Friday Fire Meal',60)">
-Add to Cart
-</button>
-
-<a class="quick"
-href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20Friday%20Fire%20Meal%20(R58)">
-Quick WhatsApp Order
-</a>
-
-</div>
-</div>
-
-<!-- JOLLOF -->
+<h3>Friday Fire Meal</h3><div class="price">R60</div>
+<button class="add" onclick="addItem('Friday Fire Meal',60)">Add To Cart</button>
+</div></div>
 
 <div class="card meal sat" id="jollofCard">
-
-<span class="tag">Saturday Special</span>
-
 <img src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38q7pi12qa7383qe14r41dp31n.png">
-
 <div class="body">
+<h3>Jollof + Chicken</h3><div class="price">R90</div>
+<button class="add" onclick="addItem('Jollof + Chicken',90)">Add To Cart</button>
+</div></div>
 
-<h3>Jollof + Chicken</h3>
-
-<div class="price">R90</div>
-
-<div class="desc">
-Spicy jollof rice served with juicy grilled chicken.
-</div>
-
-<button class="add"
-onclick="addItem('Jollof + Chicken',90)">
-Add to Cart
-</button>
-
-<a class="quick"
-href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20Jollof%20%2B%20Chicken%20(R68)">
-Quick WhatsApp Order
-</a>
-
-</div>
-</div>
-
-<!-- FLAME -->
-
-<div class="card available">
-
-<span class="tag">🔥 Daily Favorite</span>
-
+<div class="card">
 <img src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38pabi1876jqk962jkvs9i1h.png">
-
 <div class="body">
-
-<h3>Kaya Flame Chicken 🔥</h3>
-
-<div class="price">Daily Available</div>
-
-<div class="desc">
-Flame-grilled crispy chicken sold daily as a side or quick bite.
-</div>
-
-<button class="add"
-onclick="addItem('3 Pieces Flame Chicken',25)">
-3 Pieces — R25
-</button>
-
-<button class="add"
-onclick="addItem('6 Pieces Flame Chicken',35)">
-6 Pieces — R35
-</button>
-
-<button class="add"
-onclick="addItem('15 Pieces Flame Chicken',50)">
-15 Pieces — R50
-</button>
-
-</div>
-</div>
+<h3>Kaya Flame Chicken</h3>
+<button class="add" onclick="addItem('3 Pieces Flame Chicken',25)">3 Pieces - R25</button>
+<button class="add" onclick="addItem('6 Pieces Flame Chicken',35)">6 Pieces - R35</button>
+<button class="add" onclick="addItem('15 Pieces Flame Chicken',50)">15 Pieces - R50</button>
+</div></div>
 
 </div>
 
-<!-- SUNDAY -->
-
-<div class="family meal sun" id="familyCard">
-
-<h2>🔥 Sunday Shisanyama Combo</h2>
-
-<p style="
-margin-top:14px;
-line-height:1.8;
-font-size:15px;
-">
-
-🍗 Grilled Chicken<br>
-🌭 Boerewors<br>
-🍲 Pap<br>
-🌶 Chakalaka
-
-</p>
-
-<div style="
-font-size:34px;
-margin-top:18px;
-font-weight:800;
-color:#25D366;
-">
-R199
+<div class="feature meal sun" id="familyCard">
+<img src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr3b7tgs5n4rgt9r98kv6p15.png">
+<div class="featureContent">
+<h2>🔥 Sunday Shisanyama Feast</h2>
+<p>🍗 Chicken • 🌭 Boerewors • 🍲 Pap • 🌶 Chakalaka</p>
+<h1 style="color:#25D366;margin:12px 0">R199</h1>
+<a class="cta" href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20the%20Sunday%20Shisanyama%20Combo%20(R199)">Order Now</a>
 </div>
-
-<a href="https://wa.me/27673523983?text=Hi%20Kaya%20Kitchen%20I%20want%20the%20Sunday%20Shisanyama%20Combo%20(R199)"
-class="quick"
-style="margin-top:20px;">
-Order Sunday Combo
-</a>
-
 </div>
-
-<!-- CART PANEL -->
 
 <div class="panel" id="panel">
-
-<div class="close" onclick="togglePanel()">
-← Continue Shopping
-</div>
-
-<h2>Your Order 🛒</h2>
-
+<div onclick="togglePanel()" style="cursor:pointer;color:#25D366">← Continue Shopping</div>
+<h2>Your Order</h2>
 <div id="items"></div>
-
-<div class="total" id="total">
-Total: R0
+<div class="total" id="total">Total: R0</div>
+<a class="checkoutBtn" id="checkout" target="_blank" style="background:#25D366;color:#fff">Checkout on WhatsApp</a>
 </div>
 
-<a class="checkoutBtn" id="checkout" target="_blank">
-Checkout on WhatsApp
-</a>
-
-</div>
-
-<!-- BAR -->
+<a class="whatsappFloat" href="https://wa.me/27673523983">💬</a>
 
 <div class="bar">
-
-<div>
-🛒 Cart: <span id="count">0</span>
-</div>
-
-<div class="checkout"
-onclick="togglePanel()">
-View Order
-</div>
-
+<div>🛒 Cart: <span id="count2">0</span></div>
+<div class="checkout" onclick="togglePanel()">View Order</div>
 </div>
 
 <script>
-
-let cart = [];
-let total = 0;
-
-function addItem(name,price){
-
-cart.push({
-name:name,
-price:price
-});
-
-total += price;
-
-document.getElementById("count").innerText =
-cart.length;
-
-updateCart();
-
-togglePanel();
-
-}
-
+let cart=[],total=0;
+function addItem(name,price){cart.push({name,price});total+=price;count.innerText=cart.length;count2.innerText=cart.length;updateCart();togglePanel();}
 function updateCart(){
-
-let itemsHTML = "";
-
-cart.forEach(item=>{
-
-itemsHTML += `
-<div class="item">
-${item.name}
-<br>
-<strong>R${item.price}</strong>
-</div>
-`;
-
-});
-
-let delivery = 15;
-
-let final = total + delivery;
-
-document.getElementById("items").innerHTML =
-itemsHTML;
-
-document.getElementById("total").innerText =
-"Total: R" + final;
-
-let message =
-"🍲 *Kaya Kitchen Order* %0A%0A";
-
-cart.forEach(item=>{
-
-message +=
-`• ${item.name} - R${item.price}%0A`;
-
-});
-
-message +=
-`%0A🚚 Delivery: R${delivery}%0A💵 Total: R${final}`;
-
-document.getElementById("checkout").href =
-"https://wa.me/27673523983?text=" + message;
-
+let html='';cart.forEach(i=>html+=`<div class="item">${i.name}<br><strong>R${i.price}</strong></div>`);
+let delivery=15,final=total+delivery;
+items.innerHTML=html;totalEl=document.getElementById('total');totalEl.innerText='Total: R'+final;
+let msg='🍲 *Kaya Kitchen Order* %0A%0A';
+cart.forEach(i=>msg+=`• ${i.name} - R${i.price}%0A`);
+msg+=`%0A🚚 Delivery: R${delivery}%0A💵 Total: R${final}`;
+checkout.href='https://wa.me/27673523983?text='+msg;
 }
-
-function togglePanel(){
-
-document.getElementById("panel")
-.classList.toggle("active");
-
-}
-
-/* DAILY MENU LOGIC */
-
-const today = new Date().getDay();
-
-/*
-0 = Sunday
-1 = Monday
-2 = Tuesday
-3 = Wednesday
-4 = Thursday
-5 = Friday
-6 = Saturday
-*/
-
-const meals = document.querySelectorAll(".meal");
-
-meals.forEach(meal=>{
-meal.classList.add("locked");
-});
-
-function unlock(selector){
-
-document.querySelector(selector)
-.classList.remove("locked");
-
-document.querySelector(selector)
-.classList.add("available");
-
-}
-
-if(today === 1 || today === 3){
-
-unlock("#papCard");
-
-document.getElementById("todayText")
-.innerHTML =
-"🍲 Today's Special: Pap + Beef Stew";
-
-}
-
-if(today === 2 || today === 4){
-
-unlock("#riceCard");
-
-document.getElementById("todayText")
-.innerHTML =
-"🍗 Today's Special: Rice + Chicken Stew";
-
-}
-
-if(today === 5){
-
-unlock("#fridayCard");
-
-document.getElementById("todayText")
-.innerHTML =
-"🔥 Friday Fire Meals Available";
-
-}
-
-if(today === 6){
-
-unlock("#jollofCard");
-
-document.getElementById("todayText")
-.innerHTML =
-"🍛 Saturday Jollof Special Available";
-
-}
-
-if(today === 0){
-
-unlock("#familyCard");
-
-document.getElementById("todayText")
-.innerHTML =
-"🔥 Sunday Shisanyama Combo Available";
-
-}
-
+function togglePanel(){panel.classList.toggle('active');}
+const today=new Date().getDay();
+document.querySelectorAll('.meal').forEach(m=>m.classList.add('locked'));
+function unlock(id){document.querySelector(id).classList.remove('locked');}
+if(today===1||today===3){unlock('#papCard');todayText.innerHTML="🍲 Today's Special: Pap + Beef Stew";}
+if(today===2||today===4){unlock('#riceCard');todayText.innerHTML="🍗 Today's Special: Rice + Chicken Stew";}
+if(today===5){unlock('#fridayCard');todayText.innerHTML="🔥 Friday Fire Meals Available";}
+if(today===6){unlock('#jollofCard');todayText.innerHTML="🍛 Saturday Jollof Special Available";}
+if(today===0){unlock('#familyCard');todayText.innerHTML="🔥 Sunday Shisanyama Combo Available";}
 </script>
-
 </body>
 </html>
