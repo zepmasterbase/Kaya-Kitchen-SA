@@ -26,9 +26,8 @@ header{position:fixed;top:0;width:100%;z-index:1000;background:rgba(15,15,15,.85
 .body{padding:16px}
 .price{color:#25D366;font-weight:800;margin:8px 0}
 .desc{color:#bbb;font-size:13px;margin-bottom:12px}
-.add,.quick,.checkoutBtn{display:block;width:100%;border:none;text-decoration:none;text-align:center;padding:12px;border-radius:12px;font-weight:bold;cursor:pointer}
+.add,.checkoutBtn{display:block;width:100%;border:none;text-decoration:none;text-align:center;padding:12px;border-radius:12px;font-weight:bold;cursor:pointer}
 .add{background:#25D366;color:#fff;margin-bottom:8px}
-.quick{background:#222;color:#fff}
 .locked{opacity:.4;filter:grayscale(100%)}
 .locked button,.locked a{pointer-events:none}
 .feature{margin:16px;overflow:hidden}
@@ -76,7 +75,7 @@ header{position:fixed;top:0;width:100%;z-index:1000;background:rgba(15,15,15,.85
 </div>
 
 <div class="grid" id="menu">
-<div class="card meal" id="papCard"><img src="https://pe56d.s3.amazonaws.com/o_1jr38frsoi60re110i8qk73tj15.png"><div class="body"><h3>Pap + Beef Stew</h3><div class="price">R65</div><div class="desc">Traditional homemade comfort meal.</div><button class="add" onclick="addItem('Pap + Beef Stew',65)">Add To Cart</button></div></div>
+<div class="card meal" id="papCard"><img src="https://pe56d.s3.amazonaws.com/o_1jr38frsoi60re110i8qk73tj15.png"><div class="body"><h3>Pap + Beef Stew</h3><div class="price">R65</div><button class="add" onclick="addItem('Pap + Beef Stew',65)">Add To Cart</button></div></div>
 <div class="card meal" id="riceCard"><img src="https://pe56d.s3.amazonaws.com/o_1jr38gdqh1emh1ojflclc6dirl1b.png"><div class="body"><h3>Rice + Chicken Stew</h3><div class="price">R65</div><button class="add" onclick="addItem('Rice + Chicken Stew',65)">Add To Cart</button></div></div>
 <div class="card meal" id="fridayCard"><img src="https://pe56d.s3.amazonaws.com/o_1jr3cucgbc1bvl01gsgu6d1veq15.png"><div class="body"><h3>Friday Fire Meal</h3><div class="price">R99</div><button class="add" onclick="addItem('Friday Fire Meal',99)">Add To Cart</button></div></div>
 <div class="card meal" id="jollofCard"><img src="https://pe56d.s3.amazonaws.com/o_1jr38q7pi12qa7383qe14r41dp31n.png"><div class="body"><h3>Jollof + Chicken</h3><div class="price">R75</div><button class="add" onclick="addItem('Jollof + Chicken',75)">Add To Cart</button></div></div>
@@ -124,6 +123,31 @@ msg+=`%0A🚚 Delivery: R15%0A💵 Total: R${final}`;
 checkout.href='https://wa.me/27673523983?text='+msg;
 }
 function togglePanel(){panel.classList.toggle('active');}
+
+const today=new Date().getDay();
+document.querySelectorAll('.meal').forEach(m=>m.classList.add('locked'));
+function unlock(id){document.querySelector(id).classList.remove('locked');}
+
+if(today===1||today===3){
+unlock('#papCard');
+todayText.innerHTML="🍲 Today's Special: Pap + Beef Stew";
+}
+if(today===2||today===4){
+unlock('#riceCard');
+todayText.innerHTML="🍗 Today's Special: Rice + Chicken Stew";
+}
+if(today===5){
+unlock('#fridayCard');
+todayText.innerHTML="🔥 Friday Fire Available Today";
+}
+if(today===6){
+unlock('#jollofCard');
+todayText.innerHTML="🍛 Jollof + Chicken Available Today";
+}
+if(today===0){
+unlock('#familyCard');
+todayText.innerHTML="🔥 Sunday Shisanyama Combo Available Today";
+}
 </script>
 </body>
 </html>
