@@ -4,55 +4,318 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kaya Kitchen Gallery</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#0b0b0b;color:#fff}
-header{position:fixed;top:0;width:100%;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);padding:16px 20px;display:flex;justify-content:space-between;z-index:1000}
-a{text-decoration:none}
-.logo{font-weight:800}
-.hero{height:80vh;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),url('https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr3b62je1b3qg431fvo16b21fae15.png') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
-.hero h1{font-size:42px;margin-bottom:10px}
-.hero p{color:#ddd;max-width:600px;margin:auto}
-.btn{display:inline-block;margin-top:20px;padding:14px 24px;background:#25D366;color:#fff;border-radius:14px;font-weight:bold}
-.section{padding:70px 20px}
-.section h2{text-align:center;margin-bottom:25px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.card{background:#151515;border-radius:24px;overflow:hidden;border:1px solid #222}
-.card img{width:100%;height:240px;object-fit:cover}
-.card-body{padding:16px}
-.price{color:#25D366;font-weight:bold;margin-top:8px}
-.banner{margin:20px;border-radius:28px;overflow:hidden;background:#151515}
-.banner img{width:100%;height:420px;object-fit:cover}
-.banner-content{padding:25px;text-align:center}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
-.stat{background:#151515;padding:25px;border-radius:20px;text-align:center}
-.number{font-size:32px;font-weight:800;color:#25D366}
-.review{background:#151515;padding:20px;border-radius:18px}
-.footer{padding:40px 20px;text-align:center;background:#111}
-.whatsapp{position:fixed;right:20px;bottom:20px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+html,
+body{
+width:100%;
+overflow-x:hidden;
+background:#0b0b0b;
+color:#fff;
+scroll-behavior:smooth;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:rgba(10,10,10,.85);
+backdrop-filter:blur(12px);
+padding:16px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.logo{
+font-weight:800;
+font-size:20px;
+letter-spacing:.5px;
+}
+
+header a{
+color:#25D366;
+font-weight:bold;
+}
+
+.hero{
+min-height:80vh;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+url('https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr3b62je1b3qg431fvo16b21fae15.png')
+center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:100px 20px 40px;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:12px;
+line-height:1.2;
+}
+
+.hero p{
+color:#ddd;
+max-width:650px;
+margin:auto;
+line-height:1.6;
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 24px;
+background:#25D366;
+color:#fff;
+border-radius:14px;
+font-weight:bold;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+.section{
+padding:80px 20px;
+}
+
+.section h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+.card{
+background:#151515;
+border-radius:24px;
+overflow:hidden;
+border:1px solid #222;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:240px;
+object-fit:cover;
+}
+
+.card-body{
+padding:16px;
+}
+
+.price{
+color:#25D366;
+font-weight:bold;
+margin-top:8px;
+font-size:18px;
+}
+
+.banner{
+width:calc(100% - 20px);
+max-width:1400px;
+margin:20px auto;
+border-radius:28px;
+overflow:hidden;
+background:#151515;
+}
+
+.banner img{
+width:100%;
+height:420px;
+object-fit:cover;
+}
+
+.banner-content{
+padding:30px;
+text-align:center;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+}
+
+.stat{
+background:#151515;
+padding:25px;
+border-radius:20px;
+text-align:center;
+}
+
+.number{
+font-size:34px;
+font-weight:800;
+color:#25D366;
+margin-bottom:5px;
+}
+
+.review{
+background:#151515;
+padding:20px;
+border-radius:18px;
+line-height:1.6;
+}
+
+.footer{
+padding:40px 20px;
+text-align:center;
+background:#111;
+}
+
+.footer p{
+margin-top:10px;
+color:#bbb;
+}
+
+.whatsapp{
+position:fixed;
+right:15px;
+bottom:15px;
+background:#25D366;
+color:#fff;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+box-shadow:0 8px 25px rgba(37,211,102,.4);
+z-index:999;
+}
+
+@media(max-width:768px){
+
+.hero{
+min-height:70vh;
+padding:90px 15px 30px;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+.hero p{
+font-size:15px;
+}
+
+.section{
+padding:60px 15px;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.banner img{
+height:250px;
+}
+
+.banner-content{
+padding:20px 15px;
+}
+
+.btn{
+width:100%;
+max-width:320px;
+}
+
+.number{
+font-size:28px;
+}
+}
+
+@media(max-width:480px){
+
+header{
+padding:14px 15px;
+}
+
+.logo{
+font-size:16px;
+}
+
+.hero h1{
+font-size:28px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+.card img{
+height:220px;
+}
+
+.whatsapp{
+width:55px;
+height:55px;
+font-size:24px;
+}
+}
+
 </style>
 </head>
+
 <body>
 
 <header>
 <div class="logo">Kaya Kitchen™</div>
-<a href="menu.html" style="color:#25D366">Menu</a>
+<a href="menu.html">Menu</a>
 </header>
 
 <section class="hero">
 <div>
 <h1>Kaya Kitchen Gallery</h1>
-<p>Fresh homemade meals, flame grilled favourites and weekend specials delivered across the West Rand.</p>
+<p>
+Fresh homemade meals, flame grilled favourites and weekend specials
+delivered across the West Rand.
+</p>
 <a class="btn" href="menu.html">Order Now</a>
 </div>
 </section>
 
 <section class="section">
 <h2>🔥 Customer Favourites</h2>
+
 <div class="grid">
 
 <div class="card">
-<img src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38frsoi60re110i8qk73tj15.png">
+<img loading="lazy" src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38frsoi60re110i8qk73tj15.png">
 <div class="card-body">
 <h3>Pap + Beef Stew</h3>
 <div>⭐⭐⭐⭐⭐</div>
@@ -61,7 +324,7 @@ a{text-decoration:none}
 </div>
 
 <div class="card">
-<img src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38gdqh1emh1ojflclc6dirl1b.png">
+<img loading="lazy" src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38gdqh1emh1ojflclc6dirl1b.png">
 <div class="card-body">
 <h3>Rice + Chicken Stew</h3>
 <div>⭐⭐⭐⭐⭐</div>
@@ -70,7 +333,7 @@ a{text-decoration:none}
 </div>
 
 <div class="card">
-<img src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38q7pi12qa7383qe14r41dp31n.png">
+<img loading="lazy" src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38q7pi12qa7383qe14r41dp31n.png">
 <div class="card-body">
 <h3>Jollof + Chicken</h3>
 <div>⭐⭐⭐⭐⭐</div>
@@ -83,49 +346,107 @@ a{text-decoration:none}
 
 <section class="section">
 <h2>📸 Food Gallery</h2>
+
 <div class="grid">
 
-<img class="card" src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38frsoi60re110i8qk73tj15.png">
-<img class="card" src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38gdqh1emh1ojflclc6dirl1b.png">
-<img class="card" src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38q7pi12qa7383qe14r41dp31n.png">
-<img class="card" src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38pabi1876jqk962jkvs9i1h.png">
+<img class="card" loading="lazy" src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38frsoi60re110i8qk73tj15.png">
+
+<img class="card" loading="lazy" src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38gdqh1emh1ojflclc6dirl1b.png">
+
+<img class="card" loading="lazy" src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38q7pi12qa7383qe14r41dp31n.png">
+
+<img class="card" loading="lazy" src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr38pabi1876jqk962jkvs9i1h.png">
 
 </div>
 </section>
 
 <div class="banner">
+
 <img src="https://payhip.com/cdn-cgi/image/format=auto,width=1500/https://pe56d.s3.amazonaws.com/o_1jr3b7tgs5n4rgt9r98kv6p15.png">
+
 <div class="banner-content">
+
 <h2>🔥 Sunday Shisanyama Feast</h2>
-<p>Chicken • Boerewors • Pap • Chakalaka</p>
-<h1 style="color:#25D366;margin:15px 0;">R199</h1>
-<a class="btn" href="https://wa.me/27673523983">Order Sunday Feast</a>
+
+<p>
+Chicken • Boerewors • Pap • Chakalaka
+</p>
+
+<h1 style="color:#25D366;margin:15px 0;">
+R199
+</h1>
+
+<a class="btn" href="https://wa.me/27673523983">
+Order Sunday Feast
+</a>
+
 </div>
+
 </div>
 
 <section class="section">
 <h2>⭐ Customer Reviews</h2>
+
 <div class="grid">
-<div class="review">⭐⭐⭐⭐⭐<br><br>Best homemade meals in Randfontein.</div>
-<div class="review">⭐⭐⭐⭐⭐<br><br>Always fresh and delivered on time.</div>
-<div class="review">⭐⭐⭐⭐⭐<br><br>The Sunday combo is amazing.</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐<br><br>
+Best homemade meals in Randfontein.
+</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐<br><br>
+Always fresh and delivered on time.
+</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐<br><br>
+The Sunday combo is amazing.
+</div>
+
 </div>
 </section>
 
 <section class="section">
 <h2>📊 Kaya Kitchen By The Numbers</h2>
+
 <div class="stats">
-<div class="stat"><div class="number">5000+</div>Meals Served</div>
-<div class="stat"><div class="number">2000+</div>Deliveries</div>
-<div class="stat"><div class="number">4.9</div>Rating</div>
-<div class="stat"><div class="number">98%</div>Repeat Customers</div>
+
+<div class="stat">
+<div class="number">5000+</div>
+Meals Served
+</div>
+
+<div class="stat">
+<div class="number">2000+</div>
+Deliveries
+</div>
+
+<div class="stat">
+<div class="number">4.9</div>
+Rating
+</div>
+
+<div class="stat">
+<div class="number">98%</div>
+Repeat Customers
+</div>
+
 </div>
 </section>
 
 <section class="section" style="text-align:center">
+
 <h2>Ready To Order?</h2>
-<p>Fresh meals prepared daily and delivered across the West Rand.</p>
-<a class="btn" href="menu.html">View Menu</a>
+
+<p>
+Fresh meals prepared daily and delivered across the West Rand.
+</p>
+
+<a class="btn" href="menu.html">
+View Menu
+</a>
+
 </section>
 
 <footer class="footer">
@@ -133,7 +454,9 @@ a{text-decoration:none}
 <p>West Rand • WhatsApp Ordering • Daily Specials</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/27673523983">💬</a>
+<a class="whatsapp" href="https://wa.me/27673523983">
+💬
+</a>
 
 </body>
 </html>
